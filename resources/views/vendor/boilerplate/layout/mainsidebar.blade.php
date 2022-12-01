@@ -5,7 +5,7 @@
         </span>
         <span class="brand-text text-truncate pr-2 text-white" title="{!! strip_tags(config('boilerplate.theme.sidebar.brand.logo.text')) !!}">
             <!-- {!! config('boilerplate.theme.sidebar.brand.logo.text') !!} -->
-            Sip-Kawan
+            SIPKawan
         </span>
     </a>
     <div class="sidebar">

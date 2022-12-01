@@ -27,8 +27,8 @@ return [
     ],
     'login' => [
         'title'             => 'Login',
-        'intro'             => 'Sign in to start your session',
-        'rememberme'        => 'Remember me',
+        'intro'             => 'Masukan Akun anda untuk memulai',
+        'rememberme'        => 'Ingat Saya',
         'signin'            => 'Sign in',
         'forgotpassword'    => 'I forgot my password',
         'register'          => 'Register a new user',
