@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\KawasanKumuh;
+use App\Exports\KawasanKumuhExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KawasanKumuhController extends Controller
 {
@@ -122,5 +124,10 @@ class KawasanKumuhController extends Controller
         $dataInput = KawasanKumuh::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new KawasanKumuhExport, 'kawasan-kumuh.xlsx');
     }
 }

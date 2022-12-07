@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\PenggunaanTanah;
+use App\Exports\PenggunaanTanahExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PenggunaanTanahController extends Controller
 {
@@ -126,5 +128,10 @@ class PenggunaanTanahController extends Controller
         $dataInput = PenggunaanTanah::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new PenggunaanTanahExport, 'penggunaan-tanah.xlsx');
     }
 }

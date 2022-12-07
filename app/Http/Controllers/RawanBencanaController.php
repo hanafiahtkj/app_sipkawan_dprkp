@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\RawanBencana;
+use App\Exports\RawanBencanaExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RawanBencanaController extends Controller
 {
@@ -139,5 +141,10 @@ class RawanBencanaController extends Controller
         $dataInput = RawanBencana::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new RawanBencanaExport, 'rawan-bencana.xlsx');
     }
 }

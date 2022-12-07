@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\Rtlh;
+use App\Exports\RtlhExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RtlhController extends Controller
 {
@@ -171,5 +173,10 @@ class RtlhController extends Controller
         $dataInput = Rtlh::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new RtlhExport, 'rtlh.xlsx');
     }
 }

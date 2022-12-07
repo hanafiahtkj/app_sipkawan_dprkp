@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\BukanPemukiman;
+use App\Exports\BukanPemukimanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BukanPemukimanController extends Controller
 {
@@ -128,5 +130,10 @@ class BukanPemukimanController extends Controller
         $dataInput = BukanPemukiman::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new BukanPemukimanExport, 'rawan-bahaya.xlsx');
     }
 }

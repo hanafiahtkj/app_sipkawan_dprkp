@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\RumahSewa;
+use App\Exports\RumahSewaExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RumahSewaController extends Controller
 {
@@ -131,5 +133,10 @@ class RumahSewaController extends Controller
         $dataInput = RumahSewa::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new RumahSewaExport, 'rumah-sewa.xlsx');
     }
 }

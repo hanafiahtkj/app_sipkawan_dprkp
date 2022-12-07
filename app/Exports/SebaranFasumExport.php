@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\KorbanBencana;
+use App\Models\SebaranFasum;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-class KorbanBencanaExport implements FromView, WithEvents, ShouldAutoSize
+class SebaranFasumExport implements FromView, WithEvents, ShouldAutoSize
 {
     protected $rowCount;
 
@@ -23,9 +23,9 @@ class KorbanBencanaExport implements FromView, WithEvents, ShouldAutoSize
 
     public function view(): View
     {
-        $data = KorbanBencana::all();
+        $data = SebaranFasum::all();
         $this->rowCount += count($data);
-        return view('korban-bencana.excel', [
+        return view('sebaran-fasum.excel', [
             'data' => $data
         ]);
     }
@@ -34,23 +34,23 @@ class KorbanBencanaExport implements FromView, WithEvents, ShouldAutoSize
     {
         return [
             AfterSheet::class => function(AfterSheet $event) {
-                $cellRange = 'A1:S4';
+                $cellRange = 'A1:L4';
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()
                     ->setSize(12)
                     ->setBold(true);
 
-                $cellRange = 'A3:S5';
+                $cellRange = 'A3:L4';
                 $event->sheet->getDelegate()->getRowDimension('3')->setRowHeight(50);
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFill()
                     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                     ->getStartColor()->setARGB('E0E0E0');
 
-                $cellRange = 'A1:S5';
+                $cellRange = 'A1:L4';
                 $event->sheet->getDelegate()->getStyle($cellRange)
                     ->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER)
                     ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
-                $event->sheet->getStyle('A3:S'.$this->rowCount)->applyFromArray([
+                $event->sheet->getStyle('A3:L'.$this->rowCount)->applyFromArray([
                     'borders' => [
                         'allBorders' => [
                             'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,

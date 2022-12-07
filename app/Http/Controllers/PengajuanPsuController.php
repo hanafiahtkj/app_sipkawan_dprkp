@@ -11,6 +11,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use App\Models\PengajuanPsu;
+use App\Exports\PengajuanPsuExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PengajuanPsuController extends Controller
 {
@@ -116,5 +118,10 @@ class PengajuanPsuController extends Controller
         $dataInput = PengajuanPsu::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new PengajuanPsuExport, 'pengajuan-psu.xlsx');
     }
 }

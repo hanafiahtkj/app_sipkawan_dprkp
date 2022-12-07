@@ -134,15 +134,35 @@ Route::group([
         Route::get('korban-bencana/export/',
             [KorbanBencanaController::class, 'export'])->name('korban-bencana.export');
         Route::resource('korban-bencana', KorbanBencanaController::class);
+        Route::get('rawan-bahaya/export/',
+            [RawanBahayaController::class, 'export'])->name('rawan-bahaya.export');
         Route::resource('rawan-bahaya', RawanBahayaController::class);
+        Route::get('bukan-pemukiman/export/',
+            [BukanPemukimanController::class, 'export'])->name('bukan-pemukiman.export');
         Route::resource('bukan-pemukiman', BukanPemukimanController::class);
+        Route::get('rawan-bencana/export/',
+            [RawanBencanaController::class, 'export'])->name('rawan-bencana.export');
         Route::resource('rawan-bencana', RawanBencanaController::class);
+        Route::get('terdampak-relokasi/export/',
+            [TerdampakRelokasiController::class, 'export'])->name('terdampak-relokasi.export');
         Route::resource('terdampak-relokasi', TerdampakRelokasiController::class);
+        Route::get('rumah-sewa/export/',
+            [RumahSewaController::class, 'export'])->name('rumah-sewa.export');
         Route::resource('rumah-sewa', RumahSewaController::class);
+        Route::get('sebaran-fasum/export/',
+            [SebaranFasumController::class, 'export'])->name('sebaran-fasum.export');
         Route::resource('sebaran-fasum', SebaranFasumController::class);
+        Route::get('pengajuan-psu/export/',
+            [PengajuanPsuController::class, 'export'])->name('pengajuan-psu.export');
         Route::resource('pengajuan-psu', PengajuanPsuController::class);
+        Route::get('pengadaan-psu/export/',
+            [PengadaanPsuController::class, 'export'])->name('pengadaan-psu.export');
         Route::resource('pengadaan-psu', PengadaanPsuController::class);
+        Route::get('sebaran-komplek/export/',
+            [SebaranKomplekController::class, 'export'])->name('sebaran-komplek.export');
         Route::resource('sebaran-komplek', SebaranKomplekController::class);
+        Route::get('rumah-susun/export/',
+            [RumahSusunController::class, 'export'])->name('rumah-susun.export');
         Route::resource('rumah-susun', RumahSusunController::class);
         Route::post('kecamatan/refresh', [
             KecamatanController::class, 'refresh'])->name('kecamatan.refresh');
@@ -153,9 +173,17 @@ Route::group([
             [KelDesaController::class, 'getByidKec'])->name('kel-desa.get-byidkec');
         Route::resource('kel-desa', KelDesaController::class);
         Route::resource('profile-kelurahan', ProfileKelurahanController::class);
+        Route::get('rtlh/export/',
+            [RtlhController::class, 'export'])->name('rtlh.export');
         Route::resource('rtlh', RtlhController::class);
+        Route::get('kawasan-kumuh/export/',
+            [KawasanKumuhController::class, 'export'])->name('kawasan-kumuh.export');
         Route::resource('kawasan-kumuh', KawasanKumuhController::class);
+        Route::get('bantaran-sungai/export/',
+            [BantaranSungaiController::class, 'export'])->name('bantaran-sungai.export');
         Route::resource('bantaran-sungai', BantaranSungaiController::class);
+        Route::get('penggunaan-tanah/export/',
+            [PenggunaanTanahController::class, 'export'])->name('penggunaan-tanah.export');
         Route::resource('penggunaan-tanah', PenggunaanTanahController::class);
     });
 });

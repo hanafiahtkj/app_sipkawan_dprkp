@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\BantaranSungai;
+use App\Exports\BantaranSungaiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BantaranSungaiController extends Controller
 {
@@ -122,5 +124,10 @@ class BantaranSungaiController extends Controller
         $dataInput = BantaranSungai::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new BantaranSungaiExport, 'bantaran-sungai.xlsx');
     }
 }

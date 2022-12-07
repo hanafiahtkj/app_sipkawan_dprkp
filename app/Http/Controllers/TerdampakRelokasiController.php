@@ -13,6 +13,8 @@ use Illuminate\Validation\ValidationException;
 use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use App\Models\TerdampakRelokasi;
+use App\Exports\TerdampakRelokasiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TerdampakRelokasiController extends Controller
 {
@@ -131,5 +133,10 @@ class TerdampakRelokasiController extends Controller
         $dataInput = TerdampakRelokasi::findOrFail($id);
 
         return response()->json(['success' => $dataInput->delete() ?? false]);
+    }
+
+    public function export()
+    {
+        return Excel::download(new TerdampakRelokasiExport, 'terdampak-relokasi.xlsx');
     }
 }
