@@ -51,6 +51,9 @@
             font-size: .875rem;
             border-radius: 0.25rem;
         }
+        .text-primary {
+            color: #008cff !important;
+        }
     </style>
 
   </head>
