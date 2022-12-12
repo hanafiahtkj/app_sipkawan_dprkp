@@ -72,3 +72,7 @@
 .animated {
     animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
+
+.brand-logo {
+    border-radius: 5px;
+}

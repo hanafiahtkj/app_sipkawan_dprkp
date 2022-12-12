@@ -27,7 +27,7 @@ return [
         'brand'   => [
             'bg'   => 'orange',
             'logo' => [
-                'bg'     => 'blue',
+                'bg'     => 'white',
                 'icon'   => '<i class="fa fa-cubes"></i>',
                 'text'   => '<strong>SIPKawan</strong>',
                 'shadow' => false,

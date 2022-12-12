@@ -1,10 +1,7 @@
 <div class="login-box">
-    <div class="login-logo">
+    <div class="login-logo mb-4">
         <div>
-            {!! config('boilerplate.theme.sidebar.brand.logo.icon') ?? '' !!}
-        </div>
-        <div>
-            {!! config('boilerplate.theme.sidebar.brand.logo.text') ?? $title ?? '' !!}
+            <img class="me-3 d-inline-block" src="{{ asset('images/LOGO3.png') }}" alt="" height="100" />
         </div>
     </div>
 
