@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title }} | {{ config('app.name') }}</title>
+    <title>Sistem Informasi Perumahan dan Kawasan Permukiman</title>
     <link rel="shortcut icon" href="{{ asset('vendor/collab/assets/img/favicons/favicon.ico') }}">
 @stack('plugin-css')
     <link rel="stylesheet" href="{{ mix('/plugins/fontawesome/fontawesome.min.css', '/assets/vendor/boilerplate') }}">
