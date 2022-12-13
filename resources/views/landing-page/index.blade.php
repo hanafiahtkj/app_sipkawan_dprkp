@@ -97,7 +97,7 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-      <section class="py-6 bg-soft-warning" style="background-image:url('{{ asset('images/bg.png') }}');">
+      <section class="py-6 bg-soft-warning" style="background-image:url('{{ asset('images/bg.png') }}');background-position: center;">
 
         <div class="container">
           <div class="row">
