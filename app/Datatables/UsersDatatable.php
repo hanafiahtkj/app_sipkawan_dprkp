@@ -35,7 +35,9 @@ class UsersDatatable extends Datatable
             ->locale([
                 'deleteConfirm' => __('boilerplate::users.list.confirmdelete'),
                 'deleteSuccess' => __('boilerplate::users.list.deletesuccess'),
-            ])->order('created_at', 'desc')->stateSave();
+            ])
+            ->buttons([])
+            ->order('created_at', 'desc')->stateSave();
     }
 
     public function columns(): array

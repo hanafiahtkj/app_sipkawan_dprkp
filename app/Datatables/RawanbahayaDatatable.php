@@ -19,6 +19,8 @@ class RawanbahayaDatatable extends Datatable
 
     public function setUp()
     {
+        $this->buttons([])
+            ->order('id', 'desc');
     }
 
     public function columns(): array
