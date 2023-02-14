@@ -203,7 +203,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getAvatarFromGravatar()
     {
-        if (! Gravatar::exists($this->username)) {
+        $email = 'hanafiahtkj@gmail.com'; // statis karena Gravatar tidak dipakai
+        if (! Gravatar::exists($email)) {
             return false;
         }
 
@@ -211,7 +212,7 @@ class User extends Authenticatable implements MustVerifyEmail
             unlink($this->getAvatarPathAttribute());
         }
 
-        $src = Gravatar::get($this->username, ['size' => 250]);
+        $src = Gravatar::get($email, ['size' => 250]);
         $img = file_get_contents($src);
         $destDir = public_path('images/avatars/');
 
