@@ -50,6 +50,7 @@ class RumahSewaController extends Controller
     {
         $this->validate($request, [
             'jenis'  => 'required',
+            'alamat'        => 'required',
             'id_kecamatan'  => 'required',
             'id_kelurahan'  => 'required',
             'luas_hunian'   => 'required',
@@ -106,6 +107,7 @@ class RumahSewaController extends Controller
     {
         $this->validate($request, [
             'jenis'  => 'required',
+            'alamat'        => 'required',
             'id_kecamatan'  => 'required',
             'id_kelurahan'  => 'required',
             'luas_hunian'   => 'required',

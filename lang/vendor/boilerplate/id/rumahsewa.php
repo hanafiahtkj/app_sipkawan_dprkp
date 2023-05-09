@@ -5,6 +5,7 @@ return [
     'returntolist'  => 'Users list',
     'save'          => 'Save',
     'jenis'         => 'Jenis Sarana dan Prasarana',
+    'alamat'        => 'Alamat Lengkap',
     'kecamatan'     => 'Kecamatan',
     'kelurahan'     => 'Kelurahan',
     'luas_hunian'   => 'Tipe/Luas Hunian (m²)',

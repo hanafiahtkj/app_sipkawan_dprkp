@@ -44,11 +44,6 @@ class Backend
             'route' => 'boilerplate.rumah-sewa.index',
         ]);
 
-        $item->add('Sebaran Fasum di Komplek Perumahan', [
-            'active' => 'boilerplate.sebaran-fasum.*',
-            'route' => 'boilerplate.sebaran-fasum.index',
-        ]);
-
         $item = $menu->add('Data PSU', [
             'permission' => 'admin',
             'icon' => 'square',
@@ -63,6 +58,11 @@ class Backend
         $item->add('Status Pengadaan PSU Perumahan', [
             'active' => 'boilerplate.pengadaan-psu.*',
             'route' => 'boilerplate.pengadaan-psu.index',
+        ]);
+
+        $item->add('Sebaran Fasum di Komplek Perumahan', [
+            'active' => 'boilerplate.sebaran-fasum.*',
+            'route' => 'boilerplate.sebaran-fasum.index',
         ]);
 
         $item = $menu->add('E-Profil Kelurahan', [

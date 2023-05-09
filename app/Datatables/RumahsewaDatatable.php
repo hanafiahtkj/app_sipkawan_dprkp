@@ -29,6 +29,9 @@ class RumahsewaDatatable extends Datatable
             Column::add(__('Jenis Sarana'))
                 ->data('jenis'),
 
+            Column::add(__('Alamat Lengkap'))
+                ->data('alamat'),
+
             Column::add(__('Kecamatan'))
                 ->data('kecamatan.kecamatan'),
 

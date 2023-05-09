@@ -26,6 +26,7 @@
             <div class="col-lg-12">
                 @component('boilerplate::card', ['color' => 'light', 'title' => 'Data Rumah Sewa Milik Masyarakat'])
                     @component('boilerplate::input', ['name' => 'jenis', 'label' => 'boilerplate::rumahsewa.jenis', 'autofocus' => true])@endcomponent
+                    @component('boilerplate::input', ['name' => 'alamat', 'label' => 'boilerplate::rumahsewa.alamat'])@endcomponent
                     @component('boilerplate::select2', ['name' => 'id_kecamatan', 'label' => 'boilerplate::korbanbencana.kecamatan', 'id' => 'id_kecamatan', 'minimum-results-for-search' => '-1'])
                         @foreach($kecamatan as $kec)
                             <option value="{{ $kec->id }}" @if (old('id_kecamatan') == $kec->id) selected="selected" @endif>{{ $kec->kecamatan }}</option>
