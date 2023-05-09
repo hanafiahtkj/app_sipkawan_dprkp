@@ -34,9 +34,11 @@
                     @endcomponent
                     <x-boilerplate::select2 name="id_kelurahan" label="boilerplate::korbanbencana.kelurahan" :ajax="route('boilerplate.kel-desa.get-byidkec')" :minimum-results-for-search='-1'></x-boilerplate::select2>
                     @component('boilerplate::input', ['type' => 'number', 'name' => 'luas', 'label' => 'boilerplate::sebarankomplek.luas'])@endcomponent
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'jumlah_rumah', 'label' => 'boilerplate::sebarankomplek.jumlah_rumah'])@endcomponent
                     @component('boilerplate::select2', ['name' => 'jenis', 'label' => 'boilerplate::sebarankomplek.jenis', 'minimum-results-for-search' => '-1'])
                         <option value="1" @if (old('jenis') == '1') selected="selected" @endif>Umum</option>
                         <option value="2" @if (old('jenis') == '2') selected="selected" @endif>Komersil</option>
+                        <option value="3" @if (old('jenis') == '3') selected="selected" @endif>Berimbang</option>
                     @endcomponent
                 @endcomponent
             </div>

@@ -36,9 +36,11 @@
                         <option value="{{ $keldes->id }}" @if (old('id_kelurahan', $dataInput->id_kelurahan) == $keldes->id) selected="selected" @endif>{{ $keldes->nama_deskel }}</option>
                     </x-boilerplate::select2>
                     @component('boilerplate::input', ['type' => 'number', 'name' => 'luas', 'label' => 'boilerplate::sebarankomplek.luas', 'value' => $dataInput->luas])@endcomponent
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'jumlah_rumah', 'label' => 'boilerplate::sebarankomplek.jumlah_rumah',  'value' => $dataInput->jumlah_rumah])@endcomponent
                     @component('boilerplate::select2', ['name' => 'jenis', 'label' => 'boilerplate::sebarankomplek.jenis', 'minimum-results-for-search' => '-1'])
                         <option value="1" @if (old('jenis', $dataInput->jenis) == '1') selected="selected" @endif>Umum</option>
                         <option value="2" @if (old('jenis', $dataInput->jenis) == '2') selected="selected" @endif>Komersil</option>
+                        <option value="3" @if (old('jenis', $dataInput->jenis) == '3') selected="selected" @endif>Berimbang</option>
                     @endcomponent
                 @endcomponent
             </div>

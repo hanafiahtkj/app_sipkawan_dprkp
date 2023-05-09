@@ -9,6 +9,7 @@ return [
     'luas'          => 'Luas',
     'nama_perumahan'=> 'Nama Perumahan',
     'nama_pengembang'   => 'Nama Pengembang',
+    'jumlah_rumah'  => 'Jumlah Rumah',
     'jenis'         => 'Jenis',
     'successadd'    => 'Data Berhasih ditambahakan.',
     'successmod'    => 'Data Berhasil dirubah.',
