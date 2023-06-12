@@ -29,6 +29,7 @@ use App\Http\Controllers\KawasanKumuhController;
 use App\Http\Controllers\BantaranSungaiController;
 use App\Http\Controllers\PenggunaanTanahController;
 use App\Http\Controllers\RtlhController;
+use App\Http\Controllers\GisController;
 
 Route::group([
     'prefix'     => config('boilerplate.app.prefix', ''),
@@ -185,5 +186,6 @@ Route::group([
         Route::get('penggunaan-tanah/export/',
             [PenggunaanTanahController::class, 'export'])->name('penggunaan-tanah.export');
         Route::resource('penggunaan-tanah', PenggunaanTanahController::class);
+        Route::get('webgis', GisController::class)->name('gis');
     });
 });

@@ -33,7 +33,7 @@
                     @endcomponent
                     <x-boilerplate::select2 name="id_kelurahan" label="boilerplate::korbanbencana.kelurahan" :ajax="route('boilerplate.kel-desa.get-byidkec')" :minimum-results-for-search='-1'></x-boilerplate::select2>
                     @component('boilerplate::input', ['name' => 'alamat', 'label' => 'boilerplate::rumahsusun.alamat'])@endcomponent
-                    @component('boilerplate::input', ['type' => 'number', 'name' => 'luas', 'label' => 'boilerplate::rumahsusun.luas'])@endcomponent
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'luas', 'label' => 'boilerplate::rumahsusun.luas', 'step' => 'any'])@endcomponent
                     @component('boilerplate::input', ['type' => 'number', 'name' => 'jumlah', 'label' => 'boilerplate::rumahsusun.jumlah'])@endcomponent
                 @endcomponent
             </div>

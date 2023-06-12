@@ -13,6 +13,12 @@ class RumahSusun extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    public function setLuasAttribute($value)
+    {
+        $value = str_replace(',', '.', $value);
+        $this->attributes['luas'] = floatval($value);
+    }
+
     public function kecamatan()
     {
         return $this->belongsTo(Kecamatan::class, 'id_kecamatan',);

@@ -8,6 +8,12 @@ class Backend
 {
     public function make(Builder $menu)
     {
+        $item = $menu->add('WebGIS', [
+            'route' => 'boilerplate.gis',
+            'icon' => 'globe',
+            'order' => 100,
+        ])->link->attr('target', '_blank' );
+
         $item = $menu->add('Data SPM', [
             'permission' => 'admin',
             'icon' => 'square',
