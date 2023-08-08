@@ -25,6 +25,7 @@
         <div class="row">
             <div class="col-lg-12">
                 @component('boilerplate::card', ['color' => 'light', 'title' => 'Data Sebaran Fasum di Komplek Perumahan'])
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'tahun', 'label' => 'Tahun', 'value' => $dataInput->tahun])@endcomponent
                     @component('boilerplate::input', ['name' => 'penggunaan', 'label' => 'boilerplate::sebaranfasum.penggunaan', 'value' => $dataInput->penggunaan, 'autofocus' => true])@endcomponent
                     @component('boilerplate::input', ['name' => 'keterangan', 'label' => 'boilerplate::sebaranfasum.keterangan', 'value' => $dataInput->keterangan])@endcomponent
                     @component('boilerplate::select2', ['name' => 'id_kecamatan', 'label' => 'boilerplate::korbanbencana.kecamatan', 'id' => 'id_kecamatan', 'minimum-results-for-search' => '-1'])

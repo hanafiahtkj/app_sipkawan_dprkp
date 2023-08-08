@@ -25,6 +25,7 @@
         <div class="row">
             <div class="col-lg-12">
                 @component('boilerplate::card', ['color' => 'light', 'title' => 'Data Rumah Sewa Milik Masyarakat'])
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'tahun', 'label' => 'Tahun', 'value' => $dataInput->tahun])@endcomponent
                     @component('boilerplate::input', ['name' => 'jenis', 'label' => 'boilerplate::rumahsewa.jenis', 'value' => $dataInput->jenis, 'autofocus' => true])@endcomponent
                     @component('boilerplate::input', ['name' => 'alamat', 'label' => 'boilerplate::rumahsewa.alamat', 'value' => $dataInput->alamat])@endcomponent
                     @component('boilerplate::select2', ['name' => 'id_kecamatan', 'label' => 'boilerplate::korbanbencana.kecamatan', 'id' => 'id_kecamatan', 'minimum-results-for-search' => '-1'])

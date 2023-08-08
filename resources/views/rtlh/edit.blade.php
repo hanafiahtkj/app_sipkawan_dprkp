@@ -25,6 +25,7 @@
         <div class="row">
             <div class="col-lg-12">
                 @component('boilerplate::card', ['color' => 'light', 'title' => 'Data RTLH yang sudah tertangani'])
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'tahun', 'label' => 'Tahun', 'value' => $dataInput->tahun])@endcomponent
                     @component('boilerplate::input', ['name' => 'nama_kk', 'label' => 'boilerplate::rtlh.nama_kk', 'value' => $dataInput->nama_kk, 'minimum-results-for-search' => '-1'])@endcomponent
                     @component('boilerplate::select2', ['name' => 'id_kecamatan', 'label' => 'boilerplate::rtlh.kecamatan', 'id' => 'id_kecamatan'])
                         @foreach($kecamatan as $kec)

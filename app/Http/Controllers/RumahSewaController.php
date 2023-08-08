@@ -49,6 +49,7 @@ class RumahSewaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'jenis'  => 'required',
             'alamat'        => 'required',
             'id_kecamatan'  => 'required',
@@ -106,6 +107,7 @@ class RumahSewaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'jenis'  => 'required',
             'alamat'        => 'required',
             'id_kecamatan'  => 'required',

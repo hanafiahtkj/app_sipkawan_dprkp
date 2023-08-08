@@ -26,6 +26,9 @@ class TerdampakrelokasiDatatable extends Datatable
     public function columns(): array
     {
         return [
+            Column::add(__('Tahun'))
+                ->data('tahun'),
+
             Column::add(__('Jenis Program'))
                 ->data('jenis'),
 

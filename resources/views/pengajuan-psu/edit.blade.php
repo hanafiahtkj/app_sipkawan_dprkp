@@ -25,6 +25,7 @@
         <div class="row">
             <div class="col-lg-12">
                 @component('boilerplate::card', ['color' => 'light', 'title' => 'Data Status Pengajuan PSU Perumahan'])
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'tahun', 'label' => 'Tahun', 'value' => $dataInput->tahun])@endcomponent
                     @component('boilerplate::input', ['name' => 'nama_perumahan', 'label' => 'boilerplate::pengajuanpsu.nama_perumahan', 'value' => $dataInput->nama_perumahan, 'autofocus' => true])@endcomponent
                     @component('boilerplate::select2', ['name' => 'jenis', 'label' => 'boilerplate::pengajuanpsu.jenis', 'minimum-results-for-search' => '-1'])
                         <option value="1" @if (old('jenis', $dataInput->jenis) == '1') selected="selected" @endif>Taman</option>

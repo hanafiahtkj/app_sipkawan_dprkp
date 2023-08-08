@@ -26,6 +26,9 @@ class RtlhDatatable extends Datatable
     public function columns(): array
     {
         return [
+            Column::add(__('Tahun'))
+                ->data('tahun'),
+
             Column::add(__('Nama KK'))
                 ->data('nama_kk'),
 

@@ -49,6 +49,7 @@ class RumahSusunController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'nama_rumah_susun'=> 'required',
             'id_kecamatan'    => 'required',
             'id_kelurahan'    => 'required',
@@ -103,6 +104,7 @@ class RumahSusunController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'nama_rumah_susun'=> 'required',
             'id_kecamatan'    => 'required',
             'id_kelurahan'    => 'required',

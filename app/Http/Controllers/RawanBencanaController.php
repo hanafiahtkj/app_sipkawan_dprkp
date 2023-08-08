@@ -49,6 +49,7 @@ class RawanBencanaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'jenis'  => 'required',
             'tingkat_kerawanan' => 'required',
             'id_kecamatan'  => 'required',
@@ -109,6 +110,7 @@ class RawanBencanaController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'jenis'  => 'required',
             'tingkat_kerawanan' => 'required',
             'id_kecamatan'  => 'required',

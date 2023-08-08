@@ -49,6 +49,7 @@ class BantaranSungaiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'id_kecamatan'      => 'required',
             'id_kelurahan'      => 'required',
             'jenis'             => 'required',
@@ -100,6 +101,7 @@ class BantaranSungaiController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'id_kecamatan'      => 'required',
             'id_kelurahan'      => 'required',
             'jenis'             => 'required',

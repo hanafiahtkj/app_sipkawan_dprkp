@@ -25,6 +25,7 @@
         <div class="row">
             <div class="col-lg-12">
                 @component('boilerplate::card', ['color' => 'light', 'title' => 'Data Perumahan di Lokasi Rawan Bencana'])
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'tahun', 'label' => 'Tahun'])@endcomponent
                     @component('boilerplate::input', ['name' => 'jenis', 'label' => 'boilerplate::rawanbencana.jenis', 'autofocus' => true])@endcomponent
                     @component('boilerplate::select2', ['name' => 'tingkat_kerawanan', 'label' => 'boilerplate::rawanbencana.tingkat_kerawanan', 'minimum-results-for-search' => '-1'])
                         <option value="1" @if (old('tingkat_kerawanan') == '1') selected="selected" @endif>Rendah</option>

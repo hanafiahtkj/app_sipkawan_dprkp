@@ -26,6 +26,9 @@ class PengadaanpsuDatatable extends Datatable
     public function columns(): array
     {
         return [
+            Column::add(__('Tahun'))
+                ->data('tahun'),
+
             Column::add(__('Nama Perumahan'))
                 ->data('nama_perumahan'),
 

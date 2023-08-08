@@ -49,6 +49,7 @@ class SebaranFasumController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'penggunaan'    => 'required',
             'keterangan'    => 'required',
             'id_kecamatan'  => 'required',
@@ -108,6 +109,7 @@ class SebaranFasumController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'penggunaan'    => 'required',
             'keterangan'    => 'required',
             'id_kecamatan'  => 'required',

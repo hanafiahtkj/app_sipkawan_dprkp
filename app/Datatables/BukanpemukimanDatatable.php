@@ -26,6 +26,9 @@ class BukanpemukimanDatatable extends Datatable
     public function columns(): array
     {
         return [
+            Column::add(__('Tahun'))
+                ->data('tahun'),
+
             Column::add(__('Kecamatan'))
                 ->data('kecamatan.kecamatan'),
 

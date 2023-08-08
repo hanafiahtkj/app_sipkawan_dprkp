@@ -36,6 +36,7 @@
                         @endcomponent
                         <x-boilerplate::select2 name="id_kelurahan" label="boilerplate::korbanbencana.kelurahan" :ajax="route('boilerplate.kel-desa.get-byidkec')" :minimum-results-for-search='-1'></x-boilerplate::select2>
                     @endrole
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'tahun', 'label' => 'Tahun'])@endcomponent
                     @component('boilerplate::input', ['name' => 'penggunaan', 'label' => 'boilerplate::penggunaantanah.penggunaan'])@endcomponent
                     @component('boilerplate::input', ['name' => 'sertifikat_milik', 'label' => 'boilerplate::penggunaantanah.sertifikat_milik'])@endcomponent
                     @component('boilerplate::input', ['name' => 'penggunaan_tanah', 'label' => 'boilerplate::penggunaantanah.penggunaan_tanah'])@endcomponent

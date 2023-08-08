@@ -38,6 +38,7 @@
                             <option value="{{ $keldes->id }}" @if (old('id_kelurahan', $dataInput->id_kelurahan) == $keldes->id) selected="selected" @endif>{{ $keldes->nama_deskel }}</option>
                         </x-boilerplate::select2>
                     @endrole
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'tahun', 'label' => 'Tahun', 'value' => $dataInput->tahun])@endcomponent
                     @component('boilerplate::input', ['name' => 'penggunaan', 'label' => 'boilerplate::penggunaantanah.penggunaan', 'value' => $dataInput->penggunaan])@endcomponent
                     @component('boilerplate::input', ['name' => 'sertifikat_milik', 'label' => 'boilerplate::penggunaantanah.sertifikat_milik', 'value' => $dataInput->sertifikat_milik])@endcomponent
                     @component('boilerplate::input', ['name' => 'penggunaan_tanah', 'label' => 'boilerplate::penggunaantanah.penggunaan_tanah', 'value' => $dataInput->penggunaan_tanah])@endcomponent

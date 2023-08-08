@@ -45,6 +45,7 @@ class PengadaanPsuController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'nama_perumahan'    => 'required',
             'jenis'             => 'required',
             'luas'              => 'required',
@@ -92,6 +93,7 @@ class PengadaanPsuController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'tahun'             => 'required',
             'nama_perumahan'    => 'required',
             'jenis'             => 'required',
             'luas'              => 'required',
