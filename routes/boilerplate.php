@@ -31,6 +31,18 @@ use App\Http\Controllers\PenggunaanTanahController;
 use App\Http\Controllers\RtlhController;
 use App\Http\Controllers\GisController;
 
+use App\Http\Controllers\AksesAirBersihController;
+use App\Http\Controllers\AksesListrikPlnController;
+use App\Http\Controllers\AksesPembuanganAirLimbahController;
+use App\Http\Controllers\IpalController;
+use App\Http\Controllers\JumlahPenerbitanSertifikatController;
+use App\Http\Controllers\JumlahPerumahanBanjarmasinController;
+use App\Http\Controllers\JumlahRumahBanjarmasinController;
+use App\Http\Controllers\JumlahRumahImbController;
+use App\Http\Controllers\JumlahRumahPsuController;
+use App\Http\Controllers\KependudukanController;
+use App\Http\Controllers\ProyekPerumahanController;
+
 Route::group([
     'prefix'     => config('boilerplate.app.prefix', ''),
     'domain'     => config('boilerplate.app.domain', ''),
@@ -187,5 +199,39 @@ Route::group([
             [PenggunaanTanahController::class, 'export'])->name('penggunaan-tanah.export');
         Route::resource('penggunaan-tanah', PenggunaanTanahController::class);
         Route::get('webgis', GisController::class)->name('gis');
+
+        Route::get('akses-air-bersih/export', [AksesAirBersihController::class, 'export'])->name('akses-air-bersih.export');
+        Route::resource('akses-air-bersih', AksesAirBersihController::class);
+
+        Route::get('akses-listrik-pln/export', [AksesListrikPlnController::class, 'export'])->name('akses-listrik-pln.export');
+        Route::resource('akses-listrik-pln', AksesListrikPlnController::class);
+
+        Route::get('akses-pembuangan-air-limbah/export', [AksesPembuanganAirLimbahController::class, 'export'])->name('akses-pembuangan-air-limbah.export');
+        Route::resource('akses-pembuangan-air-limbah', AksesPembuanganAirLimbahController::class);
+
+        Route::get('ipal/export', [IpalController::class, 'export'])->name('ipal.export');
+        Route::resource('ipal', IpalController::class);
+
+        Route::get('jumlah-penerbitan-sertifikat/export', [JumlahPenerbitanSertifikatController::class, 'export'])->name('jumlah-penerbitan-sertifikat.export');
+        Route::resource('jumlah-penerbitan-sertifikat', JumlahPenerbitanSertifikatController::class);
+
+        Route::get('jumlah-perumahan-banjarmasin/export', [JumlahPerumahanBanjarmasinController::class, 'export'])->name('jumlah-perumahan-banjarmasin.export');
+        Route::resource('jumlah-perumahan-banjarmasin', JumlahPerumahanBanjarmasinController::class);
+
+        Route::get('jumlah-rumah-banjarmasin/export', [JumlahRumahBanjarmasinController::class, 'export'])->name('jumlah-rumah-banjarmasin.export');
+        Route::resource('jumlah-rumah-banjarmasin', JumlahRumahBanjarmasinController::class);
+
+        Route::get('jumlah-rumah-imb/export', [JumlahRumahImbController::class, 'export'])->name('jumlah-rumah-imb.export');
+        Route::resource('jumlah-rumah-imb', JumlahRumahImbController::class);
+
+        Route::get('jumlah-rumah-psu/export', [JumlahRumahPsuController::class, 'export'])->name('jumlah-rumah-psu.export');
+        Route::resource('jumlah-rumah-psu', JumlahRumahPsuController::class);
+
+        Route::get('kependudukan/export', [KependudukanController::class, 'export'])->name('kependudukan.export');
+        Route::resource('kependudukan', KependudukanController::class);
+
+        Route::get('proyek-perumahan/export', [ProyekPerumahanController::class, 'export'])->name('proyek-perumahan.export');
+        Route::resource('proyek-perumahan', ProyekPerumahanController::class);
+
     });
 });

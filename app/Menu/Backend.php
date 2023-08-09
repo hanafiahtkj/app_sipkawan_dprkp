@@ -130,6 +130,77 @@ class Backend
             'route' => 'boilerplate.penggunaan-tanah.index',
         ]);
 
+        $item = $menu->add('Data Perumahan', [
+            'icon' => 'square',
+            'order' => 100,
+        ]);
+
+        $item->add('Data Kependudukan', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.kependudukan.*',
+            'route' => 'boilerplate.kependudukan.index',
+        ]);
+
+        $item->add('Jumlah Rumah Yang Memiliki Akses Listrik (PLN)', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.akses-listrik-pln.*',
+            'route' => 'boilerplate.akses-listrik-pln.index',
+        ]);
+
+        $item->add('Jumlah Rumah Yang Memiliki Akses Air Bersih (PDAM)', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.akses-air-bersih.*',
+            'route' => 'boilerplate.akses-air-bersih.index',
+        ]);
+
+        $item->add('Data Jumlah Rumah Yang Dibangun/ Di Berikan Peningkatan Kualitas / Di Renovasi', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.proyek-perumahan.*',
+            'route' => 'boilerplate.proyek-perumahan.index',
+        ]);
+
+        $item->add('Jumlah IPAL', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.ipal.*',
+            'route' => 'boilerplate.ipal.index',
+        ]);
+
+        $item->add('Data Jumlah Rumah Yang Memiliki Akses Pembuangan Air Limbah', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.akses-pembuangan-air-limbah.*',
+            'route' => 'boilerplate.akses-pembuangan-air-limbah.index',
+        ]);
+
+        $item->add('Data Jumlah Rumah Rumah Yang Memiliki IMB/PBG', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.jumlah-rumah-imb.*',
+            'route' => 'boilerplate.jumlah-rumah-imb.index',
+        ]);
+
+        $item->add('Data Jumlah Penerbitan Sertifikat', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.jumlah-penerbitan-sertifikat.*',
+            'route' => 'boilerplate.jumlah-penerbitan-sertifikat.index',
+        ]);
+
+        $item->add('Data Jumlah Rumah Yang Terfasilitasi PSU Perumahan', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.jumlah-rumah-psu.*',
+            'route' => 'boilerplate.jumlah-rumah-psu.index',
+        ]);
+
+        $item->add('Data Jumlah Rumah Di Kota Banjarmasin', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.jumlah-rumah-banjarmasin.*',
+            'route' => 'boilerplate.jumlah-rumah-banjarmasin.index',
+        ]);
+
+        $item->add('Data Jumlah Perumahan Di Kota Banjarmasin', [
+            'permission' => 'backend_access',
+            'active' => 'boilerplate.jumlah-perumahan-banjarmasin.*',
+            'route' => 'boilerplate.jumlah-perumahan-banjarmasin.index',
+        ]);
+
         $item = $menu->add('Master Data', [
             'permission' => 'admin',
             'icon' => 'square',
