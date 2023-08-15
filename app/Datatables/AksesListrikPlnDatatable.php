@@ -35,9 +35,6 @@ class AksesListrikPlnDatatable extends Datatable
             Column::add(__('Kecamatan'))
                 ->data('kecamatan.kecamatan'),
 
-            Column::add(__('Kelurahan'))
-                ->data('kelurahan.nama_deskel'),
-
             Column::add(__('Jumlah Rumah'))
                 ->data('jumlah_rumah'),
 
