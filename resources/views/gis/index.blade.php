@@ -20,19 +20,94 @@
         html, body {
             height: 100%!important;
         }
+        #app {
+            width: 100%;
+            height: 100%;
+        }
         #map {
             height: 100%!important;
-            margin-top: 55px!important;
+            /* margin-top: 55px!important; */
         }
+        .ol-zoom {
+            top: 65px;
+        }
+        .navbar-brand {
+            background-color: #343a40;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+        .layout-fixed .control-sidebar, .layout-fixed .main-sidebar {
+            top: 65px;
+            right: 10px;
+            bottom: 10px;
+            overflow: hidden;
+        }
+        .control-sidebar:before {
+            top: 65px;
+            right: 10px;
+            bottom: 15px;
+        }
+        .control-sidebar-slide-open .control-sidebar, .control-sidebar-slide-open .control-sidebar:before {
+            right: 10px;
+            bottom: 10px;
+        }
+        .control-sidebar {
+            border-radius: 10px;
+        }
+
     </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-light">
-        <a class="navbar-brand" href="{{ route('boilerplate.gis') }}">
+<body class="sidebar-mini layout-fixed">
+<div id="app">
+
+    <nav class="navbar navbar-expand-md fixed-top bg-transparent">
+        <a class="navbar-brand text-white" href="{{ route('boilerplate.gis') }}">
             <img src="{{ asset('images/LOGO1.png') }}" alt="Logo" class="brand-image mr-1" style="height:30px;">
-            WebGIS
+            SIP-KAWAN (WebGIS)
         </a>
+
+        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+            <li class="nav-item">
+                <a class="btn btn-light border" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+        </ul>
     </nav>
+
+    <aside class="control-sidebar control-sidebar-dark" style="display: none;">
+        <div class="p-3 control-sidebar-content" style="">
+            <div class="row">
+                <div class="col">
+                  <h5 class="mb-0 mt-1">Control Panel</h5>
+                </div>
+                <div class="col-auto">
+                  <a class="btn btn-dark btn-sm" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    {{-- <i class="fa-solid fa-forward"></i> --}}
+                    <i class="fa-solid fa-xmark"></i>
+                  </a>
+                </div>
+              </div>
+           <hr class="mb-2">
+           <h6>Layers</h6>
+           <div class="mb-1"><input type="checkbox" v-model="wfsLayerVisibleSebaranPerumahan" class="mr-1"><span>Sebaran Perumahan</span></div>
+           {{-- <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div> --}}
+           <div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Layer 2</span></div>
+           <h6>Sidebar Options</h6>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div>
+           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div>
+           <hr class="mb-2">
+
+        </div>
+    </aside>
 
     <div id="map"></div>
 
@@ -56,114 +131,122 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
+
+</div>
 
     <script src="{{ mix('/bootstrap.min.js', '/assets/vendor/boilerplate') }}"></script>
     <script src="{{ mix('/admin-lte.min.js', '/assets/vendor/boilerplate') }}"></script>
     <script src="{{ mix('/boilerplate.min.js', '/assets/vendor/boilerplate') }}"></script>
     <script>$.ajaxSetup({headers:{'X-CSRF-TOKEN':'{{ csrf_token() }}'}});</script>
+    <script src="{{ asset('assets/js/vue.min.js') }}"></script>
     <script>
-        var banjarmasinCoordinates = [114.5920, -3.3199];
-
-        var tiled = new ol.layer.Tile({
-            // visible: false,
-            source: new ol.source.TileWMS({
-                url: 'http://103.178.83.101:8080/geoserver/geo_dprkp/wms',
-                params: {
-                    'FORMAT': 'image/png',
-                    'VERSION': '1.1.1',
-                    tiled: true,
-                        "STYLES": '',
-                        "LAYERS": 'geo_dprkp:Sebaran_Perumahan',
-                        "exceptions": 'application/vnd.ogc.se_inimage',
-                    tilesOrigin: 228089.140625 + "," + 9626074
-                }
-            })
-        });
-
-        var wfsSource = new ol.source.Vector({
-            format: new ol.format.GeoJSON(),
-            url: function(extent) {
-                return 'http://103.178.83.101:8080/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Perumahan&outputFormat=application%2Fjson';
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    map: null,
+                    banjarmasinCoordinates: [114.5920, -3.3199],
+                    wfsLayerSebaranPerumahan: null,
+                    wfsLayerVisibleSebaranPerumahan: true,
+                };
             },
-            strategy: ol.loadingstrategy.bbox,
-            // projection: 'EPSG:3857',
-        });
+            mounted() {
+                this.initMap();
+            },
+            methods: {
+                initMap() {
+                    this.map = new ol.Map({
+                        target: 'map',
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.OSM()
+                            })
+                        ],
+                        view: new ol.View({
+                            center: ol.proj.fromLonLat(this.banjarmasinCoordinates),
+                            zoom: 13,
+                        }),
+                    });
 
-        var wfsLayer = new ol.layer.Vector({
-            source: wfsSource,
-            style: new ol.style.Style({
-                stroke: new ol.style.Stroke({
-                    color: 'rgba(0, 0, 255, 1.0)',
-                    width: 2
-                }),
-                fill: new ol.style.Fill({
-                    color: 'rgba(0, 0, 255, 0.2)'
-                })
-            })
-        });
+                    this.createWfsLayer();
+                },
+                createWfsLayer() {
+                    var wfsSourceSebaranPerumahan = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'http://103.178.83.101:8080/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Perumahan&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
 
-        var map = new ol.Map({
-            target: 'map',
-            layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.OSM()
-                }),
-                // tiled,
-                wfsLayer
-            ],
-            view: new ol.View({
-                center: ol.proj.fromLonLat(banjarmasinCoordinates),
-                zoom: 13,
-                // projection: 'EPSG:3857',
-            })
-        });
+                    this.wfsLayerSebaranPerumahan = new ol.layer.Vector({
+                        source: wfsSourceSebaranPerumahan,
+                        style: new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: 'rgba(0, 0, 255, 1.0)',
+                                width: 2
+                            }),
+                            fill: new ol.style.Fill({
+                                color: 'rgba(0, 0, 255, 0.2)'
+                            })
+                        })
+                    });
 
-        wfsSource.once('change', function(event) {
-            if (wfsSource.getState() === 'ready') {
-                var features = wfsSource.getFeatures();
-                if (features.length > 0) {
-                    var geometry = features[0].getGeometry();
-                    var extent = geometry.getExtent();
-                    var center = ol.extent.getCenter(extent);
-                    map.getView().setCenter(center);
+                    this.setupFeatureSelection(this.wfsLayerSebaranPerumahan);
+
+                    this.updateMapLayers();
+                },
+                setupFeatureSelection(layer) {
+                    var selectInteraction = new ol.interaction.Select({
+                        layers: [layer],
+                        condition: ol.events.condition.singleClick,
+                        style: new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: 'rgba(0, 0, 255, 1.0)',
+                                width: 2
+                            })
+                        })
+                    });
+
+                    this.map.addInteraction(selectInteraction);
+
+                    selectInteraction.on('select', (event) => {
+                        var selectedFeatures = event.selected;
+                        if (selectedFeatures.length > 0) {
+                            var properties = selectedFeatures[0].getProperties();
+                            this.showLayerProperties(properties);
+                        }
+                    });
+                },
+                showLayerProperties(properties) {
+                    var propertiesList = document.getElementById('layerPropertiesList');
+                    propertiesList.innerHTML = '';
+                    for (var key in properties) {
+                        var listItem = document.createElement('li');
+                        listItem.classList.add('list-group-item');
+                        listItem.innerHTML = '<strong>' + key + ':</strong> ' + properties[key];
+                        propertiesList.appendChild(listItem);
+                    }
+                    $('#layerPropertiesModal').modal('show');
+                },
+                updateMapLayers() {
+                    var map = this.map;
+
+                    var layer = this.wfsLayerSebaranPerumahan;
+                    if (this.wfsLayerVisibleSebaranPerumahan) {
+                        map.addLayer(layer);
+                    } else {
+                        map.removeLayer(layer);
+                    }
+                }
+            },
+            watch: {
+                wfsLayerVisibleSebaranPerumahan() {
+                    this.updateMapLayers();
                 }
             }
         });
-
-        var selectInteraction = new ol.interaction.Select({
-            layers: [wfsLayer],
-            condition: ol.events.condition.singleClick, // Default condition
-            style: new ol.style.Style({
-                stroke: new ol.style.Stroke({
-                    color: 'rgba(0, 0, 255, 1.0)',
-                    width: 2
-                })
-            })
-        });
-
-        map.addInteraction(selectInteraction);
-
-        selectInteraction.on('select', function(event) {
-            var selectedFeatures = event.selected;
-            if (selectedFeatures.length > 0) {
-                var properties = selectedFeatures[0].getProperties();
-                console.log(properties);
-                showLayerProperties(properties);
-            }
-        });
-
-        function showLayerProperties(properties) {
-            var propertiesList = document.getElementById('layerPropertiesList');
-            propertiesList.innerHTML = '';
-            for (var key in properties) {
-                var listItem = document.createElement('li');
-                listItem.classList.add('list-group-item');
-                listItem.innerHTML = '<strong>' + key + ':</strong> ' + properties[key];
-                propertiesList.appendChild(listItem);
-            }
-            $('#layerPropertiesModal').modal('show');
-        }
     </script>
 </body>
 </html>
