@@ -175,7 +175,7 @@
                     var wfsSourceSebaranPerumahan = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'http://103.178.83.101:8080/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Perumahan&outputFormat=application%2Fjson';
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Perumahan&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
