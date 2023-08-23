@@ -35,6 +35,7 @@
             background-color: #343a40;
             padding: 5px 15px;
             border-radius: 10px;
+            /* font-size: 1rem; */
         }
         .layout-fixed .control-sidebar, .layout-fixed .main-sidebar {
             top: 65px;
@@ -54,10 +55,12 @@
         .control-sidebar {
             border-radius: 10px;
         }
-
+        .control-sidebar-dark {
+            background-color: #343a40ad;
+        }
     </style>
 </head>
-<body class="sidebar-mini layout-fixed">
+<body class="sidebar-mini layout-fixed control-sidebar-slide-open">
 <div id="app">
 
     <nav class="navbar navbar-expand-md fixed-top bg-transparent">
@@ -68,7 +71,7 @@
 
         <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
             <li class="nav-item">
-                <a class="btn btn-light border" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                <a class="btn btn-dark border" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                     <i class="fas fa-th-large"></i>
                 </a>
             </li>
@@ -83,29 +86,46 @@
                 </div>
                 <div class="col-auto">
                   <a class="btn btn-dark btn-sm" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    {{-- <i class="fa-solid fa-forward"></i> --}}
                     <i class="fa-solid fa-xmark"></i>
                   </a>
                 </div>
               </div>
            <hr class="mb-2">
-           <h6>Layers</h6>
-           <div class="mb-1"><input type="checkbox" v-model="wfsLayerVisibleSebaranPerumahan" class="mr-1"><span>Sebaran Perumahan</span></div>
-           {{-- <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Dropdown Legacy Offset</span></div> --}}
-           <div class="mb-4"><input type="checkbox" value="1" class="mr-1"><span>Layer 2</span></div>
-           <h6>Sidebar Options</h6>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Collapsed</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Fixed</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini MD</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Sidebar Mini XS</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Flat Style</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Legacy Style</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Compact</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Indent</span></div>
-           <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>Nav Child Hide on Collapse</span></div>
-           <hr class="mb-2">
-
+           <h6>Layers ( Kecamatan )</h6>
+           <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinUtara" v-model="wfsLayerVisibleBanjarmasinUtara" class="mr-1">
+                <label for="wfsLayerVisibleBanjarmasinUtara" class="form-check-label"><span>Banjarmasin Utara</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(193 177 148); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinSelatan" v-model="wfsLayerVisibleBanjarmasinSelatan" class="mr-1">
+                <label for="wfsLayerVisibleBanjarmasinSelatan" class="form-check-label"><span>Banjarmasin Selatan</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(248 104 58); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinTimur" v-model="wfsLayerVisibleBanjarmasinTimur" class="mr-1">
+                <label for="wfsLayerVisibleBanjarmasinTimur" class="form-check-label"><span>Banjarmasin Timur</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(150 87 157); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinBarat" v-model="wfsLayerVisibleBanjarmasinBarat" class="mr-1">
+                <label for="wfsLayerVisibleBanjarmasinBarat" class="form-check-label"><span>Banjarmasin Barat</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(186 208 47); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinTengah" v-model="wfsLayerVisibleBanjarmasinTengah" class="mr-1">
+                <label for="wfsLayerVisibleBanjarmasinTengah" class="form-check-label"><span>Banjarmasin Tengah</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 152 0); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <hr class="mb-2">
+            <h6>Layers ( Lainnya )</h6>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisiblePerairan" v-model="wfsLayerVisiblePerairan" class="mr-1">
+                <label for="wfsLayerVisiblePerairan" class="form-check-label"><span>Perairan</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(14 175 234); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranPerumahan" v-model="wfsLayerVisibleSebaranPerumahan" class="mr-1">
+                <label for="wfsLayerVisibleSebaranPerumahan" class="form-check-label"><span>Sebaran Perumahan</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(122 140 144); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleTransportasi" v-model="wfsLayerVisibleTransportasi" class="mr-1">
+                <label for="wfsLayerVisibleTransportasi" class="form-check-label"><span>Transportasi</span></label>
+                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 255 255); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
         </div>
     </aside>
 
@@ -147,8 +167,22 @@
                 return {
                     map: null,
                     banjarmasinCoordinates: [114.5920, -3.3199],
+                    wfsLayerBanjarmasinUtara: null,
+                    wfsLayerVisibleBanjarmasinUtara: true,
+                    wfsLayerBanjarmasinSelatan: null,
+                    wfsLayerVisibleBanjarmasinSelatan: true,
+                    wfsLayerBanjarmasinTimur: null,
+                    wfsLayerVisibleBanjarmasinTimur: true,
+                    wfsLayerBanjarmasinBarat: null,
+                    wfsLayerVisibleBanjarmasinBarat: true,
+                    wfsLayerBanjarmasinTengah: null,
+                    wfsLayerVisibleBanjarmasinTengah: true,
+                    wfsLayerPerairan: null,
+                    wfsLayerVisiblePerairan: true,
                     wfsLayerSebaranPerumahan: null,
                     wfsLayerVisibleSebaranPerumahan: true,
+                    wfsLayerTransportasi: null,
+                    wfsLayerVisibleTransportasi: true,
                 };
             },
             mounted() {
@@ -172,6 +206,148 @@
                     this.createWfsLayer();
                 },
                 createWfsLayer() {
+                    var wfsSourceBanjarmasinUtara = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanut&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
+
+                    this.wfsLayerBanjarmasinUtara = new ol.layer.Vector({
+                        source: wfsSourceBanjarmasinUtara,
+                        style: new ol.style.Style({
+                            // stroke: new ol.style.Stroke({
+                            //     color: 'rgb(52 51 48)',
+                            //     width: 1
+                            // }),
+                            fill: new ol.style.Fill({
+                                color: 'rgb(193 177 148)'
+                            })
+                        })
+                    });
+
+                    this.map.addLayer(this.wfsLayerBanjarmasinUtara);
+                    this.setupFeatureSelection(this.wfsLayerBanjarmasinUtara);
+
+                    var wfsSourceBanjarmasinSelatan = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABansel&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
+
+                    this.wfsLayerBanjarmasinSelatan = new ol.layer.Vector({
+                        source: wfsSourceBanjarmasinSelatan,
+                        style: new ol.style.Style({
+                            // stroke: new ol.style.Stroke({
+                            //     color: 'rgb(52 51 48)',
+                            //     width: 1
+                            // }),
+                            fill: new ol.style.Fill({
+                                color: 'rgb(248 104 58)'
+                            })
+                        })
+                    });
+
+                    this.map.addLayer(this.wfsLayerBanjarmasinSelatan);
+                    this.setupFeatureSelection(this.wfsLayerBanjarmasinSelatan);
+
+                    var wfsSourceBanjarmasinTimur = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABantim&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
+
+                    this.wfsLayerBanjarmasinTimur = new ol.layer.Vector({
+                        source: wfsSourceBanjarmasinTimur,
+                        style: new ol.style.Style({
+                            // stroke: new ol.style.Stroke({
+                            //     color: 'rgb(52 51 48)',
+                            //     width: 1
+                            // }),
+                            fill: new ol.style.Fill({
+                                color: 'rgb(150 87 157)'
+                            })
+                        })
+                    });
+
+                    this.map.addLayer(this.wfsLayerBanjarmasinTimur);
+                    this.setupFeatureSelection(this.wfsLayerBanjarmasinTimur);
+
+                    var wfsSourceBanjarmasinBarat = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanbar&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
+
+                    this.wfsLayerBanjarmasinBarat = new ol.layer.Vector({
+                        source: wfsSourceBanjarmasinBarat,
+                        style: new ol.style.Style({
+                            // stroke: new ol.style.Stroke({
+                            //     color: 'rgb(52 51 48)',
+                            //     width: 1
+                            // }),
+                            fill: new ol.style.Fill({
+                                color: 'rgb(186 208 47)'
+                            })
+                        })
+                    });
+
+                    this.map.addLayer(this.wfsLayerBanjarmasinBarat);
+                    this.setupFeatureSelection(this.wfsLayerBanjarmasinBarat);
+
+                    var wfsSourceBanjarmasinTengah = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanteng&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
+
+                    this.wfsLayerBanjarmasinTengah = new ol.layer.Vector({
+                        source: wfsSourceBanjarmasinTengah,
+                        style: new ol.style.Style({
+                            // stroke: new ol.style.Stroke({
+                            //     color: 'rgb(52 51 48)',
+                            //     width: 1
+                            // }),
+                            fill: new ol.style.Fill({
+                                color: 'rgb(255 152 0)'
+                            })
+                        })
+                    });
+
+                    this.map.addLayer(this.wfsLayerBanjarmasinTengah);
+                    this.setupFeatureSelection(this.wfsLayerBanjarmasinTengah);
+
+
+
+                    var wfsSourcePerairan = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APERAIRAN_AR&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
+
+                    this.wfsLayerPerairan = new ol.layer.Vector({
+                        source: wfsSourcePerairan,
+                        style: new ol.style.Style({
+                            fill: new ol.style.Fill({
+                                color: 'rgb(14 175 234)'
+                            })
+                        })
+                    });
+
+                    this.map.addLayer(this.wfsLayerPerairan);
+                    this.setupFeatureSelection(this.wfsLayerPerairan);
+
                     var wfsSourceSebaranPerumahan = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
@@ -183,30 +359,58 @@
                     this.wfsLayerSebaranPerumahan = new ol.layer.Vector({
                         source: wfsSourceSebaranPerumahan,
                         style: new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: 'rgba(0, 0, 255, 1.0)',
-                                width: 2
-                            }),
+                            // stroke: new ol.style.Stroke({
+                            //     color: 'rgb(52 51 48)',
+                            //     width: 1
+                            // }),
                             fill: new ol.style.Fill({
-                                color: 'rgba(0, 0, 255, 0.2)'
+                                color: 'rgb(122 140 144)'
                             })
                         })
                     });
 
+                    this.map.addLayer(this.wfsLayerSebaranPerumahan);
                     this.setupFeatureSelection(this.wfsLayerSebaranPerumahan);
 
-                    this.updateMapLayers();
+                    var wfsSourceTransportasi = new ol.source.Vector({
+                        format: new ol.format.GeoJSON(),
+                        url: function(extent) {
+                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ATransportasi_LN&outputFormat=application%2Fjson';
+                        },
+                        strategy: ol.loadingstrategy.bbox,
+                    });
+
+                    this.wfsLayerTransportasi = new ol.layer.Vector({
+                        source: wfsSourceTransportasi,
+                        style: new ol.style.Style({
+                            stroke: new ol.style.Stroke({
+                                color: 'rgb(255 255 255)',
+                                width: 1
+                            }),
+                        })
+                    });
+
+                    this.map.addLayer(this.wfsLayerTransportasi);
+                    this.setupFeatureSelection(this.wfsLayerTransportasi);
                 },
                 setupFeatureSelection(layer) {
                     var selectInteraction = new ol.interaction.Select({
                         layers: [layer],
                         condition: ol.events.condition.singleClick,
-                        style: new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: 'rgba(0, 0, 255, 1.0)',
-                                width: 2
-                            })
-                        })
+                        style: function(feature) {
+                            var layerStyle = layer.getStyle();
+                            var layerFill = layerStyle.getFill();
+
+                            return new ol.style.Style({
+                                stroke: new ol.style.Stroke({
+                                    color: 'rgb(52 51 48)',
+                                    width: 1
+                                }),
+                                fill: new ol.style.Fill({
+                                    color: layerFill.getColor()
+                                })
+                            });
+                        }
                     });
 
                     this.map.addInteraction(selectInteraction);
@@ -231,20 +435,74 @@
                     $('#layerPropertiesModal').modal('show');
                 },
                 updateMapLayers() {
-                    var map = this.map;
-
-                    var layer = this.wfsLayerSebaranPerumahan;
-                    if (this.wfsLayerVisibleSebaranPerumahan) {
-                        map.addLayer(layer);
-                    } else {
-                        map.removeLayer(layer);
-                    }
+                    //
                 }
             },
             watch: {
+                wfsLayerVisibleBanjarmasinUtara() {
+                    var layer = this.wfsLayerBanjarmasinUtara;
+                    if (this.wfsLayerVisibleBanjarmasinUtara) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
+                wfsLayerVisibleBanjarmasinSelatan() {
+                    var layer = this.wfsLayerBanjarmasinSelatan;
+                    if (this.wfsLayerVisibleBanjarmasinSelatan) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
+                wfsLayerVisibleBanjarmasinTimur() {
+                    var layer = this.wfsLayerBanjarmasinTimur;
+                    if (this.wfsLayerVisibleBanjarmasinTimur) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
+                wfsLayerVisibleBanjarmasinBarat() {
+                    var layer = this.wfsLayerBanjarmasinBarat;
+                    if (this.wfsLayerVisibleBanjarmasinBarat) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
+                wfsLayerVisibleBanjarmasinTengah() {
+                    var layer = this.wfsLayerBanjarmasinTengah;
+                    if (this.wfsLayerVisibleBanjarmasinTengah) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
+                wfsLayerVisiblePerairan() {
+                    var layer = this.wfsLayerPerairan;
+                    if (this.wfsLayerVisiblePerairan) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
                 wfsLayerVisibleSebaranPerumahan() {
-                    this.updateMapLayers();
-                }
+                    var layer = this.wfsLayerSebaranPerumahan;
+                    if (this.wfsLayerVisibleSebaranPerumahan) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
+                wfsLayerVisibleTransportasi() {
+                    var layer = this.wfsLayerTransportasi;
+                    if (this.wfsLayerVisibleTransportasi) {
+                        layer.setVisible(true);
+                    } else {
+                        layer.setVisible(false);
+                    }
+                },
             }
         });
     </script>
