@@ -91,7 +91,7 @@
                 </div>
               </div>
            <hr class="mb-2">
-           <h6>Layers ( Kecamatan )</h6>
+           <h6>Kecamatan</h6>
            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinUtara" v-model="wfsLayerVisibleBanjarmasinUtara" class="mr-1">
                 <label for="wfsLayerVisibleBanjarmasinUtara" class="form-check-label"><span>Banjarmasin Utara</span></label>
                 <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(193 177 148); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
@@ -113,7 +113,7 @@
                 <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 152 0); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
             </div>
             <hr class="mb-2">
-            <h6>Layers ( Lainnya )</h6>
+            <h6>Lainnya</h6>
             <div class="mb-1"><input type="checkbox" id="wfsLayerVisiblePerairan" v-model="wfsLayerVisiblePerairan" class="mr-1">
                 <label for="wfsLayerVisiblePerairan" class="form-check-label"><span>Perairan</span></label>
                 <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(14 175 234); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
