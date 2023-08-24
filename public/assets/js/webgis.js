@@ -80,10 +80,10 @@ new Vue({
             this.wfsLayerBanjarmasinUtara = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinUtara,
                 style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
+                    stroke: new ol.style.Stroke({
+                        color: 'rgb(177 173 173)',
+                        width: 1
+                    }),
                     fill: new ol.style.Fill({
                         color: 'rgb(193 177 148)'
                     })
@@ -104,10 +104,10 @@ new Vue({
             this.wfsLayerBanjarmasinSelatan = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinSelatan,
                 style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
+                    stroke: new ol.style.Stroke({
+                        color: 'rgb(177 173 173)',
+                        width: 1
+                    }),
                     fill: new ol.style.Fill({
                         color: 'rgb(248 104 58)'
                     })
@@ -128,10 +128,10 @@ new Vue({
             this.wfsLayerBanjarmasinTimur = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinTimur,
                 style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
+                    stroke: new ol.style.Stroke({
+                        color: 'rgb(177 173 173)',
+                        width: 1
+                    }),
                     fill: new ol.style.Fill({
                         color: 'rgb(150 87 157)'
                     })
@@ -152,10 +152,10 @@ new Vue({
             this.wfsLayerBanjarmasinBarat = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinBarat,
                 style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
+                    stroke: new ol.style.Stroke({
+                        color: 'rgb(177 173 173)',
+                        width: 1
+                    }),
                     fill: new ol.style.Fill({
                         color: 'rgb(186 208 47)'
                     })
@@ -176,10 +176,10 @@ new Vue({
             this.wfsLayerBanjarmasinTengah = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinTengah,
                 style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
+                    stroke: new ol.style.Stroke({
+                        color: 'rgb(177 173 173)',
+                        width: 1
+                    }),
                     fill: new ol.style.Fill({
                         color: 'rgb(255 152 0)'
                     })
