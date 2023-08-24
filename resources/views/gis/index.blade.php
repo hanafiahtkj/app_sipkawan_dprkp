@@ -209,7 +209,7 @@
                     var wfsSourceBanjarmasinUtara = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanut&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanut&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
@@ -233,7 +233,7 @@
                     var wfsSourceBanjarmasinSelatan = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABansel&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABansel&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
@@ -257,7 +257,7 @@
                     var wfsSourceBanjarmasinTimur = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABantim&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABantim&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
@@ -281,7 +281,7 @@
                     var wfsSourceBanjarmasinBarat = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanbar&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanbar&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
@@ -305,7 +305,7 @@
                     var wfsSourceBanjarmasinTengah = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanteng&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanteng&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
@@ -331,7 +331,7 @@
                     var wfsSourcePerairan = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APERAIRAN_AR&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APERAIRAN_AR&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
@@ -351,7 +351,7 @@
                     var wfsSourceSebaranPerumahan = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Perumahan&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Perumahan&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
@@ -375,7 +375,7 @@
                     var wfsSourceTransportasi = new ol.source.Vector({
                         format: new ol.format.GeoJSON(),
                         url: function(extent) {
-                            return 'https://mapping-dprkp.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ATransportasi_LN&outputFormat=application%2Fjson';
+                            return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ATransportasi_LN&outputFormat=application%2Fjson';
                         },
                         strategy: ol.loadingstrategy.bbox,
                     });
