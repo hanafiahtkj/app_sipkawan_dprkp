@@ -40,7 +40,7 @@
         .layout-fixed .control-sidebar, .layout-fixed .main-sidebar {
             top: 65px;
             right: 10px;
-            bottom: 10px;
+            bottom: 35px;
             overflow: hidden;
         }
         .control-sidebar:before {
@@ -50,7 +50,7 @@
         }
         .control-sidebar-slide-open .control-sidebar, .control-sidebar-slide-open .control-sidebar:before {
             right: 10px;
-            bottom: 10px;
+            bottom: 35px;
         }
         .control-sidebar {
             border-radius: 10px;
@@ -132,11 +132,19 @@
                 <label for="wfsLayerVisibleSebaranRumahSewa2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
                 <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
             </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2021" v-model="wfsLayerVisibleSebaranRumahSewaPoint2021" class="mr-1">
+                <label for="wfsLayerVisibleSebaranRumahSewaPoint2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
+                <span style="float: right;background-image: url(&quot;https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png&quot;);background-size: 50%;width: 25px;height: 20px;display: inline-block;margin-left: 5px;background-repeat: no-repeat;background-position: center;"></span>
+            </div>
             <hr class="mb-2">
             <h6>2022</h6>
             <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewa2022" v-model="wfsLayerVisibleSebaranRumahSewa2022" class="mr-1">
                 <label for="wfsLayerVisibleSebaranRumahSewa2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
                 <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            </div>
+            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2022" v-model="wfsLayerVisibleSebaranRumahSewaPoint2022" class="mr-1">
+                <label for="wfsLayerVisibleSebaranRumahSewaPoint2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
+                <span style="float: right;background-image: url(&quot;https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png&quot;);background-size: 50%;width: 25px;height: 20px;display: inline-block;margin-left: 5px;background-repeat: no-repeat;background-position: center;"></span>
             </div>
         </div>
     </aside>

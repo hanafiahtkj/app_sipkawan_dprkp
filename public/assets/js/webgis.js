@@ -23,7 +23,7 @@ new Vue({
             wfsLayerTransportasi: null,
             wfsLayerVisibleTransportasi: true,
 
-            wfsLayerVisibleSebaranRumahSewa2021: true,
+            wfsLayerVisibleSebaranRumahSewa2021: false,
 
             wfsLayerSebaranRumahSewaBanbar2021: null,
             wfsLayerVisibleSebaranRumahSewaBanbar2021: true,
@@ -34,7 +34,7 @@ new Vue({
             wfsLayerSebaranRumahSewaBanut2021: null,
             wfsLayerVisibleSebaranRumahSewaBanut2021: true,
 
-            wfsLayerVisibleSebaranRumahSewa2022: true,
+            wfsLayerVisibleSebaranRumahSewa2022: false,
 
             wfsLayerSebaranRumahSewaBanbar2022: null,
             wfsLayerVisibleSebaranRumahSewaBanbar2022: true,
@@ -46,6 +46,32 @@ new Vue({
             wfsLayerVisibleSebaranRumahSewaBantim2022: true,
             wfsLayerSebaranRumahSewaBanut2022: null,
             wfsLayerVisibleSebaranRumahSewaBanut2022: true,
+
+            wfsLayerVisibleSebaranRumahSewaPoint2021: false,
+
+            wfsLayerSebaranRumahSewaPointBanbar2021: null,
+            wfsLayerVisibleSebaranRumahSewaPointBanbar2021: true,
+            wfsLayerSebaranRumahSewaPointBansel2021: null,
+            wfsLayerVisibleSebaranRumahSewaPointBansel2021: true,
+            wfsLayerSebaranRumahSewaPointBanteng2021: null,
+            wfsLayerVisibleSebaranRumahSewaPointBanteng2021: true,
+            wfsLayerSebaranRumahSewaPointBantim2021: null,
+            wfsLayerVisibleSebaranRumahSewaPointBantim2021: true,
+            wfsLayerSebaranRumahSewaPointBanut2021: null,
+            wfsLayerVisibleSebaranRumahSewaPointBanut2021: true,
+
+            wfsLayerVisibleSebaranRumahSewaPoint2022: false,
+
+            wfsLayerSebaranRumahSewaPointBanbar2022: null,
+            wfsLayerVisibleSebaranRumahSewaPointBanbar2022: true,
+            wfsLayerSebaranRumahSewaPointBansel2022: null,
+            wfsLayerVisibleSebaranRumahSewaPointBansel2022: true,
+            wfsLayerSebaranRumahSewaPointBanteng2022: null,
+            wfsLayerVisibleSebaranRumahSewaPointBanteng2022: true,
+            wfsLayerSebaranRumahSewaPointBantim2022: null,
+            wfsLayerVisibleSebaranRumahSewaPointBantim2022: true,
+            wfsLayerSebaranRumahSewaPointBanut2022: null,
+            wfsLayerVisibleSebaranRumahSewaPointBanut2022: true,
         };
     },
     mounted() {
@@ -79,6 +105,7 @@ new Vue({
 
             this.wfsLayerBanjarmasinUtara = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinUtara,
+                visible: this.wfsLayerVisibleBanjarmasinUtara,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
                         color: 'rgb(177 173 173)',
@@ -103,6 +130,7 @@ new Vue({
 
             this.wfsLayerBanjarmasinSelatan = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinSelatan,
+                visible: this.wfsLayerVisibleBanjarmasinSelatan,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
                         color: 'rgb(177 173 173)',
@@ -127,6 +155,7 @@ new Vue({
 
             this.wfsLayerBanjarmasinTimur = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinTimur,
+                visible: this.wfsLayerVisibleBanjarmasinTimur,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
                         color: 'rgb(177 173 173)',
@@ -151,6 +180,7 @@ new Vue({
 
             this.wfsLayerBanjarmasinBarat = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinBarat,
+                visible: this.wfsLayerVisibleBanjarmasinBarat,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
                         color: 'rgb(177 173 173)',
@@ -175,6 +205,7 @@ new Vue({
 
             this.wfsLayerBanjarmasinTengah = new ol.layer.Vector({
                 source: wfsSourceBanjarmasinTengah,
+                visible: this.wfsLayerVisibleBanjarmasinTengah,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
                         color: 'rgb(177 173 173)',
@@ -199,6 +230,7 @@ new Vue({
 
             this.wfsLayerPerairan = new ol.layer.Vector({
                 source: wfsSourcePerairan,
+                visible: this.wfsLayerVisiblePerairan,
                 style: new ol.style.Style({
                     fill: new ol.style.Fill({
                         color: 'rgb(14 175 234)'
@@ -219,6 +251,7 @@ new Vue({
 
             this.wfsLayerSebaranPerumahan = new ol.layer.Vector({
                 source: wfsSourceSebaranPerumahan,
+                visible: this.wfsLayerVisibleSebaranPerumahan,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -243,6 +276,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBanbar2021 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBanbar2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -267,6 +301,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBanteng2021 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBanteng2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -291,6 +326,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBantim2021 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBantim2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -315,6 +351,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBanut2021 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBanut2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -339,6 +376,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBanbar2022 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBanbar2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -363,6 +401,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBansel2022 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBansel2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -387,6 +426,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBanteng2022 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBanteng2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -411,6 +451,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBantim2022 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBantim2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -435,6 +476,7 @@ new Vue({
 
             this.wfsLayerSebaranRumahSewaBanut2022 = new ol.layer.Vector({
                 source: wfsSourceSebaranRumahSewaBanut2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
                 style: new ol.style.Style({
                     // stroke: new ol.style.Stroke({
                     //     color: 'rgb(52 51 48)',
@@ -459,6 +501,7 @@ new Vue({
 
             this.wfsLayerTransportasi = new ol.layer.Vector({
                 source: wfsSourceTransportasi,
+                visible: this.wfsLayerVisibleTransportasi,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
                         color: 'rgb(255 255 255)',
@@ -469,6 +512,235 @@ new Vue({
 
             this.map.addLayer(this.wfsLayerTransportasi);
             this.setupFeatureSelection(this.wfsLayerTransportasi);
+
+                        // var wfsSourceSebaranRumahSewaPointBansel2021 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function(extent) {
+            //         return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bansel_2021&outputFormat=application%2Fjson';
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaPointBansel2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBansel2021,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     })
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBansel2021);
+            // this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBansel2021);
+
+            var wfsSourceSebaranRumahSewaPointBantim2021 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bantim_2021&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBantim2021 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBantim2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBantim2021);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBantim2021);
+
+            var wfsSourceSebaranRumahSewaPointBanbar2021 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banbar_2021&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBanbar2021 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBanbar2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanbar2021);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanbar2021);
+
+            var wfsSourceSebaranRumahSewaPointBanteng2021 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banteng_2021&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBanteng2021 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBanteng2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanteng2021);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanteng2021);
+
+            var wfsSourceSebaranRumahSewaPointBanut2021 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banut_2021&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBanut2021 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBanut2021,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2021);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanut2021);
+
+            var wfsSourceSebaranRumahSewaPointBansel2022 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bansel_2022&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBansel2022 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBansel2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBansel2022);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBansel2022);
+
+            var wfsSourceSebaranRumahSewaPointBantim2022 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bantim_2022&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBantim2022 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBantim2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBantim2022);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBantim2022);
+
+            var wfsSourceSebaranRumahSewaPointBanbar2022 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banbar_2022&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBanbar2022 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBanbar2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanbar2022);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanbar2022);
+
+            var wfsSourceSebaranRumahSewaPointBanteng2022 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banteng_2022&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBanteng2022 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBanteng2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanteng2022);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanteng2022);
+
+            var wfsSourceSebaranRumahSewaPointBanut2022 = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banut_2022&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerSebaranRumahSewaPointBanut2022 = new ol.layer.Vector({
+                source: wfsSourceSebaranRumahSewaPointBanut2022,
+                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2022);
+            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanut2022);
         },
         setupFeatureSelection(layer) {
             var selectInteraction = new ol.interaction.Select({
@@ -486,6 +758,34 @@ new Vue({
                         fill: new ol.style.Fill({
                             color: layerFill.getColor()
                         })
+                    });
+                }
+            });
+
+            this.map.addInteraction(selectInteraction);
+
+            selectInteraction.on('select', (event) => {
+                var selectedFeatures = event.selected;
+                if (selectedFeatures.length > 0) {
+                    var properties = selectedFeatures[0].getProperties();
+                    this.showLayerProperties(properties);
+                }
+            });
+        },
+        setupPointFeatureSelection(layer) {
+            var selectInteraction = new ol.interaction.Select({
+                layers: [layer],
+                condition: ol.events.condition.singleClick,
+                style: function(feature) {
+                    var layerStyle = layer.getStyle();
+                    var layerFill = layerStyle.getFill();
+
+                    return new ol.style.Style({
+                        image: new ol.style.Icon({
+                            anchor: [0.5, 1],
+                            src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                            scale: 0.25, // Ukuran gambar
+                        }),
                     });
                 }
             });
@@ -518,124 +818,89 @@ new Vue({
     watch: {
         wfsLayerVisibleBanjarmasinUtara() {
             var layer = this.wfsLayerBanjarmasinUtara;
-            if (this.wfsLayerVisibleBanjarmasinUtara) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleBanjarmasinUtara);
         },
         wfsLayerVisibleBanjarmasinSelatan() {
             var layer = this.wfsLayerBanjarmasinSelatan;
-            if (this.wfsLayerVisibleBanjarmasinSelatan) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleBanjarmasinSelatan);
         },
         wfsLayerVisibleBanjarmasinTimur() {
             var layer = this.wfsLayerBanjarmasinTimur;
-            if (this.wfsLayerVisibleBanjarmasinTimur) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleBanjarmasinTimur);
         },
         wfsLayerVisibleBanjarmasinBarat() {
             var layer = this.wfsLayerBanjarmasinBarat;
-            if (this.wfsLayerVisibleBanjarmasinBarat) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleBanjarmasinBarat);
         },
         wfsLayerVisibleBanjarmasinTengah() {
             var layer = this.wfsLayerBanjarmasinTengah;
-            if (this.wfsLayerVisibleBanjarmasinTengah) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleBanjarmasinTengah);
         },
         wfsLayerVisiblePerairan() {
             var layer = this.wfsLayerPerairan;
-            if (this.wfsLayerVisiblePerairan) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisiblePerairan);
         },
         wfsLayerVisibleSebaranPerumahan() {
             var layer = this.wfsLayerSebaranPerumahan;
-            if (this.wfsLayerVisibleSebaranPerumahan) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranPerumahan);
         },
         wfsLayerVisibleSebaranRumahSewa2021() {
             var layer = this.wfsLayerSebaranRumahSewaBanbar2021;
-            if (this.wfsLayerVisibleSebaranRumahSewa2021) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2021);
 
             var layer = this.wfsLayerSebaranRumahSewaBanteng2021;
-            if (this.wfsLayerVisibleSebaranRumahSewa2021) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2021);
 
             var layer = this.wfsLayerSebaranRumahSewaBantim2021;
-            if (this.wfsLayerVisibleSebaranRumahSewa2021) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2021);
 
             var layer = this.wfsLayerSebaranRumahSewaBanut2021;
-            if (this.wfsLayerVisibleSebaranRumahSewa2021) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2021);
         },
         wfsLayerVisibleSebaranRumahSewa2022() {
             var layer = this.wfsLayerSebaranRumahSewaBanbar2022;
-            if (this.wfsLayerVisibleSebaranRumahSewa2022) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2022);
 
             var layer = this.wfsLayerSebaranRumahSewaBansel2022;
-            if (this.wfsLayerVisibleSebaranRumahSewa2022) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2022);
 
             var layer = this.wfsLayerSebaranRumahSewaBanteng2022;
-            if (this.wfsLayerVisibleSebaranRumahSewa2022) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2022);
 
             var layer = this.wfsLayerSebaranRumahSewaBantim2022;
-            if (this.wfsLayerVisibleSebaranRumahSewa2022) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2022);
 
             var layer = this.wfsLayerSebaranRumahSewaBanut2022;
-            if (this.wfsLayerVisibleSebaranRumahSewa2022) {
-                layer.setVisible(true);
-            } else {
-                layer.setVisible(false);
-            }
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewa2022);
+        },
+        wfsLayerVisibleSebaranRumahSewaPoint2021() {
+            var layer = this.wfsLayerSebaranRumahSewaPointBanbar2021;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2021);
+
+            var layer = this.wfsLayerSebaranRumahSewaPointBanteng2021;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2021);
+
+            var layer = this.wfsLayerSebaranRumahSewaPointBantim2021;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2021);
+
+            var layer = this.wfsLayerSebaranRumahSewaPointBanut2021;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2021);
+        },
+        wfsLayerVisibleSebaranRumahSewaPoint2022() {
+            var layer = this.wfsLayerSebaranRumahSewaPointBanbar2022;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2022);
+
+            var layer = this.wfsLayerSebaranRumahSewaPointBansel2022;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2022);
+
+            var layer = this.wfsLayerSebaranRumahSewaPointBanteng2022;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2022);
+
+            var layer = this.wfsLayerSebaranRumahSewaPointBantim2022;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2022);
+
+            var layer = this.wfsLayerSebaranRumahSewaPointBanut2022;
+            layer.setVisible(this.wfsLayerVisibleSebaranRumahSewaPoint2022);
         },
         wfsLayerVisibleTransportasi() {
             var layer = this.wfsLayerTransportasi;
