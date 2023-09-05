@@ -89,63 +89,115 @@
                     <i class="fa-solid fa-xmark"></i>
                   </a>
                 </div>
-              </div>
+            </div>
            <hr class="mb-2">
-           <h6>Kecamatan</h6>
-           <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinUtara" v-model="wfsLayerVisibleBanjarmasinUtara" class="mr-1">
-                <label for="wfsLayerVisibleBanjarmasinUtara" class="form-check-label"><span>Banjarmasin Utara</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(193 177 148); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+            <div class="accordion" id="accordionExample">
+                <div class="card bg-transparent shadow-none">
+                  <div class="card-header p-0 mt-2 mb-2" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left p-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h6>Kecamatan</h6>
+                      </button>
+                    </h2>
+                  </div>
+
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body p-0">
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinUtara" v-model="wfsLayerVisibleBanjarmasinUtara" class="mr-1">
+                            <label for="wfsLayerVisibleBanjarmasinUtara" class="form-check-label"><span>Banjarmasin Utara</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(193 177 148); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinSelatan" v-model="wfsLayerVisibleBanjarmasinSelatan" class="mr-1">
+                            <label for="wfsLayerVisibleBanjarmasinSelatan" class="form-check-label"><span>Banjarmasin Selatan</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(248 104 58); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinTimur" v-model="wfsLayerVisibleBanjarmasinTimur" class="mr-1">
+                            <label for="wfsLayerVisibleBanjarmasinTimur" class="form-check-label"><span>Banjarmasin Timur</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(150 87 157); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinBarat" v-model="wfsLayerVisibleBanjarmasinBarat" class="mr-1">
+                            <label for="wfsLayerVisibleBanjarmasinBarat" class="form-check-label"><span>Banjarmasin Barat</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(186 208 47); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinTengah" v-model="wfsLayerVisibleBanjarmasinTengah" class="mr-1">
+                            <label for="wfsLayerVisibleBanjarmasinTengah" class="form-check-label"><span>Banjarmasin Tengah</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 152 0); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card bg-transparent shadow-none">
+                  <div class="card-header p-0 mb-2" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left collapsed p-0" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <h6>Sebaran Perumahan</h6>
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body p-0">
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranPerumahan" v-model="wfsLayerVisibleSebaranPerumahan" class="mr-1">
+                            <label for="wfsLayerVisibleSebaranPerumahan" class="form-check-label"><span>Sebaran Perumahan</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(122 140 144); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card bg-transparent shadow-none">
+                  <div class="card-header p-0 mb-2" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left collapsed p-0" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <h6>Sebaran Rumah Sewa</h6>
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body p-0">
+                        <h6>2021</h6>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewa2021" v-model="wfsLayerVisibleSebaranRumahSewa2021" class="mr-1">
+                            <label for="wfsLayerVisibleSebaranRumahSewa2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2021" v-model="wfsLayerVisibleSebaranRumahSewaPoint2021" class="mr-1">
+                            <label for="wfsLayerVisibleSebaranRumahSewaPoint2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
+                            <span style="float: right;background-image: url(&quot;https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png&quot;);background-size: 50%;width: 25px;height: 20px;display: inline-block;margin-left: 5px;background-repeat: no-repeat;background-position: center;"></span>
+                        </div>
+                        <hr class="mb-2">
+                        <h6>2022</h6>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewa2022" v-model="wfsLayerVisibleSebaranRumahSewa2022" class="mr-1">
+                            <label for="wfsLayerVisibleSebaranRumahSewa2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2022" v-model="wfsLayerVisibleSebaranRumahSewaPoint2022" class="mr-1">
+                            <label for="wfsLayerVisibleSebaranRumahSewaPoint2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
+                            <span style="float: right;background-image: url(&quot;https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png&quot;);background-size: 50%;width: 25px;height: 20px;display: inline-block;margin-left: 5px;background-repeat: no-repeat;background-position: center;"></span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card bg-transparent shadow-none">
+                    <div class="card-header p-0 mb-2" id="heading1">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left collapsed p-0" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                          <h6>Lainnya</h6>
+                        </button>
+                      </h2>
+                    </div>
+                    <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionExample">
+                      <div class="card-body p-0">
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisiblePerairan" v-model="wfsLayerVisiblePerairan" class="mr-1">
+                            <label for="wfsLayerVisiblePerairan" class="form-check-label"><span>Perairan</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(14 175 234); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleTransportasi" v-model="wfsLayerVisibleTransportasi" class="mr-1">
+                            <label for="wfsLayerVisibleTransportasi" class="form-check-label"><span>Transportasi</span></label>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 255 255); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinSelatan" v-model="wfsLayerVisibleBanjarmasinSelatan" class="mr-1">
-                <label for="wfsLayerVisibleBanjarmasinSelatan" class="form-check-label"><span>Banjarmasin Selatan</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(248 104 58); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinTimur" v-model="wfsLayerVisibleBanjarmasinTimur" class="mr-1">
-                <label for="wfsLayerVisibleBanjarmasinTimur" class="form-check-label"><span>Banjarmasin Timur</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(150 87 157); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinBarat" v-model="wfsLayerVisibleBanjarmasinBarat" class="mr-1">
-                <label for="wfsLayerVisibleBanjarmasinBarat" class="form-check-label"><span>Banjarmasin Barat</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(186 208 47); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleBanjarmasinTengah" v-model="wfsLayerVisibleBanjarmasinTengah" class="mr-1">
-                <label for="wfsLayerVisibleBanjarmasinTengah" class="form-check-label"><span>Banjarmasin Tengah</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 152 0); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <hr class="mb-2">
-            <h6>Lainnya</h6>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisiblePerairan" v-model="wfsLayerVisiblePerairan" class="mr-1">
-                <label for="wfsLayerVisiblePerairan" class="form-check-label"><span>Perairan</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(14 175 234); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranPerumahan" v-model="wfsLayerVisibleSebaranPerumahan" class="mr-1">
-                <label for="wfsLayerVisibleSebaranPerumahan" class="form-check-label"><span>Sebaran Perumahan</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(122 140 144); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleTransportasi" v-model="wfsLayerVisibleTransportasi" class="mr-1">
-                <label for="wfsLayerVisibleTransportasi" class="form-check-label"><span>Transportasi</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 255 255); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <hr class="mb-2">
-            <h6>2021</h6>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewa2021" v-model="wfsLayerVisibleSebaranRumahSewa2021" class="mr-1">
-                <label for="wfsLayerVisibleSebaranRumahSewa2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2021" v-model="wfsLayerVisibleSebaranRumahSewaPoint2021" class="mr-1">
-                <label for="wfsLayerVisibleSebaranRumahSewaPoint2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
-                <span style="float: right;background-image: url(&quot;https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png&quot;);background-size: 50%;width: 25px;height: 20px;display: inline-block;margin-left: 5px;background-repeat: no-repeat;background-position: center;"></span>
-            </div>
-            <hr class="mb-2">
-            <h6>2022</h6>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewa2022" v-model="wfsLayerVisibleSebaranRumahSewa2022" class="mr-1">
-                <label for="wfsLayerVisibleSebaranRumahSewa2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
-                <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
-            </div>
-            <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2022" v-model="wfsLayerVisibleSebaranRumahSewaPoint2022" class="mr-1">
-                <label for="wfsLayerVisibleSebaranRumahSewaPoint2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
-                <span style="float: right;background-image: url(&quot;https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png&quot;);background-size: 50%;width: 25px;height: 20px;display: inline-block;margin-left: 5px;background-repeat: no-repeat;background-position: center;"></span>
-            </div>
+            <div class="mb-4"></div>
         </div>
     </aside>
 
