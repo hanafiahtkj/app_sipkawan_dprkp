@@ -84,7 +84,9 @@
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto pt-2 pt-lg-0 font-base">
-              <!-- <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold active" aria-current="page" href="#home">Home</a></li> -->
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Home</a></li>
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#statistik">Statistik</a></li>
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">WebGis</a></li>
             </ul>
             <form class="ps-lg-5">
               <!-- <button class="btn btn-link text-danger fw-bold order-1 order-lg-0" type="button">Sign in</button> -->
@@ -96,7 +98,7 @@
       <section class="pb-4" id="home" style="background-image:url('{{ asset('assets/img/bckbawah.png') }}');background-position:bottom;background-size:cover;">
         <div class="container">
           <div class="row align-items-center g-2">
-            <div class="col-md-5 col-lg-5 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/banner_image_1.png') }}" alt="hero-header" /></div>
+            <div class="col-md-5 col-lg-5 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/banner_image_1.svg') }}" alt="hero-header" /></div>
             <div class="col-md-7 col-lg-7 py-6 text-md-start text-center">
               <h6 class="fs-0 text-uppercase fw-bold text-600">Selamat Datang</h6>
               <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-warning"> SIP-KAWAN</h1>
@@ -122,15 +124,16 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-      <section class="py-4" style="background-image:url('{{ asset('images/bg.png') }}');background-position: center;">
+      <section id="statistik" class="py-4" style="background-image:url('{{ asset('images/bg.png') }}');background-position: center;">
 
         <div class="container">
 
-            {{-- <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6 text-center mb-3">
-                  <h6 class="fw-bold fs-4 display-3 lh-sm mb-5">Frequently asked questions</h6>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 text-center my-2">
+                  <h6 class="fw-bold fs-4 display-3 lh-sm mb-2">Data / Statistik</h6>
+                <hr>
                 </div>
-              </div> --}}
+            </div>
 
             {{-- <div class="card border-warning mb-5">
             <h5 class="card-header bg-light py-3">
@@ -156,12 +159,12 @@
             <h3>0</h3>
             <p><b>Rumah Umum</b></p>
             </div>
-            {{-- <div class="icon">
+            <div class="icon">
             <i class="fas fa-shopping-cart"></i>
             </div>
             <a href="#" class="small-box-footer">
             More info <i class="fas fa-arrow-circle-right"></i>
-            </a> --}}
+            </a>
             </div>
             </div>
 
@@ -172,12 +175,12 @@
             <h3>0</h3>
             <p><b>Rumah Komersil</b></p>
             </div>
-            {{-- <div class="icon">
+            <div class="icon">
             <i class="ion ion-stats-bars"></i>
             </div>
             <a href="#" class="small-box-footer">
             More info <i class="fas fa-arrow-circle-right"></i>
-            </a> --}}
+            </a>
             </div>
             </div>
 
@@ -188,12 +191,12 @@
             <h3>0</h3>
             <p><b>Rumah Swadaya</b></p>
             </div>
-            {{-- <div class="icon">
+            <div class="icon">
             <i class="fas fa-chart-pie"></i>
             </div>
             <a href="#" class="small-box-footer">
             More info <i class="fas fa-arrow-circle-right"></i>
-            </a> --}}
+            </a>
             </div>
             </div>
             </div>
@@ -399,13 +402,13 @@
             <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
               <p class="fs-0 my-2 text-400">All rights Reserved <span class="fw-bold text-500">&copy; Diskominfotik Kota Banjarmasin, 2022</span></p>
             </div>
-            <div class="col-12 col-sm-8 col-md-6">
+            {{-- <div class="col-12 col-sm-8 col-md-6">
               <p class="text-center text-md-end text-400"> Made with&nbsp;
                 <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FD7D72" viewBox="0 0 16 16">
                   <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
                 </svg>&nbsp;by&nbsp;<a class="fw-bold text-500" href="https://themewagon.com/" target="_blank">ThemeWagon </a>
               </p>
-            </div>
+            </div> --}}
           </div>
         </div>
         <!-- end of .container-->
