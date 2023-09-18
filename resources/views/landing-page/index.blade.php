@@ -30,7 +30,12 @@
     <!-- ===============================================-->
     <link href="{{ asset('vendor/collab/assets/css/theme.css') }}" rel="stylesheet" />
 
+    <link rel="stylesheet" href="{{ mix('/adminlte.min.css', '/assets/vendor/boilerplate') }}">
+
     <style>
+        .container {
+            max-width: 1280px;
+        }
         .navbar {
             border-bottom: 1px solid #f8f3f0;
         }
@@ -51,8 +56,17 @@
             font-size: .875rem;
             border-radius: 0.25rem;
         }
-        .text-primary {
+        /* .text-primary {
             color: #008cff !important;
+        } */
+        .bg-gradient {
+            background-image: linear-gradient(to right , #FF5722, #FF9800)!important;
+        }
+        .bg-soft-warning {
+            background-color: #eeeeee40 !important;
+        }
+        .nav-link {
+            color: #FF5722;
         }
     </style>
 
@@ -65,10 +79,10 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand" href="index.html"> <img class="me-3 d-inline-block" src="{{ asset('images/LOGO2.png') }}" alt="" height="45" /></a>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2 d-block bg-light" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container"><a class="navbar-brand" href="{{ url('') }}"> <img class="me-3 d-inline-block" src="{{ asset('images/LOGO2.png') }}" alt="" height="45" /></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto pt-2 pt-lg-0 font-base">
               <!-- <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold active" aria-current="page" href="#home">Home</a></li> -->
             </ul>
@@ -79,14 +93,14 @@
           </div>
         </div>
       </nav>
-      <section id="home" style="background-image:url('{{ asset('images/hero-bg.png') }}');background-position:bottom;background-size:cover;">
+      <section class="pb-4" id="home" style="background-image:url('{{ asset('assets/img/bckbawah.png') }}');background-position:bottom;background-size:cover;">
         <div class="container">
           <div class="row align-items-center g-2">
-            <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/home.png') }}" alt="hero-header" /></div>
-            <div class="col-md-7 col-lg-6 py-6 text-md-start text-center">
-              <!-- <h6 class="fs-0 text-uppercase fw-bold text-600">Top Business App</h6> -->
-              <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-primary"> SIP-KAWAN</h1>
-              <p class="mb-5 fs-3 fw-medium">Sistem Informasi Perumahan dan Kawasan Permukiman</p>
+            <div class="col-md-5 col-lg-5 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/banner_image_1.png') }}" alt="hero-header" /></div>
+            <div class="col-md-7 col-lg-7 py-6 text-md-start text-center">
+              <h6 class="fs-0 text-uppercase fw-bold text-600">Selamat Datang</h6>
+              <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-warning"> SIP-KAWAN</h1>
+              <p class="mb-5 fs-3 fw-medium">Sistem Informasi Perumahan dan Kawasan Permukiman Kota Banjarmasin</p>
               <a class="btn hover-top btn-collab" href="{{ route('boilerplate.login') }}"><i class="fas fa-user me-2"></i> MASUK</a>
               <!-- <a class="btn hover-top btn-collab-outline text-gradient ms-2" href="#!"> <i class="fas fa-play text-danger me-md-2 me-0"></i> CHECK DEMO</a> -->
             </div>
@@ -94,118 +108,224 @@
         </div>
       </section>
 
+      <section class="py-4 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/Ig-Logo-PNG-Photos.png') }}" height="38" alt="brands"></div>
+            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/facebook-logo-4-1.png') }}" height="22" alt="brands"></div>
+            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/pngimg.com - twitter_PNG31.png') }}" height="38" alt="brands"></div>
+            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/youtube.png') }}" height="38" alt="brands"></div>
+          </div>
+        </div><!-- end of .container-->
+      </section>
+
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-      <section class="py-6 bg-soft-warning" style="background-image:url('{{ asset('images/bg.png') }}');background-position: center;">
+      <section class="py-4" style="background-image:url('{{ asset('images/bg.png') }}');background-position: center;">
 
         <div class="container">
+
+            {{-- <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6 text-center mb-3">
+                  <h6 class="fw-bold fs-4 display-3 lh-sm mb-5">Frequently asked questions</h6>
+                </div>
+              </div> --}}
+
+            {{-- <div class="card border-warning mb-5">
+            <h5 class="card-header bg-light py-3">
+                Jumlah Rumah
+            </h5>
+            <div class="card-body pt-4"> --}}
+
+                <div class="row mt-4 mb-4">
+                    <div class="col-md-4">
+                        <select class="form-select py-3" name="question_id" id="question_id">
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-dark border-0 w-100 py-3"><i class="fa fa-filter"></i> Filter</button>
+                    </div>
+                </div>
+          <div class="row mb-2">
+            <div class="col-lg-4 col-6">
+
+            <div class="small-box bg-info">
+            <div class="inner">
+            <h3>0</h3>
+            <p><b>Rumah Umum</b></p>
+            </div>
+            {{-- <div class="icon">
+            <i class="fas fa-shopping-cart"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+            More info <i class="fas fa-arrow-circle-right"></i>
+            </a> --}}
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+
+            <div class="small-box bg-success">
+            <div class="inner">
+            <h3>0</h3>
+            <p><b>Rumah Komersil</b></p>
+            </div>
+            {{-- <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+            More info <i class="fas fa-arrow-circle-right"></i>
+            </a> --}}
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+
+            <div class="small-box bg-warning">
+            <div class="inner">
+            <h3>0</h3>
+            <p><b>Rumah Swadaya</b></p>
+            </div>
+            {{-- <div class="icon">
+            <i class="fas fa-chart-pie"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+            More info <i class="fas fa-arrow-circle-right"></i>
+            </a> --}}
+            </div>
+            </div>
+            </div>
+            {{-- </div>
+            </div> --}}
+
           <div class="row">
             <div class="col-12">
                 <div class="card border-warning mb-5">
-                    <h5 class="card-header bg-warning text-white py-3">
-                        Data Sebaran Rumah Susun
+                    <h5 class="card-header bg-light py-3">
+                        Data Perumahan
                     </h5>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover va-middle w-100" id="dt_rumahsusun">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Rumah Susun</th>
-                                        <th>Kecamatan</th>
-                                        <th>Kelurahan</th>
-                                        <th>Alamat</th>
-                                        <th>Luas Unit</th>
-                                        <th>Jumlah Unit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($rumahsusun as $value)
-                                        <tr>
-                                            <td>{{ $value->nama_rumah_susun }}</td>
-                                            <td>{{ $value->kecamatan->kecamatan }}</td>
-                                            <td>{{ $value->kelurahan->nama_deskel }}</td>
-                                            <td>{{ $value->alamat }}</td>
-                                            <td>{{ $value->luas }}</td>
-                                            <td>{{ $value->jumlah }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                <nav>
+                    <div class="nav nav-tabs mb-4" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Data Sebaran Rumah Susun</button>
+                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Data Sebaran Komplek Perumahan</button>
+                      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Data Rumah Sewa Milik Masyarakat</button>
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                        <div class="card border-warning mb-5">
+                            <h5 class="card-header bg-light py-3">
+                                Data Sebaran Rumah Susun
+                            </h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover va-middle w-100" id="dt_rumahsusun">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Rumah Susun</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kelurahan</th>
+                                                <th>Alamat</th>
+                                                <th>Luas Unit</th>
+                                                <th>Jumlah Unit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($rumahsusun as $value)
+                                                <tr>
+                                                    <td>{{ $value->nama_rumah_susun }}</td>
+                                                    <td>{{ $value->kecamatan->kecamatan }}</td>
+                                                    <td>{{ $value->kelurahan->nama_deskel }}</td>
+                                                    <td>{{ $value->alamat }}</td>
+                                                    <td>{{ $value->luas }}</td>
+                                                    <td>{{ $value->jumlah }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="card border-warning mb-5">
-                    <h5 class="card-header bg-warning text-white py-3">
-                        Data Sebaran Komplek Perumahan
-                    </h5>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover va-middle w-100" id="dt_sebarankomplek">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Perumahan</th>
-                                        <th>Nama Pengembang</th>
-                                        <th>Kecamatan</th>
-                                        <th>Kelurahan</th>
-                                        <th>Luas</th>
-                                        <th>Jenis</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($sebarankomplek as $value)
-                                        <tr>
-                                            <td>{{ $value->nama_perumahan }}</td>
-                                            <td>{{ $value->nama_pengembang }}</td>
-                                            <td>{{ $value->kecamatan->kecamatan }}</td>
-                                            <td>{{ $value->kelurahan->nama_deskel }}</td>
-                                            <td>{{ $value->luas}}</td>
-                                            <td>{{ $value->jenis }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                        <div class="card border-warning mb-5">
+                            <h5 class="card-header bg-light py-3">
+                                Data Sebaran Komplek Perumahan
+                            </h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover va-middle w-100" id="dt_sebarankomplek">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Perumahan</th>
+                                                <th>Nama Pengembang</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kelurahan</th>
+                                                <th>Luas</th>
+                                                <th>Jenis</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($sebarankomplek as $value)
+                                                <tr>
+                                                    <td>{{ $value->nama_perumahan }}</td>
+                                                    <td>{{ $value->nama_pengembang }}</td>
+                                                    <td>{{ $value->kecamatan->kecamatan }}</td>
+                                                    <td>{{ $value->kelurahan->nama_deskel }}</td>
+                                                    <td>{{ $value->luas}}</td>
+                                                    <td>{{ $value->jenis }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="card border-warning">
-                    <h5 class="card-header bg-warning text-white py-3">
-                        Data Rumah Sewa Milik Masyarakat
-                    </h5>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover va-middle w-100" id="dt_rumahsewa">
-                                <thead>
-                                    <tr>
-                                        <th>Jenis Sarana</th>
-                                        <th>Kecamatan</th>
-                                        <th>Kelurahan</th>
-                                        <th>Tipe/Luas Hunian</th>
-                                        <th>Jumlah Hunian</th>
-                                        <th>Tarif Sewa</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($rumahsewa as $value)
-                                        <tr>
-                                            <td>{{ $value->jenis }}</td>
-                                            <td>{{ $value->kecamatan->kecamatan }}</td>
-                                            <td>{{ $value->kelurahan->nama_deskel }}</td>
-                                            <td>{{ $value->luas_hunian }}</td>
-                                            <td>{{ $value->jumlah_hunian }}</td>
-                                            <td>{{ $value->tarif_sewa }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                        <div class="card border-warning">
+                            <h5 class="card-header bg-light py-3">
+                                Data Rumah Sewa Milik Masyarakat
+                            </h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover va-middle w-100" id="dt_rumahsewa">
+                                        <thead>
+                                            <tr>
+                                                <th>Jenis Sarana</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kelurahan</th>
+                                                <th>Tipe/Luas Hunian</th>
+                                                <th>Jumlah Hunian</th>
+                                                <th>Tarif Sewa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($rumahsewa as $value)
+                                                <tr>
+                                                    <td>{{ $value->jenis }}</td>
+                                                    <td>{{ $value->kecamatan->kecamatan }}</td>
+                                                    <td>{{ $value->kelurahan->nama_deskel }}</td>
+                                                    <td>{{ $value->luas_hunian }}</td>
+                                                    <td>{{ $value->jumlah_hunian }}</td>
+                                                    <td>{{ $value->tarif_sewa }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                  </div>
+                    </div>
                 </div>
-
             </div>
           </div>
+
         </div>
         <!-- end of .container-->
 

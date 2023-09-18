@@ -41,3 +41,13 @@
         </div>
     @endcomponent
 @endsection
+
+@push('css')
+    <style>
+        .login-page, .register-page {
+            background-image: url("{{ asset('assets/img/bg.jpg') }}");
+            background-position: top;
+            background-size: cover;
+        }
+    </style>
+@endpush
