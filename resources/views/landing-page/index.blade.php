@@ -66,7 +66,10 @@
             background-color: #eeeeee40 !important;
         }
         .nav-link {
-            color: #FF5722;
+            color: #888888;
+        }
+        .text-warning {
+            color: #f98d37!important;
         }
     </style>
 
@@ -79,7 +82,7 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2 d-block bg-light" data-navbar-on-scroll="data-navbar-on-scroll">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2 d-block bg-white" data-navbar-on-scroll="data-navbar-on-scroll">
         <div class="container"><a class="navbar-brand" href="{{ url('') }}"> <img class="me-3 d-inline-block" src="{{ asset('images/LOGO2.png') }}" alt="" height="45" /></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
@@ -90,7 +93,7 @@
             </ul>
             <form class="ps-lg-5">
               <!-- <button class="btn btn-link text-danger fw-bold order-1 order-lg-0" type="button">Sign in</button> -->
-              <a class="btn hover-top btn-collab" href="{{ route('boilerplate.login') }}">MASUK</a>
+              <a class="btn hover-top btn-collab text-white" href="{{ route('boilerplate.login') }}">MASUK</a>
             </form>
           </div>
         </div>
@@ -103,7 +106,7 @@
               <h6 class="fs-0 text-uppercase fw-bold text-600">Selamat Datang</h6>
               <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-warning"> SIP-KAWAN</h1>
               <p class="mb-5 fs-3 fw-medium">Sistem Informasi Perumahan dan Kawasan Permukiman Kota Banjarmasin</p>
-              <a class="btn hover-top btn-collab" href="{{ route('boilerplate.login') }}"><i class="fas fa-user me-2"></i> MASUK</a>
+              <a class="btn hover-top btn-collab text-white" href="{{ route('boilerplate.login') }}"><i class="fas fa-user me-2"></i> MASUK</a>
               <!-- <a class="btn hover-top btn-collab-outline text-gradient ms-2" href="#!"> <i class="fas fa-play text-danger me-md-2 me-0"></i> CHECK DEMO</a> -->
             </div>
           </div>
@@ -140,27 +143,33 @@
                 Jumlah Rumah
             </h5>
             <div class="card-body pt-4"> --}}
-
+            <form action="{{ route('welcome') }}" method="GET">
                 <div class="row mt-4 mb-4">
                     <div class="col-md-4">
-                        <select class="form-select py-3" name="question_id" id="question_id">
-                            <option value="2022">2022</option>
+                        <select class="form-select py-3" name="tahun" id="tahun">
+                            @php
+                                $tahunSekarang = date("Y");
+                            @endphp
+                            @for ($thn = 2022; $thn <= $tahunSekarang; $thn++)
+                                <option value="{{ $thn }}" {{ ($thn == $tahun) ? 'selected' : '' }}>{{ $thn }}</option>
+                            @endfor
                         </select>
                     </div>
                     <div class="col-md-2">
                         <button class="btn btn-dark border-0 w-100 py-3"><i class="fa fa-filter"></i> Filter</button>
                     </div>
                 </div>
+            </form>
           <div class="row mb-2">
             <div class="col-lg-4 col-6">
 
-            <div class="small-box bg-info">
+            <div class="small-box bg-white">
             <div class="inner">
-            <h3>0</h3>
-            <p><b>Rumah Umum</b></p>
+            <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3>
+            <p><b>Jumlah Rumah Umum</b></p>
             </div>
             <div class="icon">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-home"></i>
             </div>
             <a href="#" class="small-box-footer">
             More info <i class="fas fa-arrow-circle-right"></i>
@@ -170,13 +179,13 @@
 
             <div class="col-lg-4 col-6">
 
-            <div class="small-box bg-success">
+            <div class="small-box bg-white">
             <div class="inner">
-            <h3>0</h3>
-            <p><b>Rumah Komersil</b></p>
+            <h3>{{ number_format($jml_rmh_komersil, 0, ',', '.') }}</h3>
+            <p><b>Jumlah Rumah Komersil</b></p>
             </div>
             <div class="icon">
-            <i class="ion ion-stats-bars"></i>
+            <i class="fas fa-home"></i>
             </div>
             <a href="#" class="small-box-footer">
             More info <i class="fas fa-arrow-circle-right"></i>
@@ -186,13 +195,13 @@
 
             <div class="col-lg-4 col-6">
 
-            <div class="small-box bg-warning">
+            <div class="small-box bg-white">
             <div class="inner">
-            <h3>0</h3>
-            <p><b>Rumah Swadaya</b></p>
+            <h3>{{ number_format($jml_rmh_swadaya, 0, ',', '.') }}</h3>
+            <p><b>Jumlah Rumah Swadaya</b></p>
             </div>
             <div class="icon">
-            <i class="fas fa-chart-pie"></i>
+            <i class="fas fa-home"></i>
             </div>
             <a href="#" class="small-box-footer">
             More info <i class="fas fa-arrow-circle-right"></i>
@@ -205,56 +214,21 @@
 
           <div class="row">
             <div class="col-12">
-                <div class="card border-warning mb-5">
-                    <h5 class="card-header bg-light py-3">
-                        Data Perumahan
-                    </h5>
-                    <div class="card-body">
-                <nav>
-                    <div class="nav nav-tabs mb-4" id="nav-tab" role="tablist">
-                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Data Sebaran Rumah Susun</button>
-                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Data Sebaran Komplek Perumahan</button>
-                      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Data Rumah Sewa Milik Masyarakat</button>
+                <div class="card card-warning card-outline card-tabs mb-5">
+                    <div class="card-header p-0 border-bottom-0">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Data Sebaran Komplek Perumahan</button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Data Sebaran Rumah Susun</button>
+                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Data Rumah Sewa Milik Masyarakat</button>
+                            </div>
+                        </nav>
                     </div>
-                  </nav>
+                    <div class="card-body">
+
                   <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                        <div class="card border-warning mb-5">
-                            <h5 class="card-header bg-light py-3">
-                                Data Sebaran Rumah Susun
-                            </h5>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-hover va-middle w-100" id="dt_rumahsusun">
-                                        <thead>
-                                            <tr>
-                                                <th>Nama Rumah Susun</th>
-                                                <th>Kecamatan</th>
-                                                <th>Kelurahan</th>
-                                                <th>Alamat</th>
-                                                <th>Luas Unit</th>
-                                                <th>Jumlah Unit</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($rumahsusun as $value)
-                                                <tr>
-                                                    <td>{{ $value->nama_rumah_susun }}</td>
-                                                    <td>{{ $value->kecamatan->kecamatan }}</td>
-                                                    <td>{{ $value->kelurahan->nama_deskel }}</td>
-                                                    <td>{{ $value->alamat }}</td>
-                                                    <td>{{ $value->luas }}</td>
-                                                    <td>{{ $value->jumlah }}</td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                        <div class="card border-warning mb-5">
+                        <div class="card border-light mb-0">
                             <h5 class="card-header bg-light py-3">
                                 Data Sebaran Komplek Perumahan
                             </h5>
@@ -278,8 +252,43 @@
                                                     <td>{{ $value->nama_pengembang }}</td>
                                                     <td>{{ $value->kecamatan->kecamatan }}</td>
                                                     <td>{{ $value->kelurahan->nama_deskel }}</td>
-                                                    <td>{{ $value->luas}}</td>
-                                                    <td>{{ $value->jenis }}</td>
+                                                    <td class="text-right">{{ number_format($value->luas, 0, ',', '.') }}</td>
+                                                    <td>{{ App\Models\SebaranKomplek::jenis($value->jenis) }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                        <div class="card border-light mb-0">
+                            <h5 class="card-header bg-light py-3">
+                                Data Sebaran Rumah Susun
+                            </h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover va-middle w-100" id="dt_rumahsusun">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Rumah Susun</th>
+                                                <th>Kecamatan</th>
+                                                <th>Kelurahan</th>
+                                                <th>Alamat</th>
+                                                <th>Luas Unit</th>
+                                                <th>Jumlah Unit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($rumahsusun as $value)
+                                                <tr>
+                                                    <td>{{ $value->nama_rumah_susun }}</td>
+                                                    <td>{{ $value->kecamatan->kecamatan }}</td>
+                                                    <td>{{ $value->kelurahan->nama_deskel }}</td>
+                                                    <td>{{ $value->alamat }}</td>
+                                                    <td class="text-right">{{ number_format($value->luas, 0, ',', '.') }}</td>
+                                                    <td class="text-right">{{ number_format($value->jumlah, 0, ',', '.') }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -289,7 +298,7 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                        <div class="card border-warning">
+                        <div class="card border-light mb-0">
                             <h5 class="card-header bg-light py-3">
                                 Data Rumah Sewa Milik Masyarakat
                             </h5>
@@ -313,8 +322,8 @@
                                                     <td>{{ $value->kecamatan->kecamatan }}</td>
                                                     <td>{{ $value->kelurahan->nama_deskel }}</td>
                                                     <td>{{ $value->luas_hunian }}</td>
-                                                    <td>{{ $value->jumlah_hunian }}</td>
-                                                    <td>{{ $value->tarif_sewa }}</td>
+                                                    <td>{{ number_format($value->jumlah_hunian, 0, ',', '.') }}</td>
+                                                    <td>{{ number_format($value->tarif_sewa, 0, ',', '.') }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -439,6 +448,12 @@
     <script src="{{ asset('assets/vendor/boilerplate/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('vendor/collab/assets/js/theme.js') }}"></script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+    <script>$.ajaxSetup({headers:{'X-CSRF-TOKEN':'{{ csrf_token() }}'}});</script>
+    <script src="{{ asset('assets/js/vue.min.js') }}"></script>
+
     <script type="text/javascript">
         $(function() {
             $('#dt_rumahsusun').DataTable();
@@ -447,8 +462,6 @@
         })
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
   </body>
 
 </html>

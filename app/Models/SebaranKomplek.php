@@ -22,4 +22,14 @@ class SebaranKomplek extends Model
     {
         return $this->belongsTo(KelDesa::class, 'id_kelurahan',);
     }
+
+    public static function jenis($key = '')
+    {
+        $db = [
+            1 => 'Umum',
+            2 => 'Komersil',
+            3 => 'Berimbang'
+        ];
+        return ($key != '') ? $db[$key] : $db;
+    }
 }
