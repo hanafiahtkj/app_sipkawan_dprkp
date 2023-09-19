@@ -212,6 +212,21 @@
             {{-- </div>
             </div> --}}
 
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card border-light mb-0">
+                        <h5 class="card-header bg-light py-3">
+                            Detail Jumlah Rumah
+                        </h5>
+                        <div class="card-body">
+                            <div class="mt-0" id="surveyChart">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
           <div class="row">
             <div class="col-12">
                 <div class="card card-warning card-outline card-tabs mb-5">
@@ -447,19 +462,143 @@
     <script src="{{ asset('assets/vendor/boilerplate/plugins/moment/moment-with-locales.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/boilerplate/plugins/datatables/datatables.min.js') }}"></script>
     <script src="{{ asset('vendor/collab/assets/js/theme.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.js" integrity="sha512-6LKCH7i2+zMNczKuCT9ciXgFCKFp3MevWTZUXDlk7azIYZ2wF5LRsrwZqO7Flt00enUI+HwzzT5uhOvy6MNPiA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;600;700&amp;family=Montserrat:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
     <script>$.ajaxSetup({headers:{'X-CSRF-TOKEN':'{{ csrf_token() }}'}});</script>
-    <script src="{{ asset('assets/js/vue.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/vue.min.js') }}"></script> --}}
 
     <script type="text/javascript">
         $(function() {
             $('#dt_rumahsusun').DataTable();
             $('#dt_sebarankomplek').DataTable();
             $('#dt_rumahsewa').DataTable();
+
+            const config = {
+                type: 'bar',
+                // data: data,
+                options: {
+                    indexAxis: 'y',
+                    elements: {
+                    bar: {
+                        borderWidth: 2,
+                    }
+                    },
+                    responsive: true,
+                    plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Chart.js Horizontal Bar Chart'
+                    }
+                    }
+                },
+            };
         })
+    </script>
+
+    <script>
+        function getRandomPastelColor() {
+            var hue = Math.floor(Math.random() * 360); // Pilih hue acak antara 0 dan 360
+            var pastel = 'hsl(' + hue + ', 70%, 80%)'; // Saturasi 70% dan kecerahan 80%
+            return pastel;
+        }
+
+        // Fungsi untuk menginisialisasi grafik
+        function initializeChart(data) {
+            console.log(data);
+
+            // Hapus canvas jika ada sebelumnya
+            const existingCanvas = document.getElementById("myChart");
+            if (existingCanvas) {
+                existingCanvas.remove();
+            }
+
+            // Hapus card jika ada sebelumnya
+            // const existingCard = document.getElementById("chartCard");
+            // if (existingCard) {
+            //     existingCard.remove();
+            // }
+
+            // Tambahkan canvas baru
+            const canvasContainer = document.getElementById("surveyChart");
+            const canvas = document.createElement('canvas');
+            canvas.setAttribute("id", "myChart");
+            canvas.setAttribute("height", "125");
+            canvasContainer.appendChild(canvas);
+
+            var labels = <?php echo json_encode($rumahChart['label']); ?>;
+            var totals = <?php echo json_encode($rumahChart['total']); ?>;
+
+            var datasets = [];
+
+            for (var i = 0; i < labels.length; i++) {
+                var dataset = {
+                    label: labels[i],
+                    data: [totals[i]],
+                    borderWidth: 2,
+                    borderColor: '#888888',
+                    backgroundColor: getRandomPastelColor(),
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#6777ef',
+                    pointRadius: 4
+                };
+
+                datasets.push(dataset);
+            }
+
+            var statistics_chart = canvas.getContext('2d');
+            var myChart2 = new Chart(statistics_chart, {
+            type: 'bar',
+            data: {
+                labels: ['JUMLAH RUMAH'],
+                datasets: datasets
+            },
+            options: {
+                legend: {
+                display: false
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        // ticks: {
+                        //     stepSize: 50
+                        // }
+                    }
+                }
+            }
+            });
+
+            // const chartCard = document.createElement('div');
+            // chartCard.setAttribute("id", "chartCard");
+            // chartCard.classList.add('card', 'mt-4');
+            // const cardBody = document.createElement('div');
+            // cardBody.classList.add('card-body');
+
+            // // Tambahkan label dan jumlah menggunakan list group Bootstrap
+            // const listGroup = document.createElement('ul');
+            // listGroup.classList.add('list-group', 'list-group-flush');
+            // for (let i = 0; i < data["label_all"].length; i++) {
+            //     const listItem = document.createElement('li');
+            //     listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+            //     listItem.innerHTML = `${data["label_all"][i]} <span class="badge bg-primary rounded-pill">${data["total"][i]}</span>`;
+            //     listGroup.appendChild(listItem);
+            // }
+
+            // // Gabungkan elemen-elemen HTML
+            // cardBody.appendChild(listGroup);
+            // chartCard.appendChild(cardBody);
+            // canvasContainer.appendChild(chartCard);
+        }
+
+        var chartData = [];
+        initializeChart(chartData);
     </script>
 
   </body>

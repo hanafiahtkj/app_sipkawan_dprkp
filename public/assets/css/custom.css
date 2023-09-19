@@ -92,3 +92,8 @@
 [class*=sidebar-light-] .nav-treeview>.nav-item>.nav-link {
     color: #434242;
 }
+
+.card {
+    box-shadow: unset;
+    border: 1px solid rgba(0,0,0,.125);
+}
