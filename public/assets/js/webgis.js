@@ -72,6 +72,9 @@ new Vue({
             wfsLayerVisibleSebaranRumahSewaPointBantim2022: true,
             wfsLayerSebaranRumahSewaPointBanut2022: null,
             wfsLayerVisibleSebaranRumahSewaPointBanut2022: true,
+
+            wfsLayerPPDLBFP: null,
+            wfsLayerVisiblePPDLBFP: false,
         };
     },
     mounted() {
@@ -741,6 +744,29 @@ new Vue({
 
             this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2022);
             this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanut2022);
+
+            var wfsSourcePPDLBFP = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_UTARA&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerPPDLBFP = new ol.layer.Vector({
+                source: wfsSourcePPDLBFP,
+                visible: this.wfsLayerVisiblePPDLBFP,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerPPDLBFP);
+            this.setupPointFeatureSelection(this.wfsLayerPPDLBFP);
         },
         setupFeatureSelection(layer) {
             var selectInteraction = new ol.interaction.Select({
@@ -909,6 +935,10 @@ new Vue({
             } else {
                 layer.setVisible(false);
             }
+        },
+        wfsLayerVisiblePPDLBFP() {
+            var layer = this.wfsLayerPPDLBFP;
+            layer.setVisible(this.wfsLayerVisiblePPDLBFP);
         },
     }
 });

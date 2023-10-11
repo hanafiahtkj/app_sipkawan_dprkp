@@ -193,6 +193,10 @@
                             <label for="wfsLayerVisibleTransportasi" class="form-check-label"><span>Transportasi</span></label>
                             <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(255 255 255); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
                         </div>
+                        <div class="mb-1"><input type="checkbox" id="wfsLayerVisiblePPDLBFP" v-model="wfsLayerVisiblePPDLBFP" class="mr-1">
+                            <label for="wfsLayerVisiblePPDLBFP" class="form-check-label"><span>PPDLBFP</span></label>
+                            <span style="float: right;background-image: url(&quot;https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png&quot;);background-size: 50%;width: 25px;height: 20px;display: inline-block;margin-left: 5px;background-repeat: no-repeat;background-position: center;"></span>
+                        </div>
                       </div>
                     </div>
                   </div>

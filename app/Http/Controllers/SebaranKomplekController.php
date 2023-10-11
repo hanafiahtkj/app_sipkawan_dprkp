@@ -15,6 +15,7 @@ use App\Models\KelDesa;
 use App\Models\SebaranKomplek;
 use App\Exports\SebaranKomplekExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\SebaranKomplekImport;
 
 class SebaranKomplekController extends Controller
 {
@@ -136,5 +137,17 @@ class SebaranKomplekController extends Controller
     public function export()
     {
         return Excel::download(new SebaranKomplekExport, 'sebaran-komplek.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new SebaranKomplekImport, request()->file('file_excel'));
+
+        return redirect()->route('boilerplate.sebaran-komplek.index')
+                            ->with('growl', [__('boilerplate::rawanbahaya.successadd'), 'success']);
     }
 }

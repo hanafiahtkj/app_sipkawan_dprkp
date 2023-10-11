@@ -530,7 +530,7 @@
             const canvasContainer = document.getElementById("surveyChart");
             const canvas = document.createElement('canvas');
             canvas.setAttribute("id", "myChart");
-            canvas.setAttribute("height", "125");
+            canvas.setAttribute("height", "100");
             canvasContainer.appendChild(canvas);
 
             var labels = <?php echo json_encode($rumahChart['label']); ?>;

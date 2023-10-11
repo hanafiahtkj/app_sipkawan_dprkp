@@ -171,9 +171,13 @@ Route::group([
         Route::get('pengadaan-psu/export/',
             [PengadaanPsuController::class, 'export'])->name('pengadaan-psu.export');
         Route::resource('pengadaan-psu', PengadaanPsuController::class);
+
         Route::get('sebaran-komplek/export/',
             [SebaranKomplekController::class, 'export'])->name('sebaran-komplek.export');
+        Route::post('sebaran-komplek/import/',
+            [SebaranKomplekController::class, 'import'])->name('sebaran-komplek.import');
         Route::resource('sebaran-komplek', SebaranKomplekController::class);
+
         Route::get('rumah-susun/export/',
             [RumahSusunController::class, 'export'])->name('rumah-susun.export');
         Route::resource('rumah-susun', RumahSusunController::class);
