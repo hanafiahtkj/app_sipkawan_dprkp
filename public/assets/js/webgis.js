@@ -73,7 +73,11 @@ new Vue({
             wfsLayerSebaranRumahSewaPointBanut2022: null,
             wfsLayerVisibleSebaranRumahSewaPointBanut2022: true,
 
-            wfsLayerPPDLBFP: null,
+            wfsLayerPPDLBFPBanbar: null,
+            wfsLayerPPDLBFPBansel: null,
+            wfsLayerPPDLBFPBanteng: null,
+            wfsLayerPPDLBFPBantim: null,
+            wfsLayerPPDLBFPBanut: null,
             wfsLayerVisiblePPDLBFP: false,
         };
     },
@@ -745,16 +749,16 @@ new Vue({
             this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2022);
             this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanut2022);
 
-            var wfsSourcePPDLBFP = new ol.source.Vector({
+            var wfsSourcePPDLBFPBanbar = new ol.source.Vector({
                 format: new ol.format.GeoJSON(),
                 url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_UTARA&outputFormat=application%2Fjson';
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_BARAT&outputFormat=application%2Fjson';
                 },
                 strategy: ol.loadingstrategy.bbox,
             });
 
-            this.wfsLayerPPDLBFP = new ol.layer.Vector({
-                source: wfsSourcePPDLBFP,
+            this.wfsLayerPPDLBFPBanbar = new ol.layer.Vector({
+                source: wfsSourcePPDLBFPBanbar,
                 visible: this.wfsLayerVisiblePPDLBFP,
                 style: new ol.style.Style({
                     image: new ol.style.Icon({
@@ -765,8 +769,100 @@ new Vue({
                 })
             });
 
-            this.map.addLayer(this.wfsLayerPPDLBFP);
-            this.setupPointFeatureSelection(this.wfsLayerPPDLBFP);
+            this.map.addLayer(this.wfsLayerPPDLBFPBanbar);
+            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanbar);
+
+            var wfsSourcePPDLBFPBansel = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_SELATAN&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerPPDLBFPBansel = new ol.layer.Vector({
+                source: wfsSourcePPDLBFPBansel,
+                visible: this.wfsLayerVisiblePPDLBFP,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerPPDLBFPBansel);
+            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBansel);
+
+            var wfsSourcePPDLBFPBanteng = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_TENGAH&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerPPDLBFPBanteng = new ol.layer.Vector({
+                source: wfsSourcePPDLBFPBanteng,
+                visible: this.wfsLayerVisiblePPDLBFP,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerPPDLBFPBanteng);
+            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanteng);
+
+            var wfsSourcePPDLBFPBantim = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_TIMUR&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerPPDLBFPBantim = new ol.layer.Vector({
+                source: wfsSourcePPDLBFPBantim,
+                visible: this.wfsLayerVisiblePPDLBFP,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerPPDLBFPBantim);
+            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBantim);
+
+            var wfsSourcePPDLBFPBanut = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function(extent) {
+                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_UTARA&outputFormat=application%2Fjson';
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
+
+            this.wfsLayerPPDLBFPBanut = new ol.layer.Vector({
+                source: wfsSourcePPDLBFPBanut,
+                visible: this.wfsLayerVisiblePPDLBFP,
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        anchor: [0.5, 1],
+                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                        scale: 0.25, // Ukuran gambar
+                    }),
+                })
+            });
+
+            this.map.addLayer(this.wfsLayerPPDLBFPBanut);
+            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanut);
         },
         setupFeatureSelection(layer) {
             var selectInteraction = new ol.interaction.Select({
@@ -937,7 +1033,19 @@ new Vue({
             }
         },
         wfsLayerVisiblePPDLBFP() {
-            var layer = this.wfsLayerPPDLBFP;
+            var layer = this.wfsLayerPPDLBFPBanbar;
+            layer.setVisible(this.wfsLayerVisiblePPDLBFP);
+
+            var layer = this.wfsLayerPPDLBFPBansel;
+            layer.setVisible(this.wfsLayerVisiblePPDLBFP);
+
+            var layer = this.wfsLayerPPDLBFPBanteng;
+            layer.setVisible(this.wfsLayerVisiblePPDLBFP);
+
+            var layer = this.wfsLayerPPDLBFPBantim;
+            layer.setVisible(this.wfsLayerVisiblePPDLBFP);
+
+            var layer = this.wfsLayerPPDLBFPBanut;
             layer.setVisible(this.wfsLayerVisiblePPDLBFP);
         },
     }
