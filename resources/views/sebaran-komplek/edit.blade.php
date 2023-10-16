@@ -42,6 +42,8 @@
                         <option value="1" @if (old('jenis', $dataInput->jenis) == '1') selected="selected" @endif>Umum</option>
                         <option value="2" @if (old('jenis', $dataInput->jenis) == '2') selected="selected" @endif>Komersil</option>
                         <option value="3" @if (old('jenis', $dataInput->jenis) == '3') selected="selected" @endif>Berimbang</option>
+                        <option value="4" @if (old('jenis', $dataInput->jenis) == '4') selected="selected" @endif>Khusus</option>
+                        <option value="5" @if (old('jenis', $dataInput->jenis) == '5') selected="selected" @endif>Umum dan Komersil</option>
                     @endcomponent
                 @endcomponent
             </div>

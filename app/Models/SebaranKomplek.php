@@ -28,7 +28,9 @@ class SebaranKomplek extends Model
         $db = [
             1 => 'Umum',
             2 => 'Komersil',
-            3 => 'Berimbang'
+            3 => 'Berimbang',
+            4 => 'Khusus',
+            5 => 'Umum dan Komersil',
         ];
         return ($key != '') ? $db[$key] : $db;
     }
