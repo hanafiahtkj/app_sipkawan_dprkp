@@ -44,8 +44,13 @@ class SebarankomplekDatatable extends Datatable
             Column::add(__('Luas'))
                 ->data('luas'),
 
+            Column::add(__('Jumlah Rumah'))
+                ->data('jumlah_rumah'),
+
             Column::add(__('Jenis'))
-                ->data('jenis'),
+                ->data('jenis', function ($data) {
+                    return SebaranKomplek::jenis($data->jenis);
+                }),
 
             Column::add()
                 ->width('70px')
