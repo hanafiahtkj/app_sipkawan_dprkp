@@ -169,9 +169,13 @@ Route::group([
         Route::get('terdampak-relokasi/export/',
             [TerdampakRelokasiController::class, 'export'])->name('terdampak-relokasi.export');
         Route::resource('terdampak-relokasi', TerdampakRelokasiController::class);
+
         Route::get('rumah-sewa/export/',
             [RumahSewaController::class, 'export'])->name('rumah-sewa.export');
+        Route::post('rumah-sewa/import/',
+            [RumahSewaController::class, 'import'])->name('rumah-sewa.import');
         Route::resource('rumah-sewa', RumahSewaController::class);
+
         Route::get('sebaran-fasum/export/',
             [SebaranFasumController::class, 'export'])->name('sebaran-fasum.export');
         Route::resource('sebaran-fasum', SebaranFasumController::class);

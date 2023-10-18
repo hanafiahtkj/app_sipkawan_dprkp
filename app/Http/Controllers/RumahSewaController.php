@@ -15,6 +15,7 @@ use App\Models\KelDesa;
 use App\Models\RumahSewa;
 use App\Exports\RumahSewaExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\RumahSewaImport;
 
 class RumahSewaController extends Controller
 {
@@ -142,5 +143,17 @@ class RumahSewaController extends Controller
     public function export()
     {
         return Excel::download(new RumahSewaExport, 'rumah-sewa.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new RumahSewaImport, request()->file('file_excel'));
+
+        return redirect()->route('boilerplate.rumah-sewa.index')
+                            ->with('growl', [__('boilerplate::rumahsewa.successadd'), 'success']);
     }
 }

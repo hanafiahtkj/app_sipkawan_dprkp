@@ -38,7 +38,7 @@
                     <div class="modal-body">
                         <label class="control-label" for="input-name">File</label>
                         <input type="file" class="form-control" name="file_excel">
-                        <a href="{{ asset('assets/excel/rawan_bencana.xlsx') }}" target="_blank">Download Format Import.xls</a>
+                        <a href="{{ asset('assets/excel/bukan_pemukiman.xlsx') }}" target="_blank">Download Format Import.xls</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>

@@ -26,8 +26,8 @@ class RawanBencanaImport implements ToCollection, WithHeadingRow
             $data = [
                 'tahun'             => $row['tahun'],
                 'jenis'             => $row['jenis_bencana'],
-                'rw'                => trim($row['required'] ?? '') ?: '-',
-                'rt'                => trim($row['required'] ?? '') ?: '-',
+                'rw'                => trim($row['rt'] ?? '') ?: '-',
+                'rt'                => trim($row['rw'] ?? '') ?: '-',
                 'luas'              => str_replace(',', '.', trim($row['luas_perumahan_ha'] ?? 0)) ?: 0,
                 'jumlah_rumah'      => str_replace(',', '.', trim($row['jumlah_rumah'] ?? 0)) ?: 0,
                 'jumlah_kk'         => str_replace(',', '.', trim($row['jumlah_kk'] ?? 0)) ?: 0,
