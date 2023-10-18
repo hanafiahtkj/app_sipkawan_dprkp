@@ -27,7 +27,7 @@ class SebaranKomplekImport implements ToCollection, WithHeadingRow
                 'tahun'           => $row['tahun'],
                 'nama_perumahan'  => $row['nama_perumahan'],
                 'nama_pengembang' => trim($row['nama_pengembang'] ?? '') ?: '-',
-                'luas'            => str_replace(',', '.', $row['luas']),
+                'luas'            => str_replace(',', '.', trim($row['luas'] ?? 0)) ?: 0,
                 'jumlah_rumah'    => str_replace(',', '.', trim($row['jmlh_rmh'] ?? 0)) ?: 0,
             ];
 
@@ -50,13 +50,11 @@ class SebaranKomplekImport implements ToCollection, WithHeadingRow
 
             $data['jenis'] = $jenis_id ?? null;
 
-            // echo var_dump($data).'<br/>';
-
             if (count($data) === count(array_filter($data, function($value) { return $value !== null && $value !== ''; }))) {
                 SebaranKomplek::create($data);
             }
             else {
-                dd($data);
+                // dd($data);
             }
         }
     }

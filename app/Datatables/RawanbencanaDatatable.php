@@ -33,7 +33,9 @@ class RawanbencanaDatatable extends Datatable
                 ->data('jenis'),
 
             Column::add(__('Tingkat Kerawanan'))
-                ->data('tingkat_kerawanan'),
+                ->data('tingkat_kerawanan', function ($data) {
+                    return RawanBencana::tingkat_kerawanan($data->tingkat_kerawanan);
+                }),
 
             Column::add(__('Kecamatan'))
                 ->data('kecamatan.kecamatan'),

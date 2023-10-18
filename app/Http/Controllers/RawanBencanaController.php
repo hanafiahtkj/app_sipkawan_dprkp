@@ -15,6 +15,7 @@ use App\Models\KelDesa;
 use App\Models\RawanBencana;
 use App\Exports\RawanBencanaExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\RawanBencanaImport;
 
 class RawanBencanaController extends Controller
 {
@@ -148,5 +149,17 @@ class RawanBencanaController extends Controller
     public function export()
     {
         return Excel::download(new RawanBencanaExport, 'rawan-bencana.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new RawanBencanaImport, request()->file('file_excel'));
+
+        return redirect()->route('boilerplate.rawan-bencana.index')
+                            ->with('growl', [__('boilerplate::rawanbencana.successadd'), 'success']);
     }
 }

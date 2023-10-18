@@ -22,4 +22,14 @@ class RawanBencana extends Model
     {
         return $this->belongsTo(KelDesa::class, 'id_kelurahan',);
     }
+
+    public static function tingkat_kerawanan($key = '')
+    {
+        $db = [
+            1 => 'Rendah',
+            2 => 'Sedang',
+            3 => 'Tinggi',
+        ];
+        return ($key != '') ? $db[$key] : $db;
+    }
 }

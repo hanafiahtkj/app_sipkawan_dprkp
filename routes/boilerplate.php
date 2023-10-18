@@ -153,9 +153,13 @@ Route::group([
         Route::get('bukan-pemukiman/export/',
             [BukanPemukimanController::class, 'export'])->name('bukan-pemukiman.export');
         Route::resource('bukan-pemukiman', BukanPemukimanController::class);
+
         Route::get('rawan-bencana/export/',
             [RawanBencanaController::class, 'export'])->name('rawan-bencana.export');
+        Route::post('rawan-bencana/import/',
+            [RawanBencanaController::class, 'import'])->name('rawan-bencana.import');
         Route::resource('rawan-bencana', RawanBencanaController::class);
+
         Route::get('terdampak-relokasi/export/',
             [TerdampakRelokasiController::class, 'export'])->name('terdampak-relokasi.export');
         Route::resource('terdampak-relokasi', TerdampakRelokasiController::class);
