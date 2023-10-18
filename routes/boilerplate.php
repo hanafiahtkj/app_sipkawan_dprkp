@@ -156,6 +156,8 @@ Route::group([
 
         Route::get('bukan-pemukiman/export/',
             [BukanPemukimanController::class, 'export'])->name('bukan-pemukiman.export');
+        Route::post('bukan-pemukiman/import/',
+            [BukanPemukimanController::class, 'import'])->name('bukan-pemukiman.import');
         Route::resource('bukan-pemukiman', BukanPemukimanController::class);
 
         Route::get('rawan-bencana/export/',

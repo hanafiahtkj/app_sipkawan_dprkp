@@ -15,6 +15,7 @@ use App\Models\KelDesa;
 use App\Models\BukanPemukiman;
 use App\Exports\BukanPemukimanExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\BukanPemukimanImport;
 
 class BukanPemukimanController extends Controller
 {
@@ -136,6 +137,18 @@ class BukanPemukimanController extends Controller
 
     public function export()
     {
-        return Excel::download(new BukanPemukimanExport, 'rawan-bahaya.xlsx');
+        return Excel::download(new BukanPemukimanExport, 'bukan-pemukiman.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new BukanPemukimanImport, request()->file('file_excel'));
+
+        return redirect()->route('boilerplate.bukan-pemukiman.index')
+                            ->with('growl', [__('boilerplate::bukanpemukiman.successadd'), 'success']);
     }
 }
