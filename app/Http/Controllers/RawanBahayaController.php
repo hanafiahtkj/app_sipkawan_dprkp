@@ -15,6 +15,7 @@ use App\Models\KelDesa;
 use App\Models\RawanBahaya;
 use App\Exports\RawanBahayaExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\RawanBahayaImport;
 
 class RawanBahayaController extends Controller
 {
@@ -140,5 +141,17 @@ class RawanBahayaController extends Controller
     public function export()
     {
         return Excel::download(new RawanBahayaExport, 'rawan-bahaya.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+            'file_excel' => 'required',
+        ]);
+
+        Excel::import(new RawanBahayaImport, request()->file('file_excel'));
+
+        return redirect()->route('boilerplate.rawan-bahaya.index')
+                            ->with('growl', [__('boilerplate::rawanbahaya.successadd'), 'success']);
     }
 }
