@@ -61,8 +61,8 @@ class RawanBencanaController extends Controller
             'jumlah_rumah'  => 'required',
             'jumlah_kk'     => 'required',
             'jumlah_jiwa'   => 'required',
-            'kondisi_fisik'      => 'required',
-            'status_kepemilikan' => 'required'
+            // 'kondisi_fisik'      => 'required',
+            // 'status_kepemilikan' => 'required'
         ]);
 
         $input = $request->all();
@@ -122,8 +122,8 @@ class RawanBencanaController extends Controller
             'jumlah_rumah'  => 'required',
             'jumlah_kk'     => 'required',
             'jumlah_jiwa'   => 'required',
-            'kondisi_fisik'      => 'required',
-            'status_kepemilikan' => 'required'
+            // 'kondisi_fisik'      => 'required',
+            // 'status_kepemilikan' => 'required'
         ]);
 
         $dataInput = RawanBencana::find($id);

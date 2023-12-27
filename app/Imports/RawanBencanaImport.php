@@ -32,6 +32,11 @@ class RawanBencanaImport implements ToCollection, WithHeadingRow
                 'jumlah_rumah'      => str_replace(',', '.', trim($row['jumlah_rumah'] ?? 0)) ?: 0,
                 'jumlah_kk'         => str_replace(',', '.', trim($row['jumlah_kk'] ?? 0)) ?: 0,
                 'jumlah_jiwa'       => str_replace(',', '.', trim($row['jumlah_jiwa'] ?? 0)) ?: 0,
+
+                'kondisi_rlh'       => str_replace(',', '.', trim($row['kondisi_rumah_rlh'] ?? 0)) ?: 0,
+                'kondisi_rtlh'      => str_replace(',', '.', trim($row['kondisi_rumah_rtlh'] ?? 0)) ?: 0,
+                'status_milik'      => str_replace(',', '.', trim($row['status_kepemilikan_hak_milik'] ?? 0)) ?: 0,
+                'status_sewa'       => str_replace(',', '.', trim($row['status_kepemilikan_sewa'] ?? 0)) ?: 0,
             ];
 
             $tingkat_kerawanan = [
@@ -51,25 +56,25 @@ class RawanBencanaImport implements ToCollection, WithHeadingRow
             $data['id_kecamatan'] = $kecamatan ? $kecamatan->id : null;
             $data['id_kelurahan'] = $kelurahan ? $kelurahan->id : null;
 
-            $kondisi_fisik = [
-                1 => 'RLH',
-                2 => 'RTLH',
-            ];
+            // $kondisi_fisik = [
+            //     1 => 'RLH',
+            //     2 => 'RTLH',
+            // ];
 
-            $lowercase = array_map('strtolower', $kondisi_fisik);
-            $kondisi_fisik_id = array_search(strtolower($row['kondisi_rumah']), $lowercase);
+            // $lowercase = array_map('strtolower', $kondisi_fisik);
+            // $kondisi_fisik_id = array_search(strtolower($row['kondisi_rumah']), $lowercase);
 
-            $data['kondisi_fisik'] = $kondisi_fisik_id ?? null;
+            // $data['kondisi_fisik'] = $kondisi_fisik_id ?? null;
 
-            $status_kepemilikan = [
-                1 => 'Hak Milik',
-                2 => 'Sewa',
-            ];
+            // $status_kepemilikan = [
+            //     1 => 'Hak Milik',
+            //     2 => 'Sewa',
+            // ];
 
-            $lowercase = array_map('strtolower', $status_kepemilikan);
-            $status_kepemilikan_id = array_search(strtolower($row['status_kepemilikan_rumah']), $lowercase);
+            // $lowercase = array_map('strtolower', $status_kepemilikan);
+            // $status_kepemilikan_id = array_search(strtolower($row['status_kepemilikan_rumah']), $lowercase);
 
-            $data['status_kepemilikan'] = $status_kepemilikan_id ?? null;
+            // $data['status_kepemilikan'] = $status_kepemilikan_id ?? null;
 
             if (count($data) === count(array_filter($data, function($value) { return $value !== null && $value !== ''; }))) {
                 RawanBencana::create($data);

@@ -61,7 +61,7 @@
         <td>{{ $value->jumlah_rumah }}</td>
         <td>{{ $value->jumlah_kk }}</td>
         <td>{{ $value->jumlah_jiwa }}</td>
-        @php
+        {{-- @php
             $option = $value->kondisi_fisik;
         @endphp
         <td>{{ ($option == 1) ? 'V' : '' }}</td>
@@ -70,7 +70,11 @@
             $option = $value->status_kepemilikan;
         @endphp
         <td>{{ ($option == 1) ? 'V' : '' }}</td>
-        <td>{{ ($option == 2) ? 'V' : '' }}</td>
+        <td>{{ ($option == 2) ? 'V' : '' }}</td> --}}
+        <td>{{ $value->kondisi_rlh }}</td>
+        <td>{{ $value->kondisi_rtlh }}</td>
+        <td>{{ $value->status_milik }}</td>
+        <td>{{ $value->status_sewa }}</td>
     </tr>
     @endforeach
 </table>

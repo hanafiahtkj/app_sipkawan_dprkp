@@ -46,14 +46,18 @@
                     @component('boilerplate::input', ['type' => 'number', 'name' => 'jumlah_rumah', 'label' => 'boilerplate::rawanbencana.jumlah_rumah', 'value' => $dataInput->jumlah_rumah])@endcomponent
                     @component('boilerplate::input', ['type' => 'number', 'name' => 'jumlah_kk', 'label' => 'boilerplate::rawanbencana.jumlah_kk', 'value' => $dataInput->jumlah_kk])@endcomponent
                     @component('boilerplate::input', ['type' => 'number', 'name' => 'jumlah_jiwa', 'label' => 'boilerplate::rawanbencana.jumlah_jiwa', 'value' => $dataInput->jumlah_jiwa])@endcomponent
-                    @component('boilerplate::select2', ['name' => 'kondisi_fisik', 'label' => 'boilerplate::rawanbencana.kondisi_fisik', 'value' => $dataInput->kondisi_fisik, 'minimum-results-for-search' => '-1'])
+                    {{-- @component('boilerplate::select2', ['name' => 'kondisi_fisik', 'label' => 'boilerplate::rawanbencana.kondisi_fisik', 'value' => $dataInput->kondisi_fisik, 'minimum-results-for-search' => '-1'])
                         <option value="1" @if (old('kondisi_fisik', $dataInput->kondisi_fisik) == '1') selected="selected" @endif>RLH</option>
                         <option value="2" @if (old('kondisi_fisik', $dataInput->kondisi_fisik) == '2') selected="selected" @endif>RTLH</option>
                     @endcomponent
                     @component('boilerplate::select2', ['name' => 'status_kepemilikan', 'label' => 'boilerplate::rawanbencana.status_kepemilikan', 'minimum-results-for-search' => '-1'])
                         <option value="1" @if (old('status_kepemilikan', $dataInput->status_kepemilikan) == '1') selected="selected" @endif>Hak Milik</option>
                         <option value="2" @if (old('status_kepemilikan', $dataInput->status_kepemilikan) == '2') selected="selected" @endif>Sewa</option>
-                    @endcomponent
+                    @endcomponent --}}
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'kondisi_rlh', 'label' => 'Kondisi Fisik (RLH)', 'value' => $dataInput->kondisi_rlh])@endcomponent
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'kondisi_rtlh', 'label' => 'Kondisi Fisik (RTLH)', 'value' => $dataInput->kondisi_rtlh])@endcomponent
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'status_milik', 'label' => 'Status Hak Milik', 'value' => $dataInput->status_milik])@endcomponent
+                    @component('boilerplate::input', ['type' => 'number', 'name' => 'status_sewa', 'label' => 'Status Sewa', 'value' => $dataInput->status_sewa])@endcomponent
                 @endcomponent
             </div>
         </div>

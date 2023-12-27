@@ -21,6 +21,7 @@ class RumahSewaImport implements ToCollection, WithHeadingRow
         // echo json_encode($rows); die;
 
         // $temp = [];
+        $dataGagal = [];
         foreach ($rows as $key => $row) {
             $data = array();
             $data = [
@@ -54,9 +55,11 @@ class RumahSewaImport implements ToCollection, WithHeadingRow
                 RumahSewa::create($data);
             }
             else {
-                // dd($data);
+                // $dataGagal[] = $data;
             }
         }
+
+        // dd($dataGagal);
     }
 
     public function headingRow(): int
