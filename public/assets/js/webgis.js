@@ -227,51 +227,51 @@ new Vue({
             this.map.addLayer(this.wfsLayerBanjarmasinTengah);
             this.setupFeatureSelection(this.wfsLayerBanjarmasinTengah);
 
-            // var wfsSourcePerairan = new ol.source.Vector({
-            //     format: new ol.format.GeoJSON(),
-            //     url: function (extent) {
-            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APERAIRAN_AR&outputFormat=application%2Fjson";
-            //     },
-            //     strategy: ol.loadingstrategy.bbox,
-            // });
+            var wfsSourcePerairan = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APERAIRAN_AR&outputFormat=application%2Fjson";
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
 
-            // this.wfsLayerPerairan = new ol.layer.Vector({
-            //     source: wfsSourcePerairan,
-            //     visible: this.wfsLayerVisiblePerairan,
-            //     style: new ol.style.Style({
-            //         fill: new ol.style.Fill({
-            //             color: "rgb(14 175 234)",
-            //         }),
-            //     }),
-            // });
+            this.wfsLayerPerairan = new ol.layer.Vector({
+                source: wfsSourcePerairan,
+                visible: this.wfsLayerVisiblePerairan,
+                style: new ol.style.Style({
+                    fill: new ol.style.Fill({
+                        color: "rgb(14 175 234)",
+                    }),
+                }),
+            });
 
-            // this.map.addLayer(this.wfsLayerPerairan);
-            // this.setupFeatureSelection(this.wfsLayerPerairan);
+            this.map.addLayer(this.wfsLayerPerairan);
+            this.setupFeatureSelection(this.wfsLayerPerairan);
 
-            // var wfsSourceSebaranPerumahan = new ol.source.Vector({
-            //     format: new ol.format.GeoJSON(),
-            //     url: function (extent) {
-            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Perumahan&outputFormat=application%2Fjson";
-            //     },
-            //     strategy: ol.loadingstrategy.bbox,
-            // });
+            var wfsSourceSebaranPerumahan = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Perumahan&outputFormat=application%2Fjson";
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
 
-            // this.wfsLayerSebaranPerumahan = new ol.layer.Vector({
-            //     source: wfsSourceSebaranPerumahan,
-            //     visible: this.wfsLayerVisibleSebaranPerumahan,
-            //     style: new ol.style.Style({
-            //         // stroke: new ol.style.Stroke({
-            //         //     color: 'rgb(52 51 48)',
-            //         //     width: 1
-            //         // }),
-            //         fill: new ol.style.Fill({
-            //             color: "rgb(122 140 144)",
-            //         }),
-            //     }),
-            // });
+            this.wfsLayerSebaranPerumahan = new ol.layer.Vector({
+                source: wfsSourceSebaranPerumahan,
+                visible: this.wfsLayerVisibleSebaranPerumahan,
+                style: new ol.style.Style({
+                    // stroke: new ol.style.Stroke({
+                    //     color: 'rgb(52 51 48)',
+                    //     width: 1
+                    // }),
+                    fill: new ol.style.Fill({
+                        color: "rgb(122 140 144)",
+                    }),
+                }),
+            });
 
-            // this.map.addLayer(this.wfsLayerSebaranPerumahan);
-            // this.setupFeatureSelection(this.wfsLayerSebaranPerumahan);
+            this.map.addLayer(this.wfsLayerSebaranPerumahan);
+            this.setupFeatureSelection(this.wfsLayerSebaranPerumahan);
 
             // var wfsSourceSebaranRumahSewaBanbar2021 = new ol.source.Vector({
             //     format: new ol.format.GeoJSON(),
@@ -502,27 +502,27 @@ new Vue({
             // this.map.addLayer(this.wfsLayerSebaranRumahSewaBanut2022);
             // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanut2022);
 
-            // var wfsSourceTransportasi = new ol.source.Vector({
-            //     format: new ol.format.GeoJSON(),
-            //     url: function (extent) {
-            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ATransportasi_LN&outputFormat=application%2Fjson";
-            //     },
-            //     strategy: ol.loadingstrategy.bbox,
-            // });
+            var wfsSourceTransportasi = new ol.source.Vector({
+                format: new ol.format.GeoJSON(),
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ATransportasi_LN&outputFormat=application%2Fjson";
+                },
+                strategy: ol.loadingstrategy.bbox,
+            });
 
-            // this.wfsLayerTransportasi = new ol.layer.Vector({
-            //     source: wfsSourceTransportasi,
-            //     visible: this.wfsLayerVisibleTransportasi,
-            //     style: new ol.style.Style({
-            //         stroke: new ol.style.Stroke({
-            //             color: "rgb(255 255 255)",
-            //             width: 1,
-            //         }),
-            //     }),
-            // });
+            this.wfsLayerTransportasi = new ol.layer.Vector({
+                source: wfsSourceTransportasi,
+                visible: this.wfsLayerVisibleTransportasi,
+                style: new ol.style.Style({
+                    stroke: new ol.style.Stroke({
+                        color: "rgb(255 255 255)",
+                        width: 1,
+                    }),
+                }),
+            });
 
-            // this.map.addLayer(this.wfsLayerTransportasi);
-            // this.setupFeatureSelection(this.wfsLayerTransportasi);
+            this.map.addLayer(this.wfsLayerTransportasi);
+            this.setupFeatureSelection(this.wfsLayerTransportasi);
 
             // // var wfsSourceSebaranRumahSewaPointBansel2021 = new ol.source.Vector({
             // //     format: new ol.format.GeoJSON(),
