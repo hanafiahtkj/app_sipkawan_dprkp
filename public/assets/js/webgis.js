@@ -1,9 +1,9 @@
 new Vue({
-    el: '#app',
+    el: "#app",
     data() {
         return {
             map: null,
-            banjarmasinCoordinates: [114.5920, -3.3199],
+            banjarmasinCoordinates: [114.592, -3.3199],
 
             wfsLayerBanjarmasinUtara: null,
             wfsLayerVisibleBanjarmasinUtara: true,
@@ -87,11 +87,11 @@ new Vue({
     methods: {
         initMap() {
             this.map = new ol.Map({
-                target: 'map',
+                target: "map",
                 layers: [
                     new ol.layer.Tile({
-                        source: new ol.source.OSM()
-                    })
+                        source: new ol.source.OSM(),
+                    }),
                 ],
                 view: new ol.View({
                     center: ol.proj.fromLonLat(this.banjarmasinCoordinates),
@@ -104,8 +104,8 @@ new Vue({
         createWfsLayer() {
             var wfsSourceBanjarmasinUtara = new ol.source.Vector({
                 format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanut&outputFormat=application%2Fjson';
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ABanut&outputFormat=application%2Fjson";
                 },
                 strategy: ol.loadingstrategy.bbox,
             });
@@ -115,13 +115,13 @@ new Vue({
                 visible: this.wfsLayerVisibleBanjarmasinUtara,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'rgb(177 173 173)',
-                        width: 1
+                        color: "rgb(177 173 173)",
+                        width: 1,
                     }),
                     fill: new ol.style.Fill({
-                        color: 'rgb(193 177 148)'
-                    })
-                })
+                        color: "rgb(193 177 148)",
+                    }),
+                }),
             });
 
             this.map.addLayer(this.wfsLayerBanjarmasinUtara);
@@ -129,8 +129,8 @@ new Vue({
 
             var wfsSourceBanjarmasinSelatan = new ol.source.Vector({
                 format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABansel&outputFormat=application%2Fjson';
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ABansel&outputFormat=application%2Fjson";
                 },
                 strategy: ol.loadingstrategy.bbox,
             });
@@ -140,13 +140,13 @@ new Vue({
                 visible: this.wfsLayerVisibleBanjarmasinSelatan,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'rgb(177 173 173)',
-                        width: 1
+                        color: "rgb(177 173 173)",
+                        width: 1,
                     }),
                     fill: new ol.style.Fill({
-                        color: 'rgb(248 104 58)'
-                    })
-                })
+                        color: "rgb(248 104 58)",
+                    }),
+                }),
             });
 
             this.map.addLayer(this.wfsLayerBanjarmasinSelatan);
@@ -154,8 +154,8 @@ new Vue({
 
             var wfsSourceBanjarmasinTimur = new ol.source.Vector({
                 format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABantim&outputFormat=application%2Fjson';
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ABantim&outputFormat=application%2Fjson";
                 },
                 strategy: ol.loadingstrategy.bbox,
             });
@@ -165,13 +165,13 @@ new Vue({
                 visible: this.wfsLayerVisibleBanjarmasinTimur,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'rgb(177 173 173)',
-                        width: 1
+                        color: "rgb(177 173 173)",
+                        width: 1,
                     }),
                     fill: new ol.style.Fill({
-                        color: 'rgb(150 87 157)'
-                    })
-                })
+                        color: "rgb(150 87 157)",
+                    }),
+                }),
             });
 
             this.map.addLayer(this.wfsLayerBanjarmasinTimur);
@@ -179,8 +179,8 @@ new Vue({
 
             var wfsSourceBanjarmasinBarat = new ol.source.Vector({
                 format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanbar&outputFormat=application%2Fjson';
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ABanbar&outputFormat=application%2Fjson";
                 },
                 strategy: ol.loadingstrategy.bbox,
             });
@@ -190,13 +190,13 @@ new Vue({
                 visible: this.wfsLayerVisibleBanjarmasinBarat,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'rgb(177 173 173)',
-                        width: 1
+                        color: "rgb(177 173 173)",
+                        width: 1,
                     }),
                     fill: new ol.style.Fill({
-                        color: 'rgb(186 208 47)'
-                    })
-                })
+                        color: "rgb(186 208 47)",
+                    }),
+                }),
             });
 
             this.map.addLayer(this.wfsLayerBanjarmasinBarat);
@@ -204,8 +204,8 @@ new Vue({
 
             var wfsSourceBanjarmasinTengah = new ol.source.Vector({
                 format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ABanteng&outputFormat=application%2Fjson';
+                url: function (extent) {
+                    return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ABanteng&outputFormat=application%2Fjson";
                 },
                 strategy: ol.loadingstrategy.bbox,
             });
@@ -215,678 +215,716 @@ new Vue({
                 visible: this.wfsLayerVisibleBanjarmasinTengah,
                 style: new ol.style.Style({
                     stroke: new ol.style.Stroke({
-                        color: 'rgb(177 173 173)',
-                        width: 1
+                        color: "rgb(177 173 173)",
+                        width: 1,
                     }),
                     fill: new ol.style.Fill({
-                        color: 'rgb(255 152 0)'
-                    })
-                })
+                        color: "rgb(255 152 0)",
+                    }),
+                }),
             });
 
             this.map.addLayer(this.wfsLayerBanjarmasinTengah);
             this.setupFeatureSelection(this.wfsLayerBanjarmasinTengah);
 
-            var wfsSourcePerairan = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APERAIRAN_AR&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerPerairan = new ol.layer.Vector({
-                source: wfsSourcePerairan,
-                visible: this.wfsLayerVisiblePerairan,
-                style: new ol.style.Style({
-                    fill: new ol.style.Fill({
-                        color: 'rgb(14 175 234)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerPerairan);
-            this.setupFeatureSelection(this.wfsLayerPerairan);
-
-            var wfsSourceSebaranPerumahan = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Perumahan&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranPerumahan = new ol.layer.Vector({
-                source: wfsSourceSebaranPerumahan,
-                visible: this.wfsLayerVisibleSebaranPerumahan,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(122 140 144)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranPerumahan);
-            this.setupFeatureSelection(this.wfsLayerSebaranPerumahan);
-
-            var wfsSourceSebaranRumahSewaBanbar2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Banbar_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBanbar2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBanbar2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBanbar2021);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanbar2021);
-
-            var wfsSourceSebaranRumahSewaBanteng2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Banteng_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBanteng2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBanteng2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBanteng2021);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanteng2021);
-
-            var wfsSourceSebaranRumahSewaBantim2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Bantim_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBantim2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBantim2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBantim2021);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBantim2021);
-
-            var wfsSourceSebaranRumahSewaBanut2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Banut_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBanut2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBanut2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2021,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBanut2021);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanut2021);
-
-            var wfsSourceSebaranRumahSewaBanbar2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Banbar_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBanbar2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBanbar2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBanbar2022);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanbar2022);
-
-            var wfsSourceSebaranRumahSewaBansel2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Bansel_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBansel2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBansel2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBansel2022);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBansel2022);
-
-            var wfsSourceSebaranRumahSewaBanteng2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Banteng_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBanteng2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBanteng2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBanteng2022);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanteng2022);
-
-            var wfsSourceSebaranRumahSewaBantim2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Bantim_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBantim2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBantim2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBantim2022);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBantim2022);
-
-            var wfsSourceSebaranRumahSewaBanut2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Banut_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerSebaranRumahSewaBanut2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaBanut2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewa2022,
-                style: new ol.style.Style({
-                    // stroke: new ol.style.Stroke({
-                    //     color: 'rgb(52 51 48)',
-                    //     width: 1
-                    // }),
-                    fill: new ol.style.Fill({
-                        color: 'rgb(34 86 98)'
-                    })
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaBanut2022);
-            this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanut2022);
-
-            var wfsSourceTransportasi = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ATransportasi_LN&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerTransportasi = new ol.layer.Vector({
-                source: wfsSourceTransportasi,
-                visible: this.wfsLayerVisibleTransportasi,
-                style: new ol.style.Style({
-                    stroke: new ol.style.Stroke({
-                        color: 'rgb(255 255 255)',
-                        width: 1
-                    }),
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerTransportasi);
-            this.setupFeatureSelection(this.wfsLayerTransportasi);
-
-                        // var wfsSourceSebaranRumahSewaPointBansel2021 = new ol.source.Vector({
+            // var wfsSourcePerairan = new ol.source.Vector({
             //     format: new ol.format.GeoJSON(),
-            //     url: function(extent) {
-            //         return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bansel_2021&outputFormat=application%2Fjson';
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APERAIRAN_AR&outputFormat=application%2Fjson";
             //     },
             //     strategy: ol.loadingstrategy.bbox,
             // });
 
-            // this.wfsLayerSebaranRumahSewaPointBansel2021 = new ol.layer.Vector({
-            //     source: wfsSourceSebaranRumahSewaPointBansel2021,
+            // this.wfsLayerPerairan = new ol.layer.Vector({
+            //     source: wfsSourcePerairan,
+            //     visible: this.wfsLayerVisiblePerairan,
+            //     style: new ol.style.Style({
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(14 175 234)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerPerairan);
+            // this.setupFeatureSelection(this.wfsLayerPerairan);
+
+            // var wfsSourceSebaranPerumahan = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Perumahan&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranPerumahan = new ol.layer.Vector({
+            //     source: wfsSourceSebaranPerumahan,
+            //     visible: this.wfsLayerVisibleSebaranPerumahan,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(122 140 144)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranPerumahan);
+            // this.setupFeatureSelection(this.wfsLayerSebaranPerumahan);
+
+            // var wfsSourceSebaranRumahSewaBanbar2021 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Banbar_2021&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBanbar2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBanbar2021,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2021,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBanbar2021);
+            // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanbar2021);
+
+            // var wfsSourceSebaranRumahSewaBanteng2021 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Banteng_2021&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBanteng2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBanteng2021,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2021,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBanteng2021);
+            // this.setupFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaBanteng2021
+            // );
+
+            // var wfsSourceSebaranRumahSewaBantim2021 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Bantim_2021&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBantim2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBantim2021,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2021,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBantim2021);
+            // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBantim2021);
+
+            // var wfsSourceSebaranRumahSewaBanut2021 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Banut_2021&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBanut2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBanut2021,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2021,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBanut2021);
+            // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanut2021);
+
+            // var wfsSourceSebaranRumahSewaBanbar2022 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Banbar_2022&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBanbar2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBanbar2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2022,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBanbar2022);
+            // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanbar2022);
+
+            // var wfsSourceSebaranRumahSewaBansel2022 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Bansel_2022&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBansel2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBansel2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2022,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBansel2022);
+            // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBansel2022);
+
+            // var wfsSourceSebaranRumahSewaBanteng2022 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Banteng_2022&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBanteng2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBanteng2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2022,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBanteng2022);
+            // this.setupFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaBanteng2022
+            // );
+
+            // var wfsSourceSebaranRumahSewaBantim2022 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Bantim_2022&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBantim2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBantim2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2022,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBantim2022);
+            // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBantim2022);
+
+            // var wfsSourceSebaranRumahSewaBanut2022 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Banut_2022&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerSebaranRumahSewaBanut2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaBanut2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewa2022,
+            //     style: new ol.style.Style({
+            //         // stroke: new ol.style.Stroke({
+            //         //     color: 'rgb(52 51 48)',
+            //         //     width: 1
+            //         // }),
+            //         fill: new ol.style.Fill({
+            //             color: "rgb(34 86 98)",
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaBanut2022);
+            // this.setupFeatureSelection(this.wfsLayerSebaranRumahSewaBanut2022);
+
+            // var wfsSourceTransportasi = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ATransportasi_LN&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
+
+            // this.wfsLayerTransportasi = new ol.layer.Vector({
+            //     source: wfsSourceTransportasi,
+            //     visible: this.wfsLayerVisibleTransportasi,
+            //     style: new ol.style.Style({
+            //         stroke: new ol.style.Stroke({
+            //             color: "rgb(255 255 255)",
+            //             width: 1,
+            //         }),
+            //     }),
+            // });
+
+            // this.map.addLayer(this.wfsLayerTransportasi);
+            // this.setupFeatureSelection(this.wfsLayerTransportasi);
+
+            // // var wfsSourceSebaranRumahSewaPointBansel2021 = new ol.source.Vector({
+            // //     format: new ol.format.GeoJSON(),
+            // //     url: function(extent) {
+            // //         return 'https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Bansel_2021&outputFormat=application%2Fjson';
+            // //     },
+            // //     strategy: ol.loadingstrategy.bbox,
+            // // });
+
+            // // this.wfsLayerSebaranRumahSewaPointBansel2021 = new ol.layer.Vector({
+            // //     source: wfsSourceSebaranRumahSewaPointBansel2021,
+            // //     style: new ol.style.Style({
+            // //         image: new ol.style.Icon({
+            // //             anchor: [0.5, 1],
+            // //             src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+            // //             scale: 0.25, // Ukuran gambar
+            // //         }),
+            // //     })
+            // // });
+
+            // // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBansel2021);
+            // // this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBansel2021);
+
+            // var wfsSourceSebaranRumahSewaPointBantim2021 = new ol.source.Vector(
+            //     {
+            //         format: new ol.format.GeoJSON(),
+            //         url: function (extent) {
+            //             return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Bantim_2021&outputFormat=application%2Fjson";
+            //         },
+            //         strategy: ol.loadingstrategy.bbox,
+            //     }
+            // );
+
+            // this.wfsLayerSebaranRumahSewaPointBantim2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBantim2021,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
             //     style: new ol.style.Style({
             //         image: new ol.style.Icon({
             //             anchor: [0.5, 1],
-            //             src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
             //             scale: 0.25, // Ukuran gambar
             //         }),
-            //     })
+            //     }),
             // });
 
-            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBansel2021);
-            // this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBansel2021);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBantim2021);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBantim2021
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBantim2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bantim_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBanbar2021 = new ol.source.Vector(
+            //     {
+            //         format: new ol.format.GeoJSON(),
+            //         url: function (extent) {
+            //             return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Banbar_2021&outputFormat=application%2Fjson";
+            //         },
+            //         strategy: ol.loadingstrategy.bbox,
+            //     }
+            // );
 
-            this.wfsLayerSebaranRumahSewaPointBantim2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBantim2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBanbar2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBanbar2021,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBantim2021);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBantim2021);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanbar2021);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBanbar2021
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBanbar2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banbar_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBanteng2021 =
+            //     new ol.source.Vector({
+            //         format: new ol.format.GeoJSON(),
+            //         url: function (extent) {
+            //             return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Banteng_2021&outputFormat=application%2Fjson";
+            //         },
+            //         strategy: ol.loadingstrategy.bbox,
+            //     });
 
-            this.wfsLayerSebaranRumahSewaPointBanbar2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBanbar2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBanteng2021 = new ol.layer.Vector(
+            //     {
+            //         source: wfsSourceSebaranRumahSewaPointBanteng2021,
+            //         visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
+            //         style: new ol.style.Style({
+            //             image: new ol.style.Icon({
+            //                 anchor: [0.5, 1],
+            //                 src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //                 scale: 0.25, // Ukuran gambar
+            //             }),
+            //         }),
+            //     }
+            // );
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanbar2021);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanbar2021);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanteng2021);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBanteng2021
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBanteng2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banteng_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBanut2021 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Banut_2021&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
 
-            this.wfsLayerSebaranRumahSewaPointBanteng2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBanteng2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBanut2021 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBanut2021,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanteng2021);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanteng2021);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2021);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBanut2021
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBanut2021 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banut_2021&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBansel2022 = new ol.source.Vector(
+            //     {
+            //         format: new ol.format.GeoJSON(),
+            //         url: function (extent) {
+            //             return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Bansel_2022&outputFormat=application%2Fjson";
+            //         },
+            //         strategy: ol.loadingstrategy.bbox,
+            //     }
+            // );
 
-            this.wfsLayerSebaranRumahSewaPointBanut2021 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBanut2021,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2021,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBansel2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBansel2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2021);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanut2021);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBansel2022);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBansel2022
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBansel2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bansel_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBantim2022 = new ol.source.Vector(
+            //     {
+            //         format: new ol.format.GeoJSON(),
+            //         url: function (extent) {
+            //             return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Bantim_2022&outputFormat=application%2Fjson";
+            //         },
+            //         strategy: ol.loadingstrategy.bbox,
+            //     }
+            // );
 
-            this.wfsLayerSebaranRumahSewaPointBansel2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBansel2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBantim2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBantim2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBansel2022);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBansel2022);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBantim2022);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBantim2022
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBantim2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Bantim_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBanbar2022 = new ol.source.Vector(
+            //     {
+            //         format: new ol.format.GeoJSON(),
+            //         url: function (extent) {
+            //             return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Banbar_2022&outputFormat=application%2Fjson";
+            //         },
+            //         strategy: ol.loadingstrategy.bbox,
+            //     }
+            // );
 
-            this.wfsLayerSebaranRumahSewaPointBantim2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBantim2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBanbar2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBanbar2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBantim2022);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBantim2022);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanbar2022);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBanbar2022
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBanbar2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banbar_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBanteng2022 =
+            //     new ol.source.Vector({
+            //         format: new ol.format.GeoJSON(),
+            //         url: function (extent) {
+            //             return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Banteng_2022&outputFormat=application%2Fjson";
+            //         },
+            //         strategy: ol.loadingstrategy.bbox,
+            //     });
 
-            this.wfsLayerSebaranRumahSewaPointBanbar2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBanbar2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBanteng2022 = new ol.layer.Vector(
+            //     {
+            //         source: wfsSourceSebaranRumahSewaPointBanteng2022,
+            //         visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+            //         style: new ol.style.Style({
+            //             image: new ol.style.Icon({
+            //                 anchor: [0.5, 1],
+            //                 src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //                 scale: 0.25, // Ukuran gambar
+            //             }),
+            //         }),
+            //     }
+            // );
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanbar2022);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanbar2022);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanteng2022);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBanteng2022
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBanteng2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banteng_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourceSebaranRumahSewaPointBanut2022 = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3ASebaran_Rumah_Sewa_Point_Banut_2022&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
 
-            this.wfsLayerSebaranRumahSewaPointBanteng2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBanteng2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerSebaranRumahSewaPointBanut2022 = new ol.layer.Vector({
+            //     source: wfsSourceSebaranRumahSewaPointBanut2022,
+            //     visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanteng2022);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanteng2022);
+            // this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2022);
+            // this.setupPointFeatureSelection(
+            //     this.wfsLayerSebaranRumahSewaPointBanut2022
+            // );
 
-            var wfsSourceSebaranRumahSewaPointBanut2022 = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3ASebaran_Rumah_Sewa_Point_Banut_2022&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourcePPDLBFPBanbar = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APPDLBFP_BJM_BARAT&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
 
-            this.wfsLayerSebaranRumahSewaPointBanut2022 = new ol.layer.Vector({
-                source: wfsSourceSebaranRumahSewaPointBanut2022,
-                visible: this.wfsLayerVisibleSebaranRumahSewaPoint2022,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerPPDLBFPBanbar = new ol.layer.Vector({
+            //     source: wfsSourcePPDLBFPBanbar,
+            //     visible: this.wfsLayerVisiblePPDLBFP,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerSebaranRumahSewaPointBanut2022);
-            this.setupPointFeatureSelection(this.wfsLayerSebaranRumahSewaPointBanut2022);
+            // this.map.addLayer(this.wfsLayerPPDLBFPBanbar);
+            // this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanbar);
 
-            var wfsSourcePPDLBFPBanbar = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_BARAT&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourcePPDLBFPBansel = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APPDLBFP_BJM_SELATAN&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
 
-            this.wfsLayerPPDLBFPBanbar = new ol.layer.Vector({
-                source: wfsSourcePPDLBFPBanbar,
-                visible: this.wfsLayerVisiblePPDLBFP,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerPPDLBFPBansel = new ol.layer.Vector({
+            //     source: wfsSourcePPDLBFPBansel,
+            //     visible: this.wfsLayerVisiblePPDLBFP,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerPPDLBFPBanbar);
-            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanbar);
+            // this.map.addLayer(this.wfsLayerPPDLBFPBansel);
+            // this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBansel);
 
-            var wfsSourcePPDLBFPBansel = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_SELATAN&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourcePPDLBFPBanteng = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APPDLBFP_BJM_TENGAH&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
 
-            this.wfsLayerPPDLBFPBansel = new ol.layer.Vector({
-                source: wfsSourcePPDLBFPBansel,
-                visible: this.wfsLayerVisiblePPDLBFP,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerPPDLBFPBanteng = new ol.layer.Vector({
+            //     source: wfsSourcePPDLBFPBanteng,
+            //     visible: this.wfsLayerVisiblePPDLBFP,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerPPDLBFPBansel);
-            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBansel);
+            // this.map.addLayer(this.wfsLayerPPDLBFPBanteng);
+            // this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanteng);
 
-            var wfsSourcePPDLBFPBanteng = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_TENGAH&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourcePPDLBFPBantim = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APPDLBFP_BJM_TIMUR&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
 
-            this.wfsLayerPPDLBFPBanteng = new ol.layer.Vector({
-                source: wfsSourcePPDLBFPBanteng,
-                visible: this.wfsLayerVisiblePPDLBFP,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerPPDLBFPBantim = new ol.layer.Vector({
+            //     source: wfsSourcePPDLBFPBantim,
+            //     visible: this.wfsLayerVisiblePPDLBFP,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerPPDLBFPBanteng);
-            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanteng);
+            // this.map.addLayer(this.wfsLayerPPDLBFPBantim);
+            // this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBantim);
 
-            var wfsSourcePPDLBFPBantim = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_TIMUR&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
+            // var wfsSourcePPDLBFPBanut = new ol.source.Vector({
+            //     format: new ol.format.GeoJSON(),
+            //     url: function (extent) {
+            //         return "https://geoserver.banjarmasinkota.go.id/geoserver/gis_database/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=gis_database%3APPDLBFP_BJM_UTARA&outputFormat=application%2Fjson";
+            //     },
+            //     strategy: ol.loadingstrategy.bbox,
+            // });
 
-            this.wfsLayerPPDLBFPBantim = new ol.layer.Vector({
-                source: wfsSourcePPDLBFPBantim,
-                visible: this.wfsLayerVisiblePPDLBFP,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
+            // this.wfsLayerPPDLBFPBanut = new ol.layer.Vector({
+            //     source: wfsSourcePPDLBFPBanut,
+            //     visible: this.wfsLayerVisiblePPDLBFP,
+            //     style: new ol.style.Style({
+            //         image: new ol.style.Icon({
+            //             anchor: [0.5, 1],
+            //             src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
+            //             scale: 0.25, // Ukuran gambar
+            //         }),
+            //     }),
+            // });
 
-            this.map.addLayer(this.wfsLayerPPDLBFPBantim);
-            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBantim);
-
-            var wfsSourcePPDLBFPBanut = new ol.source.Vector({
-                format: new ol.format.GeoJSON(),
-                url: function(extent) {
-                    return 'https://geoserver.banjarmasinkota.go.id/geoserver/geo_dprkp/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geo_dprkp%3APPDLBFP_BJM_UTARA&outputFormat=application%2Fjson';
-                },
-                strategy: ol.loadingstrategy.bbox,
-            });
-
-            this.wfsLayerPPDLBFPBanut = new ol.layer.Vector({
-                source: wfsSourcePPDLBFPBanut,
-                visible: this.wfsLayerVisiblePPDLBFP,
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        anchor: [0.5, 1],
-                        src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
-                        scale: 0.25, // Ukuran gambar
-                    }),
-                })
-            });
-
-            this.map.addLayer(this.wfsLayerPPDLBFPBanut);
-            this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanut);
+            // this.map.addLayer(this.wfsLayerPPDLBFPBanut);
+            // this.setupPointFeatureSelection(this.wfsLayerPPDLBFPBanut);
         },
         setupFeatureSelection(layer) {
             var selectInteraction = new ol.interaction.Select({
                 layers: [layer],
                 condition: ol.events.condition.singleClick,
-                style: function(feature) {
+                style: function (feature) {
                     var layerStyle = layer.getStyle();
                     var layerFill = layerStyle.getFill();
 
                     return new ol.style.Style({
                         stroke: new ol.style.Stroke({
-                            color: 'rgb(52 51 48)',
-                            width: 1
+                            color: "rgb(52 51 48)",
+                            width: 1,
                         }),
                         fill: new ol.style.Fill({
-                            color: layerFill.getColor()
-                        })
+                            color: layerFill.getColor(),
+                        }),
                     });
-                }
+                },
             });
 
             this.map.addInteraction(selectInteraction);
 
-            selectInteraction.on('select', (event) => {
+            selectInteraction.on("select", (event) => {
                 var selectedFeatures = event.selected;
                 if (selectedFeatures.length > 0) {
                     var properties = selectedFeatures[0].getProperties();
@@ -898,23 +936,23 @@ new Vue({
             var selectInteraction = new ol.interaction.Select({
                 layers: [layer],
                 condition: ol.events.condition.singleClick,
-                style: function(feature) {
+                style: function (feature) {
                     var layerStyle = layer.getStyle();
                     var layerFill = layerStyle.getFill();
 
                     return new ol.style.Style({
                         image: new ol.style.Icon({
                             anchor: [0.5, 1],
-                            src: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', // Ganti dengan path gambar Anda
+                            src: "https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png", // Ganti dengan path gambar Anda
                             scale: 0.25, // Ukuran gambar
                         }),
                     });
-                }
+                },
             });
 
             this.map.addInteraction(selectInteraction);
 
-            selectInteraction.on('select', (event) => {
+            selectInteraction.on("select", (event) => {
                 var selectedFeatures = event.selected;
                 if (selectedFeatures.length > 0) {
                     var properties = selectedFeatures[0].getProperties();
@@ -923,19 +961,20 @@ new Vue({
             });
         },
         showLayerProperties(properties) {
-            var propertiesList = document.getElementById('layerPropertiesList');
-            propertiesList.innerHTML = '';
+            var propertiesList = document.getElementById("layerPropertiesList");
+            propertiesList.innerHTML = "";
             for (var key in properties) {
-                var listItem = document.createElement('li');
-                listItem.classList.add('list-group-item');
-                listItem.innerHTML = '<strong>' + key + ':</strong> ' + properties[key];
+                var listItem = document.createElement("li");
+                listItem.classList.add("list-group-item");
+                listItem.innerHTML =
+                    "<strong>" + key + ":</strong> " + properties[key];
                 propertiesList.appendChild(listItem);
             }
-            $('#layerPropertiesModal').modal('show');
+            $("#layerPropertiesModal").modal("show");
         },
         updateMapLayers() {
             //
-        }
+        },
     },
     watch: {
         wfsLayerVisibleBanjarmasinUtara() {
@@ -1048,5 +1087,5 @@ new Vue({
             var layer = this.wfsLayerPPDLBFPBanut;
             layer.setVisible(this.wfsLayerVisiblePPDLBFP);
         },
-    }
+    },
 });
