@@ -39,6 +39,9 @@
         .navbar {
             border-bottom: 1px solid #f8f3f0;
         }
+        .navbar-light .navbar-nav .nav-link {
+            color: rgba(0, 0, 0, .7);
+        }
         .card {
             border-radius: 8px;
         }
@@ -71,6 +74,9 @@
         .text-warning {
             color: #f98d37!important;
         }
+        .text-green {
+            color: #2d5740 !important
+        }
     </style>
 
   </head>
@@ -83,13 +89,15 @@
     <!-- ===============================================-->
     <main class="main" id="top">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-2 d-block bg-white" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand" href="{{ url('') }}"> <img class="me-3 d-inline-block" src="{{ asset('images/LOGO2.png') }}" alt="" height="45" /></a>
+        <div class="container-fluid"><a class="navbar-brand" href="{{ url('') }}"> <img class="ms-3 d-inline-block" src="{{ asset('images/logo_pemko.png') }}" alt="" height="45" /></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto pt-2 pt-lg-0 font-base">
-              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Home</a></li>
-              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#statistik">Statistik</a></li>
-              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">WebGis</a></li>
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Beranda</a></li>
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#statistik">Basis Data</a></li>
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Peta Sebaran</a></li>
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Kontak</a></li>
+              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Tentang</a></li>
             </ul>
             <form class="ps-lg-5">
               <!-- <button class="btn btn-link text-danger fw-bold order-1 order-lg-0" type="button">Sign in</button> -->
@@ -98,15 +106,16 @@
           </div>
         </div>
       </nav>
-      <section class="pb-4" id="home" style="background-image:url('{{ asset('assets/img/bckbawah.png') }}');background-position:bottom;background-size:cover;">
+      <section class="pb-4" id="home" style="background-image:url('{{ asset('images/aset-bg.webp') }}');background-position:bottom;background-size:contain;background-repeat: no-repeat;">
         <div class="container">
-          <div class="row align-items-center g-2">
-            <div class="col-md-5 col-lg-5 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{{ asset('assets/img/banner_image_1.svg') }}" alt="hero-header" /></div>
-            <div class="col-md-7 col-lg-7 py-6 text-md-start text-center">
+          <div class="row g-2">
+            <div class="col-md-5 col-lg-3 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0" src="{{ asset('images/logo-r.webp') }}" alt="hero-header" style="max-height: 300px;"/></div>
+            <div class="col-md-7 col-lg-9 text-md-start text-left">
               <h6 class="fs-0 text-uppercase fw-bold text-600">Selamat Datang</h6>
-              <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-warning"> SIP-KAWAN</h1>
-              <p class="mb-5 fs-3 fw-medium">Sistem Informasi Perumahan dan Kawasan Permukiman Kota Banjarmasin</p>
-              <a class="btn hover-top btn-collab text-white" href="{{ route('boilerplate.login') }}"><i class="fas fa-user me-2"></i> MASUK</a>
+              <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-green"> SIP-KAWAN</h1>
+              <p class="fs-3 fw-bold text-uppercase text-green">(Sistem Informasi Perumahan dan Kawasan Permukiman)</p>
+              <p class="mb-4 fs-1 fw-medium text-green">DINAS PERUMAHAN RAKYAT DAN KAWASAN PERMUKIMAN KOTA BANJARMASIN</p>
+              <a class="btn btn-outline-secondary" href="#statistik" style="background-color: #fff;">Basis Data <i class="fas fa-arrow-down"></i></a>
               <!-- <a class="btn hover-top btn-collab-outline text-gradient ms-2" href="#!"> <i class="fas fa-play text-danger me-md-2 me-0"></i> CHECK DEMO</a> -->
             </div>
           </div>
@@ -116,10 +125,10 @@
       <section class="py-4 bg-light">
         <div class="container">
           <div class="row">
-            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/Ig-Logo-PNG-Photos.png') }}" height="38" alt="brands"></div>
-            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/facebook-logo-4-1.png') }}" height="22" alt="brands"></div>
+            <div class="col-sm-6 col-lg mb-4 mb-lg-0"><img src="{{ asset('assets/img/Ig-Logo-PNG-Photos.png') }}" height="38" alt="brands"></div>
+            {{-- <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/facebook-logo-4-1.png') }}" height="22" alt="brands"></div>
             <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/pngimg.com - twitter_PNG31.png') }}" height="38" alt="brands"></div>
-            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/youtube.png') }}" height="38" alt="brands"></div>
+            <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/youtube.png') }}" height="38" alt="brands"></div> --}}
           </div>
         </div><!-- end of .container-->
       </section>
@@ -133,7 +142,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 text-center my-2">
-                  <h6 class="fw-bold fs-4 display-3 lh-sm mb-2">Data / Statistik</h6>
+                  <h6 class="fw-bold fs-4 display-3 lh-sm mb-2">Basis Data</h6>
                 <hr>
                 </div>
             </div>

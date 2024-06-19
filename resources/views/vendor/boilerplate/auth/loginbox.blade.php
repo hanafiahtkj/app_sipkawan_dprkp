@@ -1,7 +1,7 @@
 <div class="login-box">
     <div class="login-logo mb-4">
         <div>
-            <img class="me-3 d-inline-block" src="{{ asset('images/LOGO3.png') }}" alt="" height="100" />
+            <img class="me-3 d-inline-block" src="{{ asset('images/logo-r.webp') }}" alt="" height="100" />
         </div>
     </div>
 

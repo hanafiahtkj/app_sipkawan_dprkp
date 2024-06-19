@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $tahun = $request->tahun ?? '2022';
+        $tahun = $request->tahun ?? date("Y");
         $data  = $this->_data($tahun);
         return view('landing-page.index', $data);
     }

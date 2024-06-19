@@ -2,7 +2,7 @@
     <a href="{{ route('boilerplate.dashboard') }}" class="brand-link text-center {{ !empty(config('boilerplate.theme.sidebar.brand.bg')) ? 'bg-'.config('boilerplate.theme.sidebar.brand.bg') : ''}}">
         <span class="brand-logo bg-{{ config('boilerplate.theme.sidebar.brand.logo.bg') }} elevation-{{ config('boilerplate.theme.sidebar.brand.logo.shadow') }}">
             <!-- {!! config('boilerplate.theme.sidebar.brand.logo.icon') !!} -->
-            <img class="me-3" src="{{ asset('images/LOGO1.png') }}" alt="" height="25">
+            <img class="me-3" src="{{ asset('images/logo-r.webp') }}" alt="" height="25">
         </span>
         <span class="brand-text text-truncate pr-2 text-white" title="{!! strip_tags(config('boilerplate.theme.sidebar.brand.logo.text')) !!}">
             <!-- {!! config('boilerplate.theme.sidebar.brand.logo.text') !!} -->
