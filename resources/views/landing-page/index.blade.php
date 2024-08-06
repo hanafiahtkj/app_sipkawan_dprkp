@@ -100,12 +100,19 @@
             <ul class="navbar-nav me-auto pt-2 pt-lg-0 font-base">
               <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Beranda</a></li>
               <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#statistik">Basis Data</a></li>
-              <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" target="_blank" href="{{ route('boilerplate.gis') }}">Peta Sebaran</a></li>
+              <li class="nav-item dropdown px-2">
+                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Peta Sebaran
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ route('boilerplate.gis') }}?wfsLayerVisibleSebaranPerumahan=true" target="_blank">Peta Sebaran Perumahan</a></li>
+                        <li><a class="dropdown-item" href="{{ route('boilerplate.gis') }}?wfsLayerVisibleSebaranRumahSewa2022=true" target="_blank">Peta Sebaran Rumah Sewa</a></li>
+                    </ul>
+              </li>
               <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Kontak</a></li>
               <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold" aria-current="page" href="#home">Tentang</a></li>
             </ul>
             <form class="ps-lg-5">
-              <!-- <button class="btn btn-link text-danger fw-bold order-1 order-lg-0" type="button">Sign in</button> -->
               <a class="btn hover-top btn-collab text-white" href="{{ route('boilerplate.login') }}">MASUK</a>
             </form>
           </div>
@@ -305,7 +312,7 @@
                 </div>
             </div> --}}
 
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-12">
                 <div class="card card-warning card-outline card-tabs mb-5">
                     <div class="card-header p-0 border-bottom-0">
@@ -429,7 +436,7 @@
                     </div>
                 </div>
             </div>
-          </div>
+          </div> --}}
 
         </div>
         <!-- end of .container-->

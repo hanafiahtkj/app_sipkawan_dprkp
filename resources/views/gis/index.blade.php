@@ -82,7 +82,7 @@
         <div class="p-3 control-sidebar-content" style="">
             <div class="row">
                 <div class="col">
-                  <h5 class="mb-0 mt-1">Control Panel</h5>
+                  <h5 class="mb-0 mt-1">Pengaturan</h5>
                 </div>
                 <div class="col-auto">
                   <a class="btn btn-dark btn-sm" data-widget="control-sidebar" data-slide="true" href="#" role="button">
@@ -138,7 +138,7 @@
                     <div class="card-body p-0">
                         <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranPerumahan" v-model="wfsLayerVisibleSebaranPerumahan" class="mr-1">
                             <label for="wfsLayerVisibleSebaranPerumahan" class="form-check-label"><span>Sebaran Perumahan</span></label>
-                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(122 140 144); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(84 130 53); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
                         </div>
                     </div>
                   </div>
@@ -156,7 +156,7 @@
                         <h6>2021</h6>
                         <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewa2021" v-model="wfsLayerVisibleSebaranRumahSewa2021" class="mr-1">
                             <label for="wfsLayerVisibleSebaranRumahSewa2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
-                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(191 144 2); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
                         </div>
                         <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2021" v-model="wfsLayerVisibleSebaranRumahSewaPoint2021" class="mr-1">
                             <label for="wfsLayerVisibleSebaranRumahSewaPoint2021" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
@@ -166,7 +166,7 @@
                         <h6>2022</h6>
                         <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewa2022" v-model="wfsLayerVisibleSebaranRumahSewa2022" class="mr-1">
                             <label for="wfsLayerVisibleSebaranRumahSewa2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>
-                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(34 86 98); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
+                            <span style="float: right; border: 2px solid rgb(52 51 48); background-color: rgb(191 144 2); width: 25px; height: 20px; display: inline-block; margin-left: 5px;"></span>
                         </div>
                         <div class="mb-1"><input type="checkbox" id="wfsLayerVisibleSebaranRumahSewaPoint2022" v-model="wfsLayerVisibleSebaranRumahSewaPoint2022" class="mr-1">
                             <label for="wfsLayerVisibleSebaranRumahSewaPoint2022" class="form-check-label"><span>Sebaran Rumah Sewa</span></label>

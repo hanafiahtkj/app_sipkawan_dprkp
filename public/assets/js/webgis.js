@@ -6,72 +6,72 @@ new Vue({
             banjarmasinCoordinates: [114.592, -3.3199],
 
             wfsLayerBanjarmasinUtara: null,
-            wfsLayerVisibleBanjarmasinUtara: true,
+            wfsLayerVisibleBanjarmasinUtara: false,
             wfsLayerBanjarmasinSelatan: null,
-            wfsLayerVisibleBanjarmasinSelatan: true,
+            wfsLayerVisibleBanjarmasinSelatan: false,
             wfsLayerBanjarmasinTimur: null,
-            wfsLayerVisibleBanjarmasinTimur: true,
+            wfsLayerVisibleBanjarmasinTimur: false,
             wfsLayerBanjarmasinBarat: null,
-            wfsLayerVisibleBanjarmasinBarat: true,
+            wfsLayerVisibleBanjarmasinBarat: false,
             wfsLayerBanjarmasinTengah: null,
-            wfsLayerVisibleBanjarmasinTengah: true,
+            wfsLayerVisibleBanjarmasinTengah: false,
 
             wfsLayerPerairan: null,
-            wfsLayerVisiblePerairan: true,
+            wfsLayerVisiblePerairan: false,
             wfsLayerSebaranPerumahan: null,
-            wfsLayerVisibleSebaranPerumahan: true,
+            wfsLayerVisibleSebaranPerumahan: false,
             wfsLayerTransportasi: null,
-            wfsLayerVisibleTransportasi: true,
+            wfsLayerVisibleTransportasi: false,
 
             wfsLayerVisibleSebaranRumahSewa2021: false,
 
             wfsLayerSebaranRumahSewaBanbar2021: null,
-            wfsLayerVisibleSebaranRumahSewaBanbar2021: true,
+            wfsLayerVisibleSebaranRumahSewaBanbar2021: false,
             wfsLayerSebaranRumahSewaBanteng2021: null,
-            wfsLayerVisibleSebaranRumahSewaBanteng2021: true,
+            wfsLayerVisibleSebaranRumahSewaBanteng2021: false,
             wfsLayerSebaranRumahSewaBantim2021: null,
-            wfsLayerVisibleSebaranRumahSewaBantim2021: true,
+            wfsLayerVisibleSebaranRumahSewaBantim2021: false,
             wfsLayerSebaranRumahSewaBanut2021: null,
-            wfsLayerVisibleSebaranRumahSewaBanut2021: true,
+            wfsLayerVisibleSebaranRumahSewaBanut2021: false,
 
             wfsLayerVisibleSebaranRumahSewa2022: false,
 
             wfsLayerSebaranRumahSewaBanbar2022: null,
-            wfsLayerVisibleSebaranRumahSewaBanbar2022: true,
+            wfsLayerVisibleSebaranRumahSewaBanbar2022: false,
             wfsLayerSebaranRumahSewaBanSel2022: null,
-            wfsLayerVisibleSebaranRumahSewaBansel2022: true,
+            wfsLayerVisibleSebaranRumahSewaBansel2022: false,
             wfsLayerSebaranRumahSewaBanteng2022: null,
-            wfsLayerVisibleSebaranRumahSewaBanteng2022: true,
+            wfsLayerVisibleSebaranRumahSewaBanteng2022: false,
             wfsLayerSebaranRumahSewaBantim2022: null,
-            wfsLayerVisibleSebaranRumahSewaBantim2022: true,
+            wfsLayerVisibleSebaranRumahSewaBantim2022: false,
             wfsLayerSebaranRumahSewaBanut2022: null,
-            wfsLayerVisibleSebaranRumahSewaBanut2022: true,
+            wfsLayerVisibleSebaranRumahSewaBanut2022: false,
 
             wfsLayerVisibleSebaranRumahSewaPoint2021: false,
 
             wfsLayerSebaranRumahSewaPointBanbar2021: null,
-            wfsLayerVisibleSebaranRumahSewaPointBanbar2021: true,
+            wfsLayerVisibleSebaranRumahSewaPointBanbar2021: false,
             wfsLayerSebaranRumahSewaPointBansel2021: null,
-            wfsLayerVisibleSebaranRumahSewaPointBansel2021: true,
+            wfsLayerVisibleSebaranRumahSewaPointBansel2021: false,
             wfsLayerSebaranRumahSewaPointBanteng2021: null,
-            wfsLayerVisibleSebaranRumahSewaPointBanteng2021: true,
+            wfsLayerVisibleSebaranRumahSewaPointBanteng2021: false,
             wfsLayerSebaranRumahSewaPointBantim2021: null,
-            wfsLayerVisibleSebaranRumahSewaPointBantim2021: true,
+            wfsLayerVisibleSebaranRumahSewaPointBantim2021: false,
             wfsLayerSebaranRumahSewaPointBanut2021: null,
-            wfsLayerVisibleSebaranRumahSewaPointBanut2021: true,
+            wfsLayerVisibleSebaranRumahSewaPointBanut2021: false,
 
             wfsLayerVisibleSebaranRumahSewaPoint2022: false,
 
             wfsLayerSebaranRumahSewaPointBanbar2022: null,
-            wfsLayerVisibleSebaranRumahSewaPointBanbar2022: true,
+            wfsLayerVisibleSebaranRumahSewaPointBanbar2022: false,
             wfsLayerSebaranRumahSewaPointBansel2022: null,
-            wfsLayerVisibleSebaranRumahSewaPointBansel2022: true,
+            wfsLayerVisibleSebaranRumahSewaPointBansel2022: false,
             wfsLayerSebaranRumahSewaPointBanteng2022: null,
-            wfsLayerVisibleSebaranRumahSewaPointBanteng2022: true,
+            wfsLayerVisibleSebaranRumahSewaPointBanteng2022: false,
             wfsLayerSebaranRumahSewaPointBantim2022: null,
-            wfsLayerVisibleSebaranRumahSewaPointBantim2022: true,
+            wfsLayerVisibleSebaranRumahSewaPointBantim2022: false,
             wfsLayerSebaranRumahSewaPointBanut2022: null,
-            wfsLayerVisibleSebaranRumahSewaPointBanut2022: true,
+            wfsLayerVisibleSebaranRumahSewaPointBanut2022: false,
 
             wfsLayerPPDLBFPBanbar: null,
             wfsLayerPPDLBFPBansel: null,
@@ -83,6 +83,7 @@ new Vue({
     },
     mounted() {
         this.initMap();
+        this.setLayerVisibilityFromURL();
     },
     methods: {
         initMap() {
@@ -100,6 +101,51 @@ new Vue({
             });
 
             this.createWfsLayer();
+        },
+        setLayerVisibilityFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const layers = [
+                "wfsLayerVisibleBanjarmasinUtara",
+                "wfsLayerVisibleBanjarmasinSelatan",
+                "wfsLayerVisibleBanjarmasinTimur",
+                "wfsLayerVisibleBanjarmasinBarat",
+                "wfsLayerVisibleBanjarmasinTengah",
+                "wfsLayerVisiblePerairan",
+                "wfsLayerVisibleSebaranPerumahan",
+                "wfsLayerVisibleTransportasi",
+                "wfsLayerVisibleSebaranRumahSewa2021",
+                "wfsLayerVisibleSebaranRumahSewaBanbar2021",
+                "wfsLayerVisibleSebaranRumahSewaBanteng2021",
+                "wfsLayerVisibleSebaranRumahSewaBantim2021",
+                "wfsLayerVisibleSebaranRumahSewaBanut2021",
+                "wfsLayerVisibleSebaranRumahSewa2022",
+                "wfsLayerVisibleSebaranRumahSewaBanbar2022",
+                "wfsLayerVisibleSebaranRumahSewaBansel2022",
+                "wfsLayerVisibleSebaranRumahSewaBanteng2022",
+                "wfsLayerVisibleSebaranRumahSewaBantim2022",
+                "wfsLayerVisibleSebaranRumahSewaBanut2022",
+                "wfsLayerVisibleSebaranRumahSewaPoint2021",
+                "wfsLayerVisibleSebaranRumahSewaPointBanbar2021",
+                "wfsLayerVisibleSebaranRumahSewaPointBansel2021",
+                "wfsLayerVisibleSebaranRumahSewaPointBanteng2021",
+                "wfsLayerVisibleSebaranRumahSewaPointBantim2021",
+                "wfsLayerVisibleSebaranRumahSewaPointBanut2021",
+                "wfsLayerVisibleSebaranRumahSewaPoint2022",
+                "wfsLayerVisibleSebaranRumahSewaPointBanbar2022",
+                "wfsLayerVisibleSebaranRumahSewaPointBansel2022",
+                "wfsLayerVisibleSebaranRumahSewaPointBanteng2022",
+                "wfsLayerVisibleSebaranRumahSewaPointBantim2022",
+                "wfsLayerVisibleSebaranRumahSewaPointBanut2022",
+                "wfsLayerVisiblePPDLBFP",
+            ];
+
+            layers.forEach((layer) => {
+                const param = urlParams.get(layer);
+                if (param !== null) {
+                    this[layer] = param.toLowerCase() === "true";
+                }
+            });
         },
         createWfsLayer() {
             var wfsSourceBanjarmasinUtara = new ol.source.Vector({
@@ -265,7 +311,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(122 140 144)",
+                        color: "rgb(84 130 53)",
                     }),
                 }),
             });
@@ -290,7 +336,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -315,7 +361,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -342,7 +388,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -367,7 +413,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -392,7 +438,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -417,7 +463,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -442,7 +488,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -469,7 +515,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
@@ -494,7 +540,7 @@ new Vue({
                     //     width: 1
                     // }),
                     fill: new ol.style.Fill({
-                        color: "rgb(34 86 98)",
+                        color: "rgb(191 144 2)",
                     }),
                 }),
             });
