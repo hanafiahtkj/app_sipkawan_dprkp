@@ -15,3 +15,5 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/',HomeController::class)->name('welcome');
+
+Route::get('/more-info/{type}', [HomeController::class, 'moreInfo'])->name('more.info');

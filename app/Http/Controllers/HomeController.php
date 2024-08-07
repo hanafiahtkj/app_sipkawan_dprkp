@@ -73,4 +73,41 @@ class HomeController extends Controller
             )
         );
     }
+
+    public function moreInfo(Request $request, $type)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data = $this->getDataByType($type, $tahun);
+        $view = $this->getViewByType($type);
+
+        return view($view, $data);
+    }
+
+    private function getDataByType($type, $tahun)
+    {
+        switch ($type) {
+            case 'komplek-perumahan':
+                return [
+                    'tables' => SebaranKomplek::where('tahun', $tahun)->get()
+                ];
+            case 'rumah-sewa':
+                return [
+                    'tables' => RumahSewa::where('tahun', $tahun)->get()
+                ];
+            default:
+                return [];
+        }
+    }
+
+    private function getViewByType($type)
+    {
+        switch ($type) {
+            case 'komplek-perumahan':
+                return 'landing-page.more-info-komplek-perumahan';
+            case 'rumah-sewa':
+                return 'landing-page.more-info-rumah-sewa';
+            default:
+                return 'landing-page.more-info-default';
+        }
+    }
 }
