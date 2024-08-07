@@ -128,10 +128,10 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item"
-                                        href="{{ route('boilerplate.gis') }}?wfsLayerVisibleSebaranPerumahan=true"
+                                        href="{{ route('webgis') }}?wfsLayerVisibleSebaranPerumahan=true"
                                         target="_blank">Peta Sebaran Perumahan</a></li>
                                 <li><a class="dropdown-item"
-                                        href="{{ route('boilerplate.gis') }}?wfsLayerVisibleSebaranRumahSewa2022=true"
+                                        href="{{ route('webgis') }}?wfsLayerVisibleSebaranRumahSewa2022=true"
                                         target="_blank">Peta Sebaran Rumah Sewa</a></li>
                             </ul>
                         </li>

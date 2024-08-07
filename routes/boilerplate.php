@@ -253,5 +253,3 @@ Route::group([
 
     });
 });
-
-Route::get('webgis', GisController::class);

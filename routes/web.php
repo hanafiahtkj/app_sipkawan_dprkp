@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/',HomeController::class)->name('welcome');
+
+Route::get('/webgis', GisController::class)->name('webgis');
 
 Route::get('/more-info/{type}', [HomeController::class, 'moreInfo'])->name('more.info');
