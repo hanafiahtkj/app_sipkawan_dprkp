@@ -137,8 +137,18 @@
                         </li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
                                 aria-current="page" href="#home">Kontak</a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="#home">Tentang</a></li>
+                        <li class="nav-item dropdown px-2">
+                            <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tentang
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Deskripsi</a></li>
+                                <li><a class="dropdown-item"
+                                        href="{{ asset('assets/pdf/11.pedoman-teknis-SIP-KAWAN.pdf') }}"
+                                        target="_blank">Pedoman Teknis</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <form class="ps-lg-5">
                         <a class="btn hover-top btn-collab text-white"
