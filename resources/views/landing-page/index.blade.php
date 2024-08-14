@@ -136,7 +136,7 @@
                             </ul>
                         </li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="#home">Kontak</a></li>
+                                aria-current="page" href="#contact">Kontak</a></li>
                         <li class="nav-item dropdown px-2">
                             <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -518,12 +518,27 @@
         <!-- <section> close ============================-->
         <!-- ============================================-->
 
-
         <!-- ============================================-->
         <!-- <section> begin ============================-->
-        <section class="py-0">
+        <section class="py-0" id="contact">
 
             <div class="container">
+
+
+                <hr class="text-200">
+
+                <div class="row flex-center mt-5">
+                    <div class="col-lg-6">
+                        <h4 class="fw-bold">Kontak Kami</h4>
+                        <p class="fs-1">Hotline: (0511) 3365592</p>
+                        <p class="fs-1">WhatsApp: 081935288889</p>
+                    </div>
+                    <div class="col-lg-6 d-flex justify-content-lg-end mb-4">
+                        <form class="row row-cols-lg-auto align-items-center">
+                            <!-- You can include additional contact-related form fields here if needed -->
+                        </form>
+                    </div>
+                </div>
                 <!-- <hr class="text-200" /> -->
                 <!-- <div class="row justify-content-lg-between circle-blend-right circle-danger">
             <div class="col-6 col-sm-4 col-lg-auto mb-3">

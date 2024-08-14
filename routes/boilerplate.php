@@ -100,6 +100,7 @@ Route::group([
 
         // Dashboard
         Route::get('/', [config('boilerplate.menu.dashboard'), 'index'])->name('dashboard');
+        Route::get('/visitorByMonth', [config('boilerplate.menu.dashboard'), 'visitorByMonth'])->name('dashboard.visitorByMonth');
 
         // Session keep-alive
         Route::post('keep-alive', [UsersController::class, 'keepAlive'])->name('keepalive');
