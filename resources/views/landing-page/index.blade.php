@@ -235,7 +235,8 @@
                     <div class="col-lg-4 col-6">
                         <div class="small-box bg-white">
                             <div class="inner">
-                                <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3>
+                                {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+                                <h3>{{ number_format(35384, 0, ',', '.') }} Unit</h3>
                                 <p><b>Jumlah Rumah Subsidi Tersedia</b></p>
                             </div>
                             <div class="icon">
@@ -250,7 +251,8 @@
                     <div class="col-lg-4 col-6">
                         <div class="small-box bg-white">
                             <div class="inner">
-                                <h3>{{ number_format($jml_rmh_komersil, 0, ',', '.') }}</h3>
+                                {{-- <h3>{{ number_format($jml_rmh_komersil, 0, ',', '.') }}</h3> --}}
+                                <h3>{{ number_format(17210, 0, ',', '.') }} Unit</h3>
                                 <p><b>Jumlah Rumah Non-Subsidi Tersedia</b></p>
                             </div>
                             <div class="icon">
@@ -267,7 +269,8 @@
 
                         <div class="small-box bg-white">
                             <div class="inner">
-                                <h3>{{ number_format($jml_rmh_swadaya, 0, ',', '.') }}</h3>
+                                {{-- <h3>{{ number_format($jml_rmh_swadaya, 0, ',', '.') }}</h3> --}}
+                                <h3>{{ number_format(121868, 0, ',', '.') }} Unit</h3>
                                 <p><b>Jumlah Rumah Swadaya</b></p>
                             </div>
                             <div class="icon">
@@ -282,7 +285,8 @@
                     <div class="col-lg-4 col-6">
                         <div class="small-box bg-white">
                             <div class="inner">
-                                <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3>
+                                {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+                                <h3>{{ number_format(328, 0, ',', '.') }} Komplek</h3>
                                 <p><b>Jumlah Komplek Perumahan</b></p>
                             </div>
                             <div class="icon">
@@ -298,7 +302,8 @@
 
                         <div class="small-box bg-white">
                             <div class="inner">
-                                <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3>
+                                {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+                                <h3>{{ number_format(59, 0, ',', '.') }} Unit</h3>
                                 <p><b>Jumlah Kamar Rusun Tersedia</b></p>
                             </div>
                             <div class="icon">
@@ -314,7 +319,8 @@
 
                         <div class="small-box bg-white">
                             <div class="inner">
-                                <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3>
+                                {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+                                <h3>{{ number_format(0, 0, ',', '.') }} Unit</h3>
                                 <p><b>Jumlah Rumah Sewa Tersedia</b></p>
                             </div>
                             <div class="icon">
@@ -330,7 +336,8 @@
 
                         <div class="small-box bg-white">
                             <div class="inner">
-                                <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3>
+                                {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+                                <h3>{{ number_format(121466, 0, ',', '.') }} m2</h3>
                                 <p><b>Jumlah Pengadaan Tanah</b></p>
                             </div>
                             <div class="icon">
