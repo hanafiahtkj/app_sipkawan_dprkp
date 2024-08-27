@@ -320,7 +320,7 @@
                         <div class="small-box bg-white">
                             <div class="inner">
                                 {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
-                                <h3>{{ number_format(0, 0, ',', '.') }} Unit</h3>
+                                <h3>{{ number_format(1742, 0, ',', '.') }} Unit</h3>
                                 <p><b>Jumlah Rumah Sewa Tersedia</b></p>
                             </div>
                             <div class="icon">
@@ -338,7 +338,7 @@
                             <div class="inner">
                                 {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
                                 <h3>{{ number_format(121466, 0, ',', '.') }} m2</h3>
-                                <p><b>Jumlah Pengadaan Tanah</b></p>
+                                <p><b>Luas Pengadaan Tanah</b></p>
                             </div>
                             <div class="icon">
                                 <img src="{{ asset('images/Picture7.png') }}" alt="Icon" style="height: 60px;">
