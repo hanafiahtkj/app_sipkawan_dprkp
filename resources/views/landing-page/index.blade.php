@@ -303,7 +303,7 @@
                         <div class="small-box bg-white">
                             <div class="inner">
                                 {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
-                                <h3>{{ number_format(59, 0, ',', '.') }} Unit</h3>
+                                <h3>{{ number_format(63, 0, ',', '.') }} Unit</h3>
                                 <p><b>Jumlah Kamar Rusun Tersedia</b></p>
                             </div>
                             <div class="icon">
