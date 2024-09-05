@@ -17,6 +17,8 @@ use App\Http\Controllers\GisController;
 
 Route::get('/',HomeController::class)->name('welcome');
 
+Route::get('/infografis', [HomeController::class, 'infografis'])->name('infografis');
+
 Route::get('/webgis', GisController::class)->name('webgis');
 
 Route::get('/more-info/{type}', [HomeController::class, 'moreInfo'])->name('more.info');

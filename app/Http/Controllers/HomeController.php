@@ -19,6 +19,13 @@ class HomeController extends Controller
         return view('landing-page.index', $data);
     }
 
+    public function infografis(Request $request)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        return view('landing-page.infografis', $data);
+    }
+
     function _data($tahun)
     {
         return array_merge(
