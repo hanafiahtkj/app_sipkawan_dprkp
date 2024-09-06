@@ -50,15 +50,6 @@
                 </div>
             </div>
 
-            <!-- Card 4 -->
-            <div class="col-md-3 mb-4">
-                <div class="card" data-bs-toggle="modal" data-bs-target="#imageModal"
-                    data-bs-image="{{ asset('assets/infografis/DATA PERTANAHAN/DATA PERTANAHAN (1)-2.webp') }}">
-                    <img src="{{ asset('assets/infografis/DATA PERTANAHAN/DATA PERTANAHAN (1)-2.webp') }}"
-                        class="card-img-top" alt="Card image 4">
-                </div>
-            </div>
-
             <!-- Card 5 -->
             <div class="col-md-3 mb-4">
                 <div class="card" data-bs-toggle="modal" data-bs-target="#imageModal"
