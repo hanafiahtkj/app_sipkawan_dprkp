@@ -113,6 +113,23 @@
             width: 100%;
             /* Memastikan gambar menutupi lebar elemen */
         }
+
+        .small-box {
+            height: 200px;
+            /* Menetapkan tinggi yang sama untuk semua small-box */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .small-box .inner {
+            flex-grow: 1;
+        }
+
+        .small-box-footer {
+            margin-top: auto;
+            /* Agar footer berada di bagian bawah */
+        }
     </style>
 
 </head>

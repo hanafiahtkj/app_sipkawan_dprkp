@@ -83,11 +83,12 @@
                 </div>
             </div>
         </form> --}}
-        <div class="row mb-2">
+
+        {{-- <div class="row mb-2">
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-white">
                     <div class="inner">
-                        {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+
                         <h3>{{ number_format(35384, 0, ',', '.') }} Unit</h3>
                         <p><b>Jumlah Rumah Subsidi Tersedia</b></p>
                     </div>
@@ -103,7 +104,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-white">
                     <div class="inner">
-                        {{-- <h3>{{ number_format($jml_rmh_komersil, 0, ',', '.') }}</h3> --}}
+
                         <h3>{{ number_format(17210, 0, ',', '.') }} Unit</h3>
                         <p><b>Jumlah Rumah Non-Subsidi Tersedia</b></p>
                     </div>
@@ -121,7 +122,7 @@
 
                 <div class="small-box bg-white">
                     <div class="inner">
-                        {{-- <h3>{{ number_format($jml_rmh_swadaya, 0, ',', '.') }}</h3> --}}
+
                         <h3>{{ number_format(121868, 0, ',', '.') }} Unit</h3>
                         <p><b>Jumlah Rumah Swadaya</b></p>
                     </div>
@@ -137,7 +138,7 @@
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-white">
                     <div class="inner">
-                        {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+
                         <h3>{{ number_format(328, 0, ',', '.') }} Komplek</h3>
                         <p><b>Jumlah Komplek Perumahan</b></p>
                     </div>
@@ -154,7 +155,7 @@
 
                 <div class="small-box bg-white">
                     <div class="inner">
-                        {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+
                         <h3>{{ number_format(63, 0, ',', '.') }} Unit</h3>
                         <p><b>Jumlah Kamar Rusun Tersedia</b></p>
                     </div>
@@ -171,7 +172,7 @@
 
                 <div class="small-box bg-white">
                     <div class="inner">
-                        {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+
                         <h3>{{ number_format(1742, 0, ',', '.') }} Unit</h3>
                         <p><b>Jumlah Rumah Sewa Tersedia</b></p>
                     </div>
@@ -188,7 +189,7 @@
 
                 <div class="small-box bg-white">
                     <div class="inner">
-                        {{-- <h3>{{ number_format($jml_rmh_umum, 0, ',', '.') }}</h3> --}}
+
                         <h3>{{ number_format(121466, 0, ',', '.') }} m2</h3>
                         <p><b>Luas Pengadaan Tanah</b></p>
                     </div>
@@ -201,7 +202,193 @@
                 </div>
             </div>
 
+        </div> --}}
+
+        <div class="row mb-2">
+
+            <div class="col-lg-3 col-3">
+                <div class="small-box bg-white" style="width:250px">
+                    <div class="inner text-center">
+                        <img src="{{ asset('images/Picture4.png') }}" alt="Icon" style="height: 80px;">
+                        <h4>Perumahan</h4>
+                    </div>
+                    <div class="icon">
+
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="komplek-perumahan">
+                        Lihat.. <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-3">
+
+                <div class="small-box bg-white" style="width:250px">
+                    <div class="inner text-center">
+                        <img src="{{ asset('images/Picture6.png') }}" alt="Icon" style="height: 80px;">
+                        <h4>Rumah Sewa Masyarakat</h4>
+                    </div>
+                    <div class="icon">
+
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="rumah-sewa">
+                        Lihat... <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-3">
+
+                <div class="small-box bg-white" style="width:250px">
+                    <div class="inner text-center">
+                        <img src="{{ asset('images/Picture5.png') }}" alt="Icon" style="height: 80px;">
+                        <h4>Rumah Susun Sederhana Sewa</h4>
+                    </div>
+                    <div class="icon">
+
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="rusun">
+                        Lihat... <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-3">
+                <div class="small-box bg-white" style="width:250px">
+                    <div class="inner text-center">
+                        <img src="{{ asset('images/Picture2.png') }}" alt="Icon" style="height: 80px;">
+                        <h4>RTLH Tertangani</h4>
+                    </div>
+                    <div class="icon">
+
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="non-subsidi">
+                        Lihat... <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
+
+        {{-- <div class="row mb-2">
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-white">
+                    <div class="inner">
+
+                        <h3>{{ number_format(35384, 0, ',', '.') }} Unit</h3>
+                        <p><b>Jumlah Rumah Subsidi Tersedia</b></p>
+                    </div>
+                    <div class="icon">
+                        <img src="{{ asset('images/Picture1.png') }}" alt="Icon" style="height: 60px;">
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="subsidi">
+                        Data Detail <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-white">
+                    <div class="inner">
+
+                        <h3>{{ number_format(17210, 0, ',', '.') }} Unit</h3>
+                        <p><b>Jumlah Rumah Non-Subsidi Tersedia</b></p>
+                    </div>
+                    <div class="icon">
+                        <img src="{{ asset('images/Picture2.png') }}" alt="Icon" style="height: 60px;">
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="non-subsidi">
+                        Data Detail <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-6">
+
+                <div class="small-box bg-white">
+                    <div class="inner">
+
+                        <h3>{{ number_format(121868, 0, ',', '.') }} Unit</h3>
+                        <p><b>Jumlah Rumah Swadaya</b></p>
+                    </div>
+                    <div class="icon">
+                        <img src="{{ asset('images/Picture3.png') }}" alt="Icon" style="height: 60px;">
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="rumah-swadaya">
+                        Data Detail <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-white">
+                    <div class="inner">
+
+                        <h3>{{ number_format(328, 0, ',', '.') }} Komplek</h3>
+                        <p><b>Jumlah Komplek Perumahan</b></p>
+                    </div>
+                    <div class="icon">
+                        <img src="{{ asset('images/Picture4.png') }}" alt="Icon" style="height: 60px;">
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="komplek-perumahan">
+                        Data Detail <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+
+                <div class="small-box bg-white">
+                    <div class="inner">
+
+                        <h3>{{ number_format(63, 0, ',', '.') }} Unit</h3>
+                        <p><b>Jumlah Kamar Rusun Tersedia</b></p>
+                    </div>
+                    <div class="icon">
+                        <img src="{{ asset('images/Picture5.png') }}" alt="Icon" style="height: 60px;">
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="rusun">
+                        Data Detail <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+
+                <div class="small-box bg-white">
+                    <div class="inner">
+
+                        <h3>{{ number_format(1742, 0, ',', '.') }} Unit</h3>
+                        <p><b>Jumlah Rumah Sewa Tersedia</b></p>
+                    </div>
+                    <div class="icon">
+                        <img src="{{ asset('images/Picture6.png') }}" alt="Icon" style="height: 60px;">
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="rumah-sewa">
+                        Data Detail <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+
+                <div class="small-box bg-white">
+                    <div class="inner">
+
+                        <h3>{{ number_format(121466, 0, ',', '.') }} m2</h3>
+                        <p><b>Luas Pengadaan Tanah</b></p>
+                    </div>
+                    <div class="icon">
+                        <img src="{{ asset('images/Picture7.png') }}" alt="Icon" style="height: 60px;">
+                    </div>
+                    <a href="#" class="small-box-footer" data-type="pengadaan-tanah">
+                        Data Detail <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div> --}}
         {{-- </div>
             </div> --}}
 
