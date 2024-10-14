@@ -17,6 +17,9 @@ use App\Http\Controllers\GisController;
 
 Route::get('/',HomeController::class)->name('welcome');
 
+Route::get('/loadPerumahanDatatables', [HomeController::class, 'loadPerumahanDatatables'])->name('loadPerumahanDatatables');
+Route::get('/perumahan', [HomeController::class, 'perumahan'])->name('perumahan');
+
 Route::get('/infografis', [HomeController::class, 'infografis'])->name('infografis');
 
 Route::get('/webgis', GisController::class)->name('webgis');

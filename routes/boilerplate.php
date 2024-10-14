@@ -49,6 +49,10 @@ Route::group([
     'middleware' => ['web', 'boilerplate.locale'],
     'as'         => 'boilerplate.',
 ], function () {
+
+    Route::post('kel-desa/get-byidkec',
+    [KelDesaController::class, 'getByidKec'])->name('kel-desa.get-byidkec');
+
     // Logout
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -201,8 +205,7 @@ Route::group([
         Route::resource('kecamatan', KecamatanController::class);
         Route::post('kel-desa/refresh',
             [KelDesaController::class, 'refresh'])->name('kel-desa.refresh');
-        Route::post('kel-desa/get-byidkec',
-            [KelDesaController::class, 'getByidKec'])->name('kel-desa.get-byidkec');
+
         Route::resource('kel-desa', KelDesaController::class);
         Route::resource('profile-kelurahan', ProfileKelurahanController::class);
         Route::get('rtlh/export/',

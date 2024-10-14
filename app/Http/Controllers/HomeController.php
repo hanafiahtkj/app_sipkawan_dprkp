@@ -8,7 +8,10 @@ use App\Models\RumahSusun;
 use App\Models\SebaranKomplek;
 use App\Models\RumahSewa;
 use App\Models\JumlahRumahBanjarmasin;
+use App\Models\Kecamatan;
+use App\Models\KelDesa;
 use DB;
+use DataTables;
 
 class HomeController extends Controller
 {
@@ -17,6 +20,22 @@ class HomeController extends Controller
         $tahun = $request->tahun ?? date("Y");
         $data  = $this->_data($tahun);
         return view('landing-page.index', $data);
+    }
+
+    public function loadPerumahanDatatables()
+    {
+        $model = SebaranKomplek::with(['kecamatan', 'kelurahan']);
+
+        return DataTables::of($model)
+            ->toJson();
+    }
+
+    public function perumahan(Request $request)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.perumahan', $data);
     }
 
     public function infografis(Request $request)

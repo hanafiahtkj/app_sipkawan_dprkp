@@ -215,7 +215,7 @@
                     <div class="icon">
 
                     </div>
-                    <a href="#" class="small-box-footer" data-type="komplek-perumahan">
+                    <a href="{{ route('perumahan') }}" class="small-box-footer" data-type="komplek-perumahan">
                         Lihat.. <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

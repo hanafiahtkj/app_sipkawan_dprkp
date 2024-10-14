@@ -1,92 +1,126 @@
+@include('landing-page.partials.header')
+
+<section class="pb-4 mt-4" id="home"
+    style="background-image:url('{{ asset('images/aset-bg.webp') }}');background-position:center;background-size:cover;background-repeat: no-repeat;">
+    <div class="container">
+        <div class="row">
+            {{-- <div class="col-md-5 col-lg-3 order-0 order-md-1 text-end d-none d-md-block"><img class="pt-7 pt-md-0"
+                    src="{{ asset('images/logo-r.webp') }}" alt="hero-header" style="max-height: 300px;" />
+            </div> --}}
+            <div class="col-lg-12 text-md-start text-center">
+                {{-- <h6 class="fs-0 text-uppercase fw-bold text-600">Selamat Datang</h6> --}}
+                <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7"> PERUMAHAN</h1>
+                <!-- <a class="btn hover-top btn-collab-outline text-gradient ms-2" href="#!"> <i class="fas fa-play text-danger me-md-2 me-0"></i> CHECK DEMO</a> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section id="statistik" class="py-4"
+    style="background-image:url('{{ asset('images/bg.png') }}');background-position: center;">
+
+    <div class="container">
+
+        <div class="row mt-4 mb-3">
+            <div class="col-md-4">
+                <label>Kecamatan</label>
+                <select class="form-select py-3" name="id_kecamatan" id="id_kecamatan">
+                    <option value="">Pilih...</option>
+                    @foreach ($kecamatan as $kec)
+                        <option value="{{ $kec->id }}">{{ $kec->kecamatan }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Kelurahan</label>
+                <select class="form-select py-3" name="id_kelurahan" id="id_kelurahan">
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label>Jenis</label>
+                <select class="form-select py-3" name="jenis" id="jenis">
+                    <option value="">Pilih...</option>
+                    <option value="1" @if (old('jenis') == '1') selected="selected" @endif>Umum</option>
+                    <option value="2" @if (old('jenis') == '2') selected="selected" @endif>Komersil
+                    </option>
+                    <option value="3" @if (old('jenis') == '3') selected="selected" @endif>Berimbang
+                    </option>
+                    <option value="4" @if (old('jenis') == '4') selected="selected" @endif>Khusus</option>
+                    <option value="5" @if (old('jenis') == '5') selected="selected" @endif>Umum dan
+                        Komersil</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <button class="btn btn-dark border-0 w-100 py-3"><i class="fa fa-filter"></i>
+                    Filter</button>
+            </div>
+        </div>
+
+
+
+        <div class="row mt-4">
+            <div class="col-12">
+
+                <div class="card border-light mb-0">
+                    {{-- <h5 class="card-header bg-light py-3">
+                        Data Perumahan
+                    </h5> --}}
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover va-middle w-100" id="dt_sebarankomplek">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Perumahan</th>
+                                        <th>Nama Pengembang</th>
+                                        <th>Kecamatan</th>
+                                        <th>Kelurahan</th>
+                                        <th>Luas</th>
+                                        <th>Jenis</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- end of .container-->
+
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
+
 <!-- ============================================-->
 <!-- <section> begin ============================-->
 <section class="py-0" id="contact">
 
     <div class="container">
 
-
-        <hr class="text-200">
-
-        <div class="row flex-center mt-5">
-            <div class="col-lg-6">
-                <h4 class="fw-bold">Kontak Kami</h4>
-                <p class="fs-1">Hotline: (0511) 3365592</p>
-                <p class="fs-1">WhatsApp: 081935288889</p>
-            </div>
-            <div class="col-lg-6 d-flex justify-content-lg-end mb-4">
-                <form class="row row-cols-lg-auto align-items-center">
-                    <!-- You can include additional contact-related form fields here if needed -->
-                </form>
-            </div>
-        </div>
-        <!-- <hr class="text-200" /> -->
-        <!-- <div class="row justify-content-lg-between circle-blend-right circle-danger">
-                <div class="col-6 col-sm-4 col-lg-auto mb-3">
-                  <h6 class="my-4 fw-bold fs-0">WHY US</h6>
-                  <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Channel</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Engagement</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Scale</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Watch Demo</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-auto mb-3">
-                  <h6 class="my-4 fw-bold fs-0">PRODUCT</h6>
-                  <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Features</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Integrations</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Enterprise</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Solutions</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-auto mb-3">
-                  <h6 class="my-4 fw-bold fs-0">RESOURCES</h6>
-                  <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Partners</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Developers</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Apps</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Blogs</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-auto mb-3">
-                  <h6 class="my-4 fw-bold fs-0">COMPANY</h6>
-                  <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">About Us</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Leadership</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Investor Relations</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">News</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-auto mb-3">
-                  <h6 class="my-4 fw-bold fs-0">PRICING</h6>
-                  <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Plans</a></li>
-                    <li class="mb-2"><a class="text-1100 text-decoration-none" href="#!">Paid vs. Free</a></li>
-                  </ul>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-auto mb-3">
-                  <h6 class="my-4 fw-bold fs-0">FOLLOW</h6>
-                  <ul class="list-unstyled list-inline my-3">
-                    <li class="list-inline-item me-3"><a class="text-decoration-none" href="#!"><img class="list-social-icon" src="{{ asset('vendor/collab/assets/img/icons/facebook.svg') }}" alt="" /></a></li>
-                    <li class="list-inline-item me-3"><a class="text-decoration-none" href="#!"><img class="list-social-icon" src="{{ asset('vendor/collab/assets/img/icons/twitter.svg') }}" alt="" /></a></li>
-                    <li class="list-inline-item me-3"><a class="text-decoration-none" href="#!"><img class="list-social-icon" src="{{ asset('vendor/collab/assets/img/icons/instagram.svg') }}" alt="" /></a></li>
-                    <li class="list-inline-item"><a class="text-decoration-none" href="#!"><img class="list-social-icon" src="{{ asset('vendor/collab/assets/img/icons/snapchat.svg') }}" alt="" /></a></li>
-                  </ul>
-                </div>
-              </div> -->
-        <!-- <hr class="text-200 mb-0" /> -->
         <div class="row justify-content-md-between justify-content-evenly py-3">
             <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
                 <p class="fs-0 my-2 text-400">All rights Reserved <span class="fw-bold text-500">&copy;
                         Diskominfotik Kota Banjarmasin, 2022</span></p>
             </div>
             {{-- <div class="col-12 col-sm-8 col-md-6">
-                  <p class="text-center text-md-end text-400"> Made with&nbsp;
-                    <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FD7D72" viewBox="0 0 16 16">
-                      <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
-                    </svg>&nbsp;by&nbsp;<a class="fw-bold text-500" href="https://themewagon.com/" target="_blank">ThemeWagon </a>
-                  </p>
-                </div> --}}
+                      <p class="text-center text-md-end text-400"> Made with&nbsp;
+                        <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FD7D72" viewBox="0 0 16 16">
+                          <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
+                        </svg>&nbsp;by&nbsp;<a class="fw-bold text-500" href="https://themewagon.com/" target="_blank">ThemeWagon </a>
+                      </p>
+                    </div> --}}
         </div>
     </div>
     <!-- end of .container-->
@@ -170,51 +204,72 @@
                     imageUrl; // Setel sumber gambar modal menjadi gambar yang diklik
             });
         });
-
-        // document.querySelectorAll('.small-box-footer').forEach(function(button) {
-        //     button.addEventListener('click', function(event) {
-        //         event.preventDefault();
-
-        //         let tahun = document.getElementById('tahun').value;
-
-        //         let type = this.getAttribute('data-type');
-        //         let url = `{{ url('more-info') }}/${type}?tahun=${tahun}`;
-
-        //         fetch(url)
-        //             .then(response => response.text())
-        //             .then(data => {
-        //                 document.querySelector('#moreInfoModal .modal-body').innerHTML =
-        //                     data;
-
-        //                 // Hapus inisialisasi DataTable sebelumnya jika ada
-        //                 if ($.fn.DataTable.isDataTable('#dataTable')) {
-        //                     $('#dataTable').DataTable().destroy();
-        //                 }
-
-        //                 // Inisialisasi DataTables
-        //                 $('#dataTable').DataTable({
-        //                     responsive: true,
-        //                     lengthMenu: [
-        //                         [5, 25, 50, -1],
-        //                         [5, 25, 50, 'All']
-        //                     ]
-        //                 });
-
-        //                 new bootstrap.Modal(document.getElementById('moreInfoModal'))
-        //                     .show();
-        //             })
-        //             .catch(error => console.error('Error loading modal content:', error));
-        //     });
-        // });
     });
 </script>
 
 
 <script type="text/javascript">
     $(function() {
-        $('#dt_rumahsusun').DataTable();
-        $('#dt_sebarankomplek').DataTable();
-        $('#dt_rumahsewa').DataTable();
+
+        $('#id_kecamatan').on('change', function() {
+            var id_kecamatan = $(this).val(); // Ambil nilai kecamatan yang dipilih
+
+            // Kosongkan pilihan kelurahan saat kecamatan berubah
+            $('#id_kelurahan').empty().append('<option value="">-- Pilih Kelurahan --</option>');
+
+            // Pastikan ada kecamatan yang dipilih
+            if (id_kecamatan) {
+                // Lakukan request AJAX
+                $.ajax({
+                    url: "{{ route('boilerplate.kel-desa.get-byidkec') }}", // URL route Laravel
+                    type: "POST", // Method request
+                    data: {
+                        idKec: id_kecamatan
+                    }, // Kirim parameter id_kecamatan
+                    success: function(response) {
+                        // Lakukan pengecekan jika response sukses
+                        if (response.results) {
+                            // Iterasi melalui data kelurahan yang diterima
+                            $.each(response.results, function(key, value) {
+                                $('#id_kelurahan').append('<option value="' + value
+                                    .id + '">' + value.text +
+                                    '</option>');
+                            });
+                        } else {
+                            alert('Data kelurahan tidak ditemukan!');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Terjadi kesalahan: " + error);
+                    }
+                });
+            }
+        });
+
+        $('#dt_sebarankomplek').DataTable({
+            ajax: {
+                url: "{{ route('loadPerumahanDatatables') }}",
+            },
+            columns: [{
+                    data: "nama_perumahan"
+                },
+                {
+                    data: "nama_pengembang"
+                },
+                {
+                    data: "kecamatan.kecamatan"
+                },
+                {
+                    data: "kelurahan.nama_deskel"
+                },
+                {
+                    data: "luas"
+                },
+                {
+                    data: "jenis"
+                },
+            ],
+        });
 
         const config = {
             type: 'bar',
