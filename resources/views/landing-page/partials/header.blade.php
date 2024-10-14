@@ -87,6 +87,10 @@
             color: #2d5740 !important
         }
 
+        .text-blue {
+            color: #0064ab !important
+        }
+
         .small-box .icon img {
             position: absolute;
             right: 15px;

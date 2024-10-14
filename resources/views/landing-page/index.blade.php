@@ -9,8 +9,8 @@
             </div>
             <div class="col-md-7 col-lg-9 text-md-start text-left">
                 <h6 class="fs-0 text-uppercase fw-bold text-600">Selamat Datang</h6>
-                <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-green"> SIP-KAWAN</h1>
-                <p class="fs-3 fw-bold text-uppercase text-green">(Sistem Informasi Perumahan dan Kawasan
+                <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7 text-blue"> <span class="text-orange">SI</span>P-KAWAN</h1>
+                <p class="fs-3 fw-bold text-uppercase text-blue">(Sistem Informasi Perumahan dan Kawasan
                     Permukiman)</p>
                 <p class="mb-4 fs-1 fw-medium text-green">DINAS PERUMAHAN RAKYAT DAN KAWASAN PERMUKIMAN KOTA
                     BANJARMASIN</p>
@@ -25,14 +25,14 @@
 <section class="py-4 bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-2 col-lg-2 mb-4 mb-lg-0 d-none d-md-block"><img
-                    src="{{ asset('assets/img/Ig-Logo-PNG-Photos.png') }}" height="38" alt="brands">
+            <div class="col-md-2 col-lg-2 mb-4 mb-lg-0"><img src="{{ asset('assets/img/Ig-Logo-PNG-Photos.png') }}"
+                    height="38" alt="brands">
             </div>
-            <div class="col-md-9 col-lg-9 mb-4 mb-lg-0">
+            {{-- <div class="col-md-9 col-lg-9 mb-4 mb-lg-0">
                 <p class="fs-1 fw-medium text-center mb-0">Memberikan pelayanan informasi terkait pelayanan perumahan
                     dan
                     Kawasan permukiman di Kota Banjarmasin</p>
-            </div>
+            </div> --}}
             {{-- <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/facebook-logo-4-1.png') }}" height="22" alt="brands"></div>
             <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/pngimg.com - twitter_PNG31.png') }}" height="38" alt="brands"></div>
             <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/youtube.png') }}" height="38" alt="brands"></div> --}}
@@ -50,7 +50,11 @@
 
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6 text-center my-2">
-                <h6 class="fw-bold fs-4 display-3 lh-sm mb-2">Basis Data</h6>
+                {{-- <h6 class="fw-bold fs-4 display-3 lh-sm mb-2">Basis Data</h6> --}}
+                <p class="fw-medium fs-1 text-center mb-0">Memberikan pelayanan informasi terkait pelayanan
+                    perumahan
+                    dan
+                    Kawasan permukiman di Kota Banjarmasin</p>
                 <hr>
             </div>
         </div>
@@ -60,7 +64,7 @@
                 Jumlah Rumah
             </h5>
             <div class="card-body pt-4"> --}}
-        <form action="{{ route('welcome') }}" method="GET">
+        {{-- <form action="{{ route('welcome') }}" method="GET">
             <div class="row mt-4 mb-4">
                 <div class="col-md-4">
                     <select class="form-select py-3" name="tahun" id="tahun">
@@ -78,7 +82,7 @@
                         Filter</button>
                 </div>
             </div>
-        </form>
+        </form> --}}
         <div class="row mb-2">
             <div class="col-lg-4 col-6">
                 <div class="small-box bg-white">
