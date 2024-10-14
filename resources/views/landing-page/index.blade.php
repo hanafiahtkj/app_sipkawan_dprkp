@@ -1,10 +1,10 @@
 @include('landing-page.partials.header')
 
-<section class="pb-4" id="home"
+<section class="pb-4 mt-4" id="home"
     style="background-image:url('{{ asset('images/aset-bg.webp') }}');background-position:bottom;background-size:contain;background-repeat: no-repeat;">
     <div class="container">
         <div class="row g-2">
-            <div class="col-md-5 col-lg-3 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0"
+            <div class="col-md-5 col-lg-3 order-0 order-md-1 text-end d-none d-md-block"><img class="pt-7 pt-md-0"
                     src="{{ asset('images/logo-r.webp') }}" alt="hero-header" style="max-height: 300px;" />
             </div>
             <div class="col-md-7 col-lg-9 text-md-start text-left">
@@ -14,7 +14,7 @@
                     Permukiman)</p>
                 <p class="mb-4 fs-1 fw-medium text-green">DINAS PERUMAHAN RAKYAT DAN KAWASAN PERMUKIMAN KOTA
                     BANJARMASIN</p>
-                <a class="btn btn-outline-secondary" href="#statistik" style="background-color: #fff;">Basis
+                <a class="btn btn-outline-secondary" href="#" style="background-color: #fff;">Basis
                     Data <i class="fas fa-arrow-down"></i></a>
                 <!-- <a class="btn hover-top btn-collab-outline text-gradient ms-2" href="#!"> <i class="fas fa-play text-danger me-md-2 me-0"></i> CHECK DEMO</a> -->
             </div>
@@ -25,8 +25,13 @@
 <section class="py-4 bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-lg mb-4 mb-lg-0"><img src="{{ asset('assets/img/Ig-Logo-PNG-Photos.png') }}"
-                    height="38" alt="brands">
+            <div class="col-md-2 col-lg-2 mb-4 mb-lg-0 d-none d-md-block"><img
+                    src="{{ asset('assets/img/Ig-Logo-PNG-Photos.png') }}" height="38" alt="brands">
+            </div>
+            <div class="col-md-9 col-lg-9 mb-4 mb-lg-0">
+                <p class="fs-1 fw-medium text-center mb-0">Memberikan pelayanan informasi terkait pelayanan perumahan
+                    dan
+                    Kawasan permukiman di Kota Banjarmasin</p>
             </div>
             {{-- <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/facebook-logo-4-1.png') }}" height="22" alt="brands"></div>
             <div class="col-sm-6 col-lg mb-4 mb-lg-0 d-flex flex-center"><img src="{{ asset('assets/img/pngimg.com - twitter_PNG31.png') }}" height="38" alt="brands"></div>
