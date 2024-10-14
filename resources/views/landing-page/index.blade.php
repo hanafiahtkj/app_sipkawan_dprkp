@@ -206,8 +206,8 @@
 
         <div class="row mb-2">
 
-            <div class="col-lg-3 col-3">
-                <div class="small-box bg-white" style="width:250px">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-white" style="max-width:250px">
                     <div class="inner text-center">
                         <img src="{{ asset('images/Picture4.png') }}" alt="Icon" style="height: 80px;">
                         <h4>Perumahan</h4>
@@ -221,9 +221,9 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-3">
+            <div class="col-lg-3 col-6">
 
-                <div class="small-box bg-white" style="width:250px">
+                <div class="small-box bg-white" style="max-width:250px">
                     <div class="inner text-center">
                         <img src="{{ asset('images/Picture6.png') }}" alt="Icon" style="height: 80px;">
                         <h4>Rumah Sewa Masyarakat</h4>
@@ -237,9 +237,9 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-3">
+            <div class="col-lg-3 col-6">
 
-                <div class="small-box bg-white" style="width:250px">
+                <div class="small-box bg-white" style="max-width:250px">
                     <div class="inner text-center">
                         <img src="{{ asset('images/Picture5.png') }}" alt="Icon" style="height: 80px;">
                         <h4>Rumah Susun Sederhana Sewa</h4>
@@ -253,8 +253,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 col-3">
-                <div class="small-box bg-white" style="width:250px">
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-white" style="max-width:250px">
                     <div class="inner text-center">
                         <img src="{{ asset('images/Picture2.png') }}" alt="Icon" style="height: 80px;">
                         <h4>RTLH Tertangani</h4>

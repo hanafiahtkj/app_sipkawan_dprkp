@@ -153,9 +153,9 @@
                 <div class="collapse navbar-collapse border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto pt-2 pt-lg-0 font-base">
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="#home">Beranda</a></li>
+                                aria-current="page" href="{{ route('index') }}/#home">Beranda</a></li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="#statistik">Basis Data</a></li>
+                                aria-current="page" href="{{ route('index') }}/#statistik">Basis Data</a></li>
                         <li class="nav-item dropdown px-2">
                             <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -171,14 +171,14 @@
                             </ul>
                         </li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="#contact">Kontak</a></li>
+                                aria-current="page" href="{{ route('index') }}/#contact">Kontak</a></li>
                         <li class="nav-item dropdown px-2">
-                            <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle fw-bold" href="{{ route('index') }}/#"
+                                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Tentang
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Deskripsi</a></li>
+                                <li><a class="dropdown-item" href="{{ route('index') }}/#">Deskripsi</a></li>
                                 <li><a class="dropdown-item"
                                         href="{{ asset('assets/pdf/11.pedoman-teknis-SIP-KAWAN.pdf') }}"
                                         target="_blank">Pedoman Teknis</a></li>
