@@ -22,11 +22,26 @@ class HomeController extends Controller
         return view('landing-page.index', $data);
     }
 
-    public function loadPerumahanDatatables()
+    public function loadPerumahanDatatables(Request $request)
     {
         $model = SebaranKomplek::with(['kecamatan', 'kelurahan']);
 
+        if($request->id_kecamatan) {
+            $model = $model->where('id_kecamatan', '=', $request->id_kecamatan);
+        }
+
+        if($request->id_kelurahan) {
+            $model = $model->where('id_kelurahan', '=', $request->id_kelurahan);
+        }
+
+        if($request->jenis) {
+            $model = $model->where('jenis', '=', $request->jenis);
+        }
+
         return DataTables::of($model)
+            ->addColumn('jenis', function ($row) {
+                return SebaranKomplek::jenis($row->jenis);
+            })
             ->toJson();
     }
 

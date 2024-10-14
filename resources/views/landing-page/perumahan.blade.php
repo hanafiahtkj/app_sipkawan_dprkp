@@ -58,7 +58,7 @@
 
         <div class="row">
             <div class="col-md-2">
-                <button class="btn btn-dark border-0 w-100 py-3"><i class="fa fa-filter"></i>
+                <button class="btn btn-dark border-0 w-100 py-3" id="filter"><i class="fa fa-filter"></i>
                     Filter</button>
             </div>
         </div>
@@ -246,9 +246,14 @@
             }
         });
 
-        $('#dt_sebarankomplek').DataTable({
+        let datatable = $('#dt_sebarankomplek').DataTable({
             ajax: {
                 url: "{{ route('loadPerumahanDatatables') }}",
+                data: function(d) {
+                    d.id_kecamatan = $('#id_kecamatan').val();
+                    d.id_kelurahan = $('#id_kelurahan').val();
+                    d.jenis = $('#jenis').val();
+                },
             },
             columns: [{
                     data: "nama_perumahan"
@@ -269,6 +274,12 @@
                     data: "jenis"
                 },
             ],
+        });
+
+        $('#filter').on('click', function() {
+            if (datatable) {
+                datatable.ajax.reload(null, false);
+            }
         });
 
         const config = {
