@@ -231,7 +231,7 @@
                     <div class="icon">
 
                     </div>
-                    <a href="#" class="small-box-footer" data-type="rumah-sewa">
+                    <a href="{{ route('rumah-sewa') }}" class="small-box-footer" data-type="rumah-sewa">
                         Lihat... <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

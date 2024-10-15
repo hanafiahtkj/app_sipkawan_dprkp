@@ -53,6 +53,43 @@ class HomeController extends Controller
         return view('landing-page.perumahan', $data);
     }
 
+    public function loadRumahSewaDatatables(Request $request)
+    {
+        $model = RumahSewa::with(['kecamatan', 'kelurahan']);
+
+        if($request->id_kecamatan) {
+            $model = $model->where('id_kecamatan', '=', $request->id_kecamatan);
+        }
+
+        if($request->id_kelurahan) {
+            $model = $model->where('id_kelurahan', '=', $request->id_kelurahan);
+        }
+
+        if($request->luas_hunian) {
+            $model = $model->where('luas_hunian', '=', $request->luas_hunian);
+        }
+
+        if($request->tarif_sewa) {
+            $model = $model->where('tarif_sewa', '=', $request->tarif_sewa);
+        }
+
+        return DataTables::of($model)
+            // ->addColumn('jenis', function ($row) {
+            //     return RumahSewa::jenis($row->jenis);
+            // })
+            ->toJson();
+    }
+
+    public function rumahSewa(Request $request)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['jenis'] = RumahSewa::where('jenis', '!=', '')
+            ->groupBy('jenis')->pluck('jenis')->toArray();
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.rumah-sewa', $data);
+    }
+
     public function infografis(Request $request)
     {
         $tahun = $request->tahun ?? date("Y");
