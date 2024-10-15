@@ -91,6 +91,16 @@ class HomeController extends Controller
         return view('landing-page.rumah-sewa', $data);
     }
 
+    public function rumahSusun(Request $request)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['jenis'] = RumahSewa::where('jenis', '!=', '')
+            ->groupBy('jenis')->pluck('jenis')->toArray();
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.rumah-susun', $data);
+    }
+
     public function rtlhRealisasi(Request $request)
     {
         $tahun = $request->tahun ?? date("Y");
