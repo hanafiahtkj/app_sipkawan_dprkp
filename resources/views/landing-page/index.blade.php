@@ -204,7 +204,7 @@
 
         </div> --}}
 
-        <div class="row mb-2">
+        <div class="row mb-2" id="box-icon">
 
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-white" style="max-width:250px">
@@ -262,7 +262,7 @@
                     <div class="icon">
 
                     </div>
-                    <a href="#" class="small-box-footer" data-type="non-subsidi">
+                    <a href="{{ route('rtlh-realisasi') }}" class="small-box-footer" data-type="non-subsidi">
                         Lihat... <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>

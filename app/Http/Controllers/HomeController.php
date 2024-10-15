@@ -12,6 +12,7 @@ use App\Models\Kecamatan;
 use App\Models\KelDesa;
 use DB;
 use DataTables;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -88,6 +89,22 @@ class HomeController extends Controller
             ->groupBy('jenis')->pluck('jenis')->toArray();
         $data['kecamatan'] = Kecamatan::get();
         return view('landing-page.rumah-sewa', $data);
+    }
+
+    public function rtlhRealisasi(Request $request)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['jenis'] = RumahSewa::where('jenis', '!=', '')
+            ->groupBy('jenis')->pluck('jenis')->toArray();
+        $data['kecamatan'] = Kecamatan::get();
+
+        $response = Http::withToken('AIzaSyCGpcum7xga8slj5q_taQfNVuFn3KbLAV0')
+            ->get('https://bakawan.banjarmasinkota.go.id/api/rtlhRealisasi');
+
+        $data['apiResponse'] = $response->json();
+
+        return view('landing-page.rtlh-realisasi', $data);
     }
 
     public function infografis(Request $request)

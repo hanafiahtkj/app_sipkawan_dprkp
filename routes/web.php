@@ -23,6 +23,8 @@ Route::get('/perumahan', [HomeController::class, 'perumahan'])->name('perumahan'
 Route::get('/loadRumahSewaDatatables', [HomeController::class, 'loadRumahSewaDatatables'])->name('loadRumahSewaDatatables');
 Route::get('/rumah-sewa', [HomeController::class, 'rumahSewa'])->name('rumah-sewa');
 
+Route::get('/rtlh-realisasi', [HomeController::class, 'rtlhRealisasi'])->name('rtlh-realisasi');
+
 Route::get('/infografis', [HomeController::class, 'infografis'])->name('infografis');
 
 Route::get('/webgis', GisController::class)->name('webgis');
