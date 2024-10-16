@@ -49,8 +49,11 @@
                                     <!-- First Rusunawa -->
                                     <tr>
                                         <td rowspan="3">1</td>
-                                        <td rowspan="3">Rusunawa Ganda Maghfirah <br> Type 21 <br> Jalan Tembus
-                                            Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin Selatan
+                                        <td rowspan="3"><a class="text-dark"
+                                                href="{{ route('rumah-susun.show', 1) }}">Rusunawa Ganda
+                                                Maghfirah <br> Type 21 <br> Jalan Tembus
+                                                Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin
+                                                Selatan</a>
                                         </td>
                                         <td>A</td>
                                         <td>1</td>
@@ -82,8 +85,11 @@
                                     <!-- Second Rusunawa -->
                                     <tr>
                                         <td rowspan="2">2</td>
-                                        <td rowspan="2">Rusunawa Ganda Maghfirah <br> Type 21 <br> Jalan Tembus
-                                            Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin Selatan
+                                        <td rowspan="2"><a class="text-dark"
+                                                href="{{ route('rumah-susun.show', 1) }}">Rusunawa Ganda
+                                                Maghfirah <br> Type 21 <br> Jalan Tembus
+                                                Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin
+                                                Selatan</a>
                                         </td>
                                         <td>B</td>
                                         <td>1</td>
@@ -108,8 +114,11 @@
                                     <!-- Third Rusunawa -->
                                     <tr>
                                         <td rowspan="4">3</td>
-                                        <td rowspan="4">Rusunawa Ganda Maghfirah <br> Type 24 <br> Jalan Tembus
-                                            Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin Selatan
+                                        <td rowspan="4"><a class="text-dark"
+                                                href="{{ route('rumah-susun.show', 1) }}">Rusunawa Ganda
+                                                Maghfirah <br> Type 24 <br> Jalan Tembus
+                                                Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin
+                                                Selatan</a>
                                         </td>
                                         <td>C</td>
                                         <td>Dasar</td>
@@ -148,8 +157,11 @@
                                     <!-- Fourth Rusunawa -->
                                     <tr>
                                         <td rowspan="4">4</td>
-                                        <td rowspan="4">Rusunawa Teluk Kelayan <br> Type 36 + Meubelair <br> Jalan
-                                            Teluk Kelayan, RT.01, Kelurahan Kelayan Barat, Kecamatan Banjarmasin Selatan
+                                        <td rowspan="4"><a class="text-dark"
+                                                href="{{ route('rumah-susun.show', 1) }}">Rusunawa Teluk
+                                                Kelayan <br> Type 36 + Meubelair <br> Jalan
+                                                Teluk Kelayan, RT.01, Kelurahan Kelayan Barat, Kecamatan Banjarmasin
+                                                Selatan</a>
                                         </td>
                                         <td>-</td>
                                         <td>1</td>

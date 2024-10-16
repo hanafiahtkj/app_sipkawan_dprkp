@@ -19,11 +19,14 @@ Route::get('/',HomeController::class)->name('index');
 
 Route::get('/loadPerumahanDatatables', [HomeController::class, 'loadPerumahanDatatables'])->name('loadPerumahanDatatables');
 Route::get('/perumahan', [HomeController::class, 'perumahan'])->name('perumahan');
+Route::get('/perumahan/{id}', [HomeController::class, 'perumahanDetail'])->name('perumahan.show');
 
 Route::get('/loadRumahSewaDatatables', [HomeController::class, 'loadRumahSewaDatatables'])->name('loadRumahSewaDatatables');
 Route::get('/rumah-sewa', [HomeController::class, 'rumahSewa'])->name('rumah-sewa');
+Route::get('/rumah-sewa/{id}', [HomeController::class, 'rumahSewaDetail'])->name('rumah-sewa.show');
 
 Route::get('/rumah-susun', [HomeController::class, 'rumahSusun'])->name('rumah-susun');
+Route::get('/rumah-susun/{id}', [HomeController::class, 'rumahSusunDetail'])->name('rumah-susun.show');
 
 Route::get('/rtlh-realisasi', [HomeController::class, 'rtlhRealisasi'])->name('rtlh-realisasi');
 

@@ -74,7 +74,7 @@
                     </h5> --}}
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover va-middle w-100" id="dt_sebarankomplek">
+                            <table class="table table-striped table-hover" id="dt_sebarankomplek">
                                 <thead>
                                     <tr>
                                         <th>Nama Perumahan</th>
@@ -83,10 +83,10 @@
                                         <th>Kelurahan</th>
                                         <th>Luas</th>
                                         <th>Jenis</th>
+                                        <th style="width: 60px;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                 </tbody>
                             </table>
                         </div>
@@ -272,6 +272,22 @@
                 },
                 {
                     data: "jenis"
+                },
+                {
+                    data: null,
+                    render: function(data, type, row) {
+                        var url = "{{ route('perumahan.show', ':id') }}".replace(':id', row
+                        .id);
+                        return `
+                        <a
+                            href="${url}"
+                            class="show-link btn btn-icon"
+                            data-user-id="${row.id}"
+                        >
+                            <i class="fa fa-lg fa-circle-info"></i></a>
+
+                        `;
+                    },
                 },
             ],
         });

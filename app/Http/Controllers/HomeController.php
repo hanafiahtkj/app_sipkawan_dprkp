@@ -54,6 +54,14 @@ class HomeController extends Controller
         return view('landing-page.perumahan', $data);
     }
 
+    public function perumahanDetail($id)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.perumahan-detail', $data);
+    }
+
     public function loadRumahSewaDatatables(Request $request)
     {
         $model = RumahSewa::with(['kecamatan', 'kelurahan']);
@@ -75,9 +83,6 @@ class HomeController extends Controller
         }
 
         return DataTables::of($model)
-            // ->addColumn('jenis', function ($row) {
-            //     return RumahSewa::jenis($row->jenis);
-            // })
             ->toJson();
     }
 
@@ -91,6 +96,14 @@ class HomeController extends Controller
         return view('landing-page.rumah-sewa', $data);
     }
 
+    public function rumahSewaDetail($id)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.rumah-sewa-detail', $data);
+    }
+
     public function rumahSusun(Request $request)
     {
         $tahun = $request->tahun ?? date("Y");
@@ -99,6 +112,14 @@ class HomeController extends Controller
             ->groupBy('jenis')->pluck('jenis')->toArray();
         $data['kecamatan'] = Kecamatan::get();
         return view('landing-page.rumah-susun', $data);
+    }
+
+    public function rumahSusunDetail($id)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.rumah-susun-detail', $data);
     }
 
     public function rtlhRealisasi(Request $request)

@@ -9,7 +9,7 @@
             </div> --}}
             <div class="col-lg-12 text-md-start text-center">
                 {{-- <h6 class="fs-0 text-uppercase fw-bold text-600">Selamat Datang</h6> --}}
-                <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7"> RUMAH SEWA</h1>
+                <h1 class="fw-bold fs-4 fs-lg-6 fs-xxl-7">DETAIL RUMAH SUSUN</h1>
                 <!-- <a class="btn hover-top btn-collab-outline text-gradient ms-2" href="#!"> <i class="fas fa-play text-danger me-md-2 me-0"></i> CHECK DEMO</a> -->
             </div>
         </div>
@@ -24,74 +24,57 @@
 
     <div class="container">
 
-        <div class="row mt-4 mb-3">
-            <div class="col-md-4">
-                <label>Kecamatan</label>
-                <select class="form-select py-3" name="id_kecamatan" id="id_kecamatan">
-                    <option value="">Pilih...</option>
-                    @foreach ($kecamatan as $kec)
-                        <option value="{{ $kec->id }}">{{ $kec->kecamatan }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label>Kelurahan</label>
-                <select class="form-select py-3" name="id_kelurahan" id="id_kelurahan">
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label>Jenis Rumah</label>
-                <select class="form-select py-3" name="jenis" id="jenis">
-                    <option value="">Pilih...</option>
-                    @foreach ($jenis as $kec)
-                        <option value="{{ $kec }}">{{ $kec }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label>Tipe/Luas</label>
-                <input type="text" id="luas_hunian" class="form-control py-4" name="luas_hunian">
-            </div>
-            <div class="col-md-4">
-                <label>Tarif</label>
-                <input type="text" id="tarif_sewa" class="form-control py-4" name="tarif_sewa">
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-dark border-0 w-100 py-3 mt-4" id="filter"><i class="fa fa-filter"></i>
-                    Filter</button>
-            </div>
-
-        </div>
-
         <div class="row">
-
-        </div>
-
-
-
-        <div class="row mt-4">
-            <div class="col-12">
-
-                <div class="card border-light mb-0">
-                    {{-- <h5 class="card-header bg-light py-3">
-                        Data Perumahan
-                    </h5> --}}
+            <div class="col-md-5">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/016/962/575/small_2x/corner-of-empty-room-with-white-walls-floor-free-vector.jpg"
+                    class="rounded img-fluid" alt="...">
+            </div>
+            <div class="col-md-7">
+                <div class="card">
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover va-middle w-100" id="dt_rumahsewa">
-                                <thead>
-                                    <tr>
-                                        <th>Jenis Sarana</th>
-                                        <th>Kecamatan</th>
-                                        <th>Kelurahan</th>
-                                        <th>Tipe/Luas Hunian</th>
-                                        <th>Jumlah Hunian</th>
-                                        <th>Tarif Sewa</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <h5>Profil Umum</h5>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label>Nama Rumah Susun</label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Kecamatan</label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Kelurahan</label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Alamat</label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-white">.</h5>
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label>Blok </label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Lantai </label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Jumlah Unit </label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                    <div class="col-12">
+                                        <label>Jumlah Unit Tersedia </label>
+                                        <input type="text" class="form-control py-4" value="">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -249,19 +232,20 @@
             }
         });
 
-        let datatable = $('#dt_rumahsewa').DataTable({
+        let datatable = $('#dt_sebarankomplek').DataTable({
             ajax: {
-                url: "{{ route('loadRumahSewaDatatables') }}",
+                url: "{{ route('loadPerumahanDatatables') }}",
                 data: function(d) {
                     d.id_kecamatan = $('#id_kecamatan').val();
                     d.id_kelurahan = $('#id_kelurahan').val();
                     d.jenis = $('#jenis').val();
-                    d.luas_hunian = $('#luas_hunian').val();
-                    d.tarif_sewa = $('#tarif_sewa').val();
                 },
             },
             columns: [{
-                    data: "jenis"
+                    data: "nama_perumahan"
+                },
+                {
+                    data: "nama_pengembang"
                 },
                 {
                     data: "kecamatan.kecamatan"
@@ -270,29 +254,10 @@
                     data: "kelurahan.nama_deskel"
                 },
                 {
-                    data: "luas_hunian"
+                    data: "luas"
                 },
                 {
-                    data: "jumlah_hunian"
-                },
-                {
-                    data: "tarif_sewa"
-                },
-                {
-                    data: null,
-                    render: function(data, type, row) {
-                        var url = "{{ route('rumah-sewa.show', ':id') }}".replace(':id', row
-                            .id);
-                        return `
-                        <a
-                            href="${url}"
-                            class="show-link btn btn-icon"
-                            data-user-id="${row.id}"
-                        >
-                            <i class="fa fa-lg fa-circle-info"></i></a>
-
-                        `;
-                    },
+                    data: "jenis"
                 },
             ],
         });
