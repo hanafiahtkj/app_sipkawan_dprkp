@@ -50,11 +50,25 @@
             </div>
             <div class="col-md-4">
                 <label>Tipe/Luas</label>
-                <input type="text" id="luas_hunian" class="form-control py-4" name="luas_hunian">
+                <select class="form-select py-3" name="luas_hunian" id="luas_hunian">
+                    <option value="">Pilih...</option>
+                    <option value="20-50">20 - 50</option>
+                    <option value="51-80">51 - 80</option>
+                    <option value="81-110">81 - 110</option>
+                    <option value="101-130">101 - 130</option>
+                    <option value="131+">131 ></option>
+                </select>
             </div>
             <div class="col-md-4">
                 <label>Tarif</label>
-                <input type="text" id="tarif_sewa" class="form-control py-4" name="tarif_sewa">
+                <select class="form-select py-3" name="tarif_sewa" id="tarif_sewa">
+                    <option value="">Pilih...</option>
+                    <option value="100000-300000">Rp 100.000 - 300.000</option>
+                    <option value="300000-500000">Rp 300.000 - 500.000</option>
+                    <option value="500000-700000">Rp 500.000 - 700.000</option>
+                    <option value="700000-900000">Rp 700.000 - 900.000</option>
+                    <option value="900000+">Rp 900.000 ></option>
+                </select>
             </div>
             <div class="col-md-2">
                 <button class="btn btn-dark border-0 w-100 py-3 mt-4" id="filter"><i class="fa fa-filter"></i>
@@ -276,7 +290,14 @@
                     data: "jumlah_hunian"
                 },
                 {
-                    data: "tarif_sewa"
+                    data: "tarif_sewa",
+                    render: function(data, type, row) {
+                        // Format tarif_sewa dengan pemisah ribuan
+                        return new Intl.NumberFormat('id-ID', {
+                            style: 'currency',
+                            currency: 'IDR'
+                        }).format(data);
+                    }
                 },
                 {
                     data: null,

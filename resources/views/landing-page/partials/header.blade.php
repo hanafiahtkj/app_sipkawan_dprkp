@@ -152,10 +152,10 @@
                         class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto pt-2 pt-lg-0 font-base">
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="{{ route('index') }}/#home">Beranda</a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="{{ route('index') }}/#statistik">Basis Data</a></li>
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" aria-current="page"
+                                href="{{ route('index') }}/#home">Beranda</a></li>
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" aria-current="page"
+                                href="{{ route('index') }}/#statistik">Basis Data</a></li>
                         <li class="nav-item dropdown px-2">
                             <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -170,8 +170,8 @@
                                         target="_blank">Peta Sebaran Rumah Sewa</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-bold"
-                                aria-current="page" href="{{ route('index') }}/#contact">Kontak</a></li>
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" aria-current="page"
+                                href="{{ route('index') }}/#contact">Kontak</a></li>
                         <li class="nav-item dropdown px-2">
                             <a class="nav-link dropdown-toggle fw-bold" href="{{ route('index') }}/#"
                                 id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

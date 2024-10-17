@@ -73,11 +73,21 @@ class HomeController extends Controller
         }
 
         if($request->luas_hunian) {
-            $model = $model->where('luas_hunian', '=', $request->luas_hunian);
+            $luasRange = explode('-', $request->luas_hunian);
+            if(count($luasRange) == 2) {
+                $model = $model->whereBetween('luas_hunian', [$luasRange[0], $luasRange[1]]);
+            } elseif($request->luas_hunian === '131+') {
+                $model = $model->where('luas_hunian', '>', 130);
+            }
         }
 
         if($request->tarif_sewa) {
-            $model = $model->where('tarif_sewa', '=', $request->tarif_sewa);
+            $tarifRange = explode('-', $request->tarif_sewa);
+            if(count($tarifRange) == 2) {
+                $model = $model->whereBetween('tarif_sewa', [$tarifRange[0], $tarifRange[1]]);
+            } elseif($request->tarif_sewa === '900000+') {
+                $model = $model->where('tarif_sewa', '>', 900000);
+            }
         }
 
         return DataTables::of($model)
