@@ -11,7 +11,7 @@
             <div class="col-lg-6">
                 <h4 class="fw-bold">Kontak Kami</h4>
                 <p class="fs-1">Hotline: (0511) 3365592</p>
-                <p class="fs-1">WhatsApp: 081935288889</p>
+                <p class="fs-1">WhatsApp: <a href="https://wa.me/6281935288889" target="_blank">081935288889</a></p>
             </div>
             <div class="col-lg-6 d-flex justify-content-lg-end mb-4">
                 <form class="row row-cols-lg-auto align-items-center">
