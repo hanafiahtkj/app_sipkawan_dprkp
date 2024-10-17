@@ -38,23 +38,25 @@
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <label>Nama Perumahan</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data->nama_perumahan }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Alamat</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Luas Perumahan</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="{{ $data->luas }}">
                                     </div>
                                     <div class="col-12">
                                         <label>PSU Tersedia</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Jenis Rumah</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ App\Models\SebaranKomplek::jenis($data->jenis) }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Type Rumah</label>
@@ -80,7 +82,7 @@
                                     </div>
                                     <div class="col-12">
                                         <label>Harga</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                 </div>
                             </div>
@@ -89,27 +91,28 @@
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <label>Nama Pengembang</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data->nama_pengembang }}">
                                     </div>
                                     <div class="col-12">
                                         <label>No Ijin PBG</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Alamat Pengembang</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Kontak</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Email</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Website</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                 </div>
                             </div>
@@ -125,27 +128,27 @@
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <label>Tipe</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Luas Bangunan</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Luas Lahan</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Jumlah Lantai</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Kamar Tidur </label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Kamar</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                 </div>
                             </div>
@@ -154,23 +157,23 @@
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <label>Pondasi</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Struktur</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Dinding</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Penutup Lantai</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                     <div class="col-12">
                                         <label>Atap</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="-">
                                     </div>
                                 </div>
                             </div>
@@ -389,104 +392,6 @@
             },
         };
     })
-</script>
-
-<script>
-    function getRandomPastelColor() {
-        var hue = Math.floor(Math.random() * 360); // Pilih hue acak antara 0 dan 360
-        var pastel = 'hsl(' + hue + ', 70%, 80%)'; // Saturasi 70% dan kecerahan 80%
-        return pastel;
-    }
-
-    // Fungsi untuk menginisialisasi grafik
-    function initializeChart(data) {
-        console.log(data);
-
-        // Hapus canvas jika ada sebelumnya
-        const existingCanvas = document.getElementById("myChart");
-        if (existingCanvas) {
-            existingCanvas.remove();
-        }
-
-        // Hapus card jika ada sebelumnya
-        // const existingCard = document.getElementById("chartCard");
-        // if (existingCard) {
-        //     existingCard.remove();
-        // }
-
-        // Tambahkan canvas baru
-        const canvasContainer = document.getElementById("surveyChart");
-        const canvas = document.createElement('canvas');
-        canvas.setAttribute("id", "myChart");
-        canvas.setAttribute("height", "100");
-        canvasContainer.appendChild(canvas);
-
-        var labels = <?php echo json_encode($rumahChart['label']); ?>;
-        var totals = <?php echo json_encode($rumahChart['total']); ?>;
-
-        var datasets = [];
-
-        for (var i = 0; i < labels.length; i++) {
-            var dataset = {
-                label: labels[i],
-                data: [totals[i]],
-                borderWidth: 2,
-                borderColor: '#888888',
-                backgroundColor: getRandomPastelColor(),
-                pointBackgroundColor: '#fff',
-                pointBorderColor: '#6777ef',
-                pointRadius: 4
-            };
-
-            datasets.push(dataset);
-        }
-
-        var statistics_chart = canvas.getContext('2d');
-        var myChart2 = new Chart(statistics_chart, {
-            type: 'bar',
-            data: {
-                labels: ['JUMLAH RUMAH'],
-                datasets: datasets
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        // ticks: {
-                        //     stepSize: 50
-                        // }
-                    }
-                }
-            }
-        });
-
-        // const chartCard = document.createElement('div');
-        // chartCard.setAttribute("id", "chartCard");
-        // chartCard.classList.add('card', 'mt-4');
-        // const cardBody = document.createElement('div');
-        // cardBody.classList.add('card-body');
-
-        // // Tambahkan label dan jumlah menggunakan list group Bootstrap
-        // const listGroup = document.createElement('ul');
-        // listGroup.classList.add('list-group', 'list-group-flush');
-        // for (let i = 0; i < data["label_all"].length; i++) {
-        //     const listItem = document.createElement('li');
-        //     listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
-        //     listItem.innerHTML = `${data["label_all"][i]} <span class="badge bg-primary rounded-pill">${data["total"][i]}</span>`;
-        //     listGroup.appendChild(listItem);
-        // }
-
-        // // Gabungkan elemen-elemen HTML
-        // cardBody.appendChild(listGroup);
-        // chartCard.appendChild(cardBody);
-        // canvasContainer.appendChild(chartCard);
-    }
-
-    var chartData = [];
-    initializeChart(chartData);
 </script>
 
 </body>

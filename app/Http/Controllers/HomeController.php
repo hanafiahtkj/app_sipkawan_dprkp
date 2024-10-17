@@ -56,9 +56,7 @@ class HomeController extends Controller
 
     public function perumahanDetail($id)
     {
-        $tahun = $request->tahun ?? date("Y");
-        $data  = $this->_data($tahun);
-        $data['kecamatan'] = Kecamatan::get();
+        $data['data'] = SebaranKomplek::find($id);
         return view('landing-page.perumahan-detail', $data);
     }
 
@@ -98,9 +96,7 @@ class HomeController extends Controller
 
     public function rumahSewaDetail($id)
     {
-        $tahun = $request->tahun ?? date("Y");
-        $data  = $this->_data($tahun);
-        $data['kecamatan'] = Kecamatan::get();
+        $data['data'] = RumahSewa::find($id);
         return view('landing-page.rumah-sewa-detail', $data);
     }
 
@@ -116,9 +112,7 @@ class HomeController extends Controller
 
     public function rumahSusunDetail($id)
     {
-        $tahun = $request->tahun ?? date("Y");
-        $data  = $this->_data($tahun);
-        $data['kecamatan'] = Kecamatan::get();
+        $data['id'] = $id;
         return view('landing-page.rumah-susun-detail', $data);
     }
 

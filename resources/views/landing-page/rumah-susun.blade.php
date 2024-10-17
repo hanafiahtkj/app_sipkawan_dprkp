@@ -86,7 +86,7 @@
                                     <tr>
                                         <td rowspan="2">2</td>
                                         <td rowspan="2"><a class="text-dark"
-                                                href="{{ route('rumah-susun.show', 1) }}">Rusunawa Ganda
+                                                href="{{ route('rumah-susun.show', 2) }}">Rusunawa Ganda
                                                 Maghfirah <br> Type 21 <br> Jalan Tembus
                                                 Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin
                                                 Selatan</a>
@@ -115,7 +115,7 @@
                                     <tr>
                                         <td rowspan="4">3</td>
                                         <td rowspan="4"><a class="text-dark"
-                                                href="{{ route('rumah-susun.show', 1) }}">Rusunawa Ganda
+                                                href="{{ route('rumah-susun.show', 3) }}">Rusunawa Ganda
                                                 Maghfirah <br> Type 24 <br> Jalan Tembus
                                                 Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin
                                                 Selatan</a>
@@ -158,7 +158,7 @@
                                     <tr>
                                         <td rowspan="4">4</td>
                                         <td rowspan="4"><a class="text-dark"
-                                                href="{{ route('rumah-susun.show', 1) }}">Rusunawa Teluk
+                                                href="{{ route('rumah-susun.show', 4) }}">Rusunawa Teluk
                                                 Kelayan <br> Type 36 + Meubelair <br> Jalan
                                                 Teluk Kelayan, RT.01, Kelurahan Kelayan Barat, Kecamatan Banjarmasin
                                                 Selatan</a>

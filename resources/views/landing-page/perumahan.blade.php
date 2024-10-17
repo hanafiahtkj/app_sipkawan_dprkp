@@ -277,7 +277,7 @@
                     data: null,
                     render: function(data, type, row) {
                         var url = "{{ route('perumahan.show', ':id') }}".replace(':id', row
-                        .id);
+                            .id);
                         return `
                         <a
                             href="${url}"

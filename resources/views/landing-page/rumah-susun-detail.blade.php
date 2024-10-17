@@ -1,3 +1,54 @@
+@php
+
+    if ($id == 1) {
+        $data['nama_rusun'] = 'Rusunawa Ganda Maghfirah';
+        $data['kecamatan'] = 'Banjarmasin Selatan';
+        $data['kelurahan'] = 'Kelayan Selatan';
+        $data['alamat'] = 'Jalan Tembus Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin Selatan';
+        $data['blok'] = 'A';
+        $data['lantai'] = '1, 2, 4';
+        $data['jumlah_unit'] = '96';
+        $data['jumlah_unit_tersedia'] = '29';
+    } elseif ($id == 2) {
+        $data['nama_rusun'] = 'Rusunawa Ganda Maghfirah';
+        $data['kecamatan'] = 'Banjarmasin Selatan';
+        $data['kelurahan'] = 'Kelayan Selatan';
+        $data['alamat'] = 'Jalan Tembus Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin Selatan';
+        $data['blok'] = 'B';
+        $data['lantai'] = '1, 4';
+        $data['jumlah_unit'] = '96';
+        $data['jumlah_unit_tersedia'] = '18';
+    } elseif ($id == 3) {
+        $data['nama_rusun'] = 'Rusunawa Ganda Maghfirah';
+        $data['kecamatan'] = 'Banjarmasin Selatan';
+        $data['kelurahan'] = 'Kelayan Selatan';
+        $data['alamat'] = 'Jalan Tembus Mantuil, RT.22, Kelurahan Kelayan Selatan, Kecamatan Banjarmasin Selatan';
+        $data['blok'] = 'C';
+        $data['lantai'] = 'Dasar, 1, 2, 4';
+        $data['jumlah_unit'] = '99';
+        $data['jumlah_unit_tersedia'] = '5';
+    } elseif ($id == 4) {
+        $data['nama_rusun'] = 'Rusunawa Teluk Kelayan';
+        $data['kecamatan'] = 'Banjarmasin Selatan';
+        $data['kelurahan'] = 'Kelayan Barat';
+        $data['alamat'] = 'Jalan Teluk Kelayan, RT.01, Kelurahan Kelayan Barat, Kecamatan Banjarmasin Selatan';
+        $data['blok'] = '-';
+        $data['lantai'] = '1, 2, 3, 4';
+        $data['jumlah_unit'] = '58';
+        $data['jumlah_unit_tersedia'] = '11';
+    } else {
+        $data['nama_rusun'] = '-';
+        $data['kecamatan'] = '-';
+        $data['kelurahan'] = '-';
+        $data['alamat'] = '-';
+        $data['blok'] = '-';
+        $data['lantai'] = '-';
+        $data['jumlah_unit'] = '-';
+        $data['jumlah_unit_tersedia'] = '-';
+    }
+
+@endphp
+
 @include('landing-page.partials.header')
 
 <section class="pb-4 mt-4" id="home"
@@ -38,19 +89,22 @@
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <label>Nama Rumah Susun</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data['nama_rusun'] }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Kecamatan</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data['kecamatan'] }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Kelurahan</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data['kelurahan'] }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Alamat</label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="{{ $data['alamat'] }}">
                                     </div>
                                 </div>
                             </div>
@@ -59,19 +113,21 @@
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <label>Blok </label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="{{ $data['blok'] }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Lantai </label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4" value="{{ $data['lantai'] }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Jumlah Unit </label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data['jumlah_unit'] }}">
                                     </div>
                                     <div class="col-12">
                                         <label>Jumlah Unit Tersedia </label>
-                                        <input type="text" class="form-control py-4" value="">
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data['jumlah_unit_tersedia'] }}">
                                     </div>
                                 </div>
                             </div>
@@ -291,104 +347,6 @@
             },
         };
     })
-</script>
-
-<script>
-    function getRandomPastelColor() {
-        var hue = Math.floor(Math.random() * 360); // Pilih hue acak antara 0 dan 360
-        var pastel = 'hsl(' + hue + ', 70%, 80%)'; // Saturasi 70% dan kecerahan 80%
-        return pastel;
-    }
-
-    // Fungsi untuk menginisialisasi grafik
-    function initializeChart(data) {
-        console.log(data);
-
-        // Hapus canvas jika ada sebelumnya
-        const existingCanvas = document.getElementById("myChart");
-        if (existingCanvas) {
-            existingCanvas.remove();
-        }
-
-        // Hapus card jika ada sebelumnya
-        // const existingCard = document.getElementById("chartCard");
-        // if (existingCard) {
-        //     existingCard.remove();
-        // }
-
-        // Tambahkan canvas baru
-        const canvasContainer = document.getElementById("surveyChart");
-        const canvas = document.createElement('canvas');
-        canvas.setAttribute("id", "myChart");
-        canvas.setAttribute("height", "100");
-        canvasContainer.appendChild(canvas);
-
-        var labels = <?php echo json_encode($rumahChart['label']); ?>;
-        var totals = <?php echo json_encode($rumahChart['total']); ?>;
-
-        var datasets = [];
-
-        for (var i = 0; i < labels.length; i++) {
-            var dataset = {
-                label: labels[i],
-                data: [totals[i]],
-                borderWidth: 2,
-                borderColor: '#888888',
-                backgroundColor: getRandomPastelColor(),
-                pointBackgroundColor: '#fff',
-                pointBorderColor: '#6777ef',
-                pointRadius: 4
-            };
-
-            datasets.push(dataset);
-        }
-
-        var statistics_chart = canvas.getContext('2d');
-        var myChart2 = new Chart(statistics_chart, {
-            type: 'bar',
-            data: {
-                labels: ['JUMLAH RUMAH'],
-                datasets: datasets
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        // ticks: {
-                        //     stepSize: 50
-                        // }
-                    }
-                }
-            }
-        });
-
-        // const chartCard = document.createElement('div');
-        // chartCard.setAttribute("id", "chartCard");
-        // chartCard.classList.add('card', 'mt-4');
-        // const cardBody = document.createElement('div');
-        // cardBody.classList.add('card-body');
-
-        // // Tambahkan label dan jumlah menggunakan list group Bootstrap
-        // const listGroup = document.createElement('ul');
-        // listGroup.classList.add('list-group', 'list-group-flush');
-        // for (let i = 0; i < data["label_all"].length; i++) {
-        //     const listItem = document.createElement('li');
-        //     listItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
-        //     listItem.innerHTML = `${data["label_all"][i]} <span class="badge bg-primary rounded-pill">${data["total"][i]}</span>`;
-        //     listGroup.appendChild(listItem);
-        // }
-
-        // // Gabungkan elemen-elemen HTML
-        // cardBody.appendChild(listGroup);
-        // chartCard.appendChild(cardBody);
-        // canvasContainer.appendChild(chartCard);
-    }
-
-    var chartData = [];
-    initializeChart(chartData);
 </script>
 
 </body>
