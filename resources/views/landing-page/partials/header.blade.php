@@ -184,6 +184,8 @@
                                         target="_blank">Pedoman Teknis</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item px-2"><a target="_blank" class="nav-link fw-bold" aria-current="page"
+                                href="https://forms.gle/MkwEBYWBQnX7kWvb8">Testimoni/Feedback</a></li>
                     </ul>
                     <form class="ps-lg-5">
                         <a class="btn hover-top btn-collab text-white"
