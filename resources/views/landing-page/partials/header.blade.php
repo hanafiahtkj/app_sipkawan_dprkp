@@ -130,6 +130,14 @@
             margin-top: auto;
             /* Agar footer berada di bagian bawah */
         }
+
+        .card-img-top {
+            height: 250px;
+            /* Sesuaikan tinggi sesuai kebutuhan */
+            object-fit: cover;
+            /* Memastikan gambar sesuai tanpa merusak aspek rasio */
+        }
+    </style>
     </style>
 
 </head>

@@ -60,18 +60,55 @@ class HomeController extends Controller
         return view('landing-page.perumahan-detail', $data);
     }
 
+    // public function loadRumahSewaDatatables(Request $request)
+    // {
+    //     $model = RumahSewa::with(['kecamatan', 'kelurahan']);
+
+    //     if($request->id_kecamatan) {
+    //         $model = $model->where('id_kecamatan', '=', $request->id_kecamatan);
+    //     }
+
+    //     if($request->id_kelurahan) {
+    //         $model = $model->where('id_kelurahan', '=', $request->id_kelurahan);
+    //     }
+
+    //     if($request->luas_hunian) {
+    //         $luasRange = explode('-', $request->luas_hunian);
+    //         if(count($luasRange) == 2) {
+    //             $model = $model->whereBetween('luas_hunian', [$luasRange[0], $luasRange[1]]);
+    //         } elseif($request->luas_hunian === '131+') {
+    //             $model = $model->where('luas_hunian', '>', 130);
+    //         }
+    //     }
+
+    //     if($request->tarif_sewa) {
+    //         $tarifRange = explode('-', $request->tarif_sewa);
+    //         if(count($tarifRange) == 2) {
+    //             $model = $model->whereBetween('tarif_sewa', [$tarifRange[0], $tarifRange[1]]);
+    //         } elseif($request->tarif_sewa === '900000+') {
+    //             $model = $model->where('tarif_sewa', '>', 900000);
+    //         }
+    //     }
+
+    //     return DataTables::of($model)
+    //         ->toJson();
+    // }
+
     public function loadRumahSewaDatatables(Request $request)
     {
         $model = RumahSewa::with(['kecamatan', 'kelurahan']);
 
+        // Filter berdasarkan kecamatan
         if($request->id_kecamatan) {
             $model = $model->where('id_kecamatan', '=', $request->id_kecamatan);
         }
 
+        // Filter berdasarkan kelurahan
         if($request->id_kelurahan) {
             $model = $model->where('id_kelurahan', '=', $request->id_kelurahan);
         }
 
+        // Filter berdasarkan luas hunian
         if($request->luas_hunian) {
             $luasRange = explode('-', $request->luas_hunian);
             if(count($luasRange) == 2) {
@@ -81,6 +118,7 @@ class HomeController extends Controller
             }
         }
 
+        // Filter berdasarkan tarif sewa
         if($request->tarif_sewa) {
             $tarifRange = explode('-', $request->tarif_sewa);
             if(count($tarifRange) == 2) {
@@ -90,8 +128,31 @@ class HomeController extends Controller
             }
         }
 
-        return DataTables::of($model)
-            ->toJson();
+        // Tentukan jumlah item per halaman (default: 8)
+        $perPage = $request->get('perPage', 8);
+
+        // Ambil data dengan pagination
+        $data = $model->paginate($perPage)->through(function ($rumahSewa) {
+            return [
+                'id' => $rumahSewa->id,
+                'jenis' => $rumahSewa->jenis,
+                'kecamatan' => $rumahSewa->kecamatan,
+                'kelurahan' => $rumahSewa->kelurahan,
+                'luas_hunian' => $rumahSewa->luas_hunian,
+                'jumlah_hunian' => $rumahSewa->jumlah_hunian,
+                'tarif_sewa' => $rumahSewa->tarif_sewa,
+                'gambar_path' => $rumahSewa->gambar_path ? asset('storage/' . $rumahSewa->gambar_path) : null, // Pastikan gambar disimpan di folder yang sesuai
+            ];
+        });
+
+        // Kembalikan data dengan pagination (total halaman, halaman saat ini, dll.)
+        return response()->json([
+            'data' => $data->items(),          // Data item rumah sewa pada halaman saat ini
+            'total_pages' => $data->lastPage(), // Total halaman yang tersedia
+            'current_page' => $data->currentPage(), // Halaman saat ini
+            'per_page' => $data->perPage(),    // Jumlah item per halaman
+            'total' => $data->total(),         // Total jumlah data
+        ]);
     }
 
     public function rumahSewa(Request $request)
