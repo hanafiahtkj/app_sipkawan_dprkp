@@ -59,10 +59,16 @@ class RumahSewaController extends Controller
             'jumlah_hunian' => 'required',
             'tarif_sewa'    => 'required',
             'kondisi_hunian'=> 'required',
-            'keterangan'    => 'required'
+            'keterangan'    => 'required',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $input = $request->all();
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $imagePath = $image->store('rumahsewa', 'public');
+            $input['gambar_path'] = $imagePath;
+        }
         $dataInput = RumahSewa::create($input);
 
         return redirect()->route('boilerplate.rumah-sewa.edit', $dataInput)
@@ -117,11 +123,18 @@ class RumahSewaController extends Controller
             'jumlah_hunian' => 'required',
             'tarif_sewa'    => 'required',
             'kondisi_hunian'=> 'required',
-            'keterangan'    => 'required'
+            'keterangan'    => 'required',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         $dataInput = RumahSewa::find($id);
-        $dataInput->update($request->all());
+        $input = $request->all();
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $imagePath = $image->store('rumahsewa', 'public');
+            $input['gambar_path'] = $imagePath;
+        }
+        $dataInput->update($input);
 
         return redirect()->route('boilerplate.rumah-sewa.edit', $dataInput)
                          ->with('growl', [__('boilerplate::rumahsewa.successmod'), 'success']);
