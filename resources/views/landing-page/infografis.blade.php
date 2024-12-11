@@ -53,8 +53,8 @@
             <!-- Card 5 -->
             <div class="col-md-3 mb-4">
                 <div class="card" data-bs-toggle="modal" data-bs-target="#imageModal"
-                    data-bs-image="{{ asset('assets/infografis/INFOGRAFIS RUSUNAWA.webp') }}">
-                    <img src="{{ asset('assets/infografis/INFOGRAFIS RUSUNAWA.webp') }}" class="card-img-top"
+                    data-bs-image="{{ asset('assets/infografis/INFOGRAFIS_RUSUNAWA_2024.jpg') }}">
+                    <img src="{{ asset('assets/infografis/INFOGRAFIS_RUSUNAWA_2024.jpg') }}" class="card-img-top"
                         alt="Card image 5">
                 </div>
             </div>
