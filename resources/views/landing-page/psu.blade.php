@@ -40,17 +40,9 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label>Jenis</label>
-                <select class="form-select py-3" name="jenis" id="jenis">
+                <label>Nama Komplek Perumahan</label>
+                <select class="form-select py-3" name="nama_komplek" id="nama_komplek">
                     <option value="">Pilih...</option>
-                    <option value="1" @if (old('jenis') == '1') selected="selected" @endif>Umum</option>
-                    <option value="2" @if (old('jenis') == '2') selected="selected" @endif>Komersil
-                    </option>
-                    <option value="3" @if (old('jenis') == '3') selected="selected" @endif>Berimbang
-                    </option>
-                    <option value="4" @if (old('jenis') == '4') selected="selected" @endif>Khusus</option>
-                    <option value="5" @if (old('jenis') == '5') selected="selected" @endif>Umum dan
-                        Komersil</option>
                 </select>
             </div>
 
@@ -77,12 +69,15 @@
                             <table class="table table-striped table-hover" id="dt_sebarankomplek">
                                 <thead>
                                     <tr>
-                                        <th>Nama Perumahan</th>
-                                        <th>Nama Pengembang</th>
+                                        <th>Status Aset</th>
                                         <th>Kecamatan</th>
                                         <th>Kelurahan</th>
-                                        <th>Luas</th>
-                                        <th>Jenis</th>
+                                        <th>Nama Komplek Perumahan</th>
+                                        <th>Jumlah Sertifikat</th>
+                                        <th>Jumlah PSU</th>
+                                        <th>Panjang Jalan Tertangani</th>
+                                        <th>Lebar Jalan Tertangani</th>
+                                        <th>Jenis Sarana</th>
                                         <th style="width: 60px;">Aksi</th>
                                     </tr>
                                 </thead>
@@ -247,49 +242,58 @@
         });
 
         let datatable = $('#dt_sebarankomplek').DataTable({
-            ajax: {
-                url: "{{ route('loadPerumahanDatatables') }}",
-                data: function(d) {
-                    d.id_kecamatan = $('#id_kecamatan').val();
-                    d.id_kelurahan = $('#id_kelurahan').val();
-                    d.jenis = $('#jenis').val();
-                },
-            },
-            columns: [{
-                    data: "nama_perumahan"
-                },
-                {
-                    data: "nama_pengembang"
-                },
-                {
-                    data: "kecamatan.kecamatan"
-                },
-                {
-                    data: "kelurahan.nama_deskel"
-                },
-                {
-                    data: "luas"
-                },
-                {
-                    data: "jenis"
-                },
-                {
-                    data: null,
-                    render: function(data, type, row) {
-                        var url = "{{ route('perumahan.show', ':id') }}".replace(':id', row
-                            .id);
-                        return `
-                        <a
-                            href="${url}"
-                            class="show-link btn btn-icon"
-                            data-user-id="${row.id}"
-                        >
-                            <i class="fa fa-lg fa-circle-info"></i></a>
+            // ajax: {
+            //     url: "{{ route('loadPerumahanDatatables') }}",
+            //     data: function(d) {
+            //         d.id_kecamatan = $('#id_kecamatan').val();
+            //         d.id_kelurahan = $('#id_kelurahan').val();
+            //         d.jenis = $('#jenis').val();
+            //     },
+            // },
+            // columns: [{
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //     },
+            //     {
+            //         data: null,
+            //         render: function(data, type, row) {
+            //             var url = "{{ route('psu.show', ':id') }}".replace(':id', row
+            //                 .id);
+            //             return `
+            //             <a
+            //                 href="${url}"
+            //                 class="show-link btn btn-icon"
+            //                 data-user-id="${row.id}"
+            //             >
+            //                 <i class="fa fa-lg fa-circle-info"></i></a>
 
-                        `;
-                    },
-                },
-            ],
+            //             `;
+            //         },
+            //     },
+            // ],
         });
 
         $('#filter').on('click', function() {
