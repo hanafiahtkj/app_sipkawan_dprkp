@@ -46,6 +46,20 @@ class HomeController extends Controller
             ->toJson();
     }
 
+    public function psu(Request $request)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.psu', $data);
+    }
+
+    public function psuDetail($id)
+    {
+        $data['data'] = SebaranKomplek::find($id);
+        return view('landing-page.psu-detail', $data);
+    }
+
     public function perumahan(Request $request)
     {
         $tahun = $request->tahun ?? date("Y");

@@ -209,6 +209,21 @@
             <div class="col-lg-3 col-6">
                 <div class="small-box bg-white" style="max-width:250px">
                     <div class="inner text-center">
+                        <img src="{{ asset('images/Picture8.png') }}" alt="Icon" style="height: 80px;">
+                        <h4>Bantuan PSU Perumahan</h4>
+                    </div>
+                    <div class="icon">
+
+                    </div>
+                    <a href="{{ route('psu') }}" class="small-box-footer" data-type="komplek-perumahan">
+                        Lihat.. <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-white" style="max-width:250px">
+                    <div class="inner text-center">
                         <img src="{{ asset('images/Picture4.png') }}" alt="Icon" style="height: 80px;">
                         <h4>Perumahan</h4>
                     </div>

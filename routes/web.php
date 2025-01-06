@@ -17,6 +17,9 @@ use App\Http\Controllers\GisController;
 
 Route::get('/',HomeController::class)->name('index');
 
+Route::get('/psu', [HomeController::class, 'psu'])->name('psu');
+Route::get('/psu/{id}', [HomeController::class, 'psuDetail'])->name('psu.show');
+
 Route::get('/loadPerumahanDatatables', [HomeController::class, 'loadPerumahanDatatables'])->name('loadPerumahanDatatables');
 Route::get('/perumahan', [HomeController::class, 'perumahan'])->name('perumahan');
 Route::get('/perumahan/{id}', [HomeController::class, 'perumahanDetail'])->name('perumahan.show');
