@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\RumahSusun;
 use App\Models\SebaranKomplek;
+use App\Models\BantuanPsu;
 use App\Models\RumahSewa;
 use App\Models\JumlahRumahBanjarmasin;
 use App\Models\Kecamatan;
@@ -21,6 +22,51 @@ class HomeController extends Controller
         $tahun = $request->tahun ?? date("Y");
         $data  = $this->_data($tahun);
         return view('landing-page.index', $data);
+    }
+
+    public function loadPsuDatatables(Request $request)
+    {
+        $model = BantuanPsu::with(['kecamatan', 'kelurahan']);
+
+        if($request->id_kecamatan) {
+            $model = $model->where('id_kecamatan', '=', $request->id_kecamatan);
+        }
+
+        if($request->id_kelurahan) {
+            $model = $model->where('id_kelurahan', '=', $request->id_kelurahan);
+        }
+
+        if($request->nama_perumahan) {
+            $model = $model->where('nama_perumahan', '=', $request->nama_perumahan);
+        }
+
+        return DataTables::of($model)
+            ->addColumn('n_status_aset', function ($row) {
+                return BantuanPsu::status_aset($row->status_aset);
+            })
+            ->addColumn('n_jenis_psu', function ($row) {
+                return BantuanPsu::jenis_psu($row->jenis_psu);
+            })
+            ->addColumn('n_jenis_sarana', function ($row) {
+                return BantuanPsu::jenis_sarana($row->jenis_sarana);
+            })
+            ->toJson();
+    }
+
+    public function psu(Request $request)
+    {
+        $tahun = $request->tahun ?? date("Y");
+        $data  = $this->_data($tahun);
+        $data['nama_perumahan'] = BantuanPsu::where('nama_perumahan', '!=', '')
+        ->groupBy('nama_perumahan')->pluck('nama_perumahan')->toArray();
+        $data['kecamatan'] = Kecamatan::get();
+        return view('landing-page.psu', $data);
+    }
+
+    public function psuDetail($id)
+    {
+        $data['data'] = BantuanPsu::find($id);
+        return view('landing-page.psu-detail', $data);
     }
 
     public function loadPerumahanDatatables(Request $request)
@@ -44,20 +90,6 @@ class HomeController extends Controller
                 return SebaranKomplek::jenis($row->jenis);
             })
             ->toJson();
-    }
-
-    public function psu(Request $request)
-    {
-        $tahun = $request->tahun ?? date("Y");
-        $data  = $this->_data($tahun);
-        $data['kecamatan'] = Kecamatan::get();
-        return view('landing-page.psu', $data);
-    }
-
-    public function psuDetail($id)
-    {
-        $data['data'] = SebaranKomplek::find($id);
-        return view('landing-page.psu-detail', $data);
     }
 
     public function perumahan(Request $request)

@@ -30,6 +30,7 @@ use App\Http\Controllers\BantaranSungaiController;
 use App\Http\Controllers\PenggunaanTanahController;
 use App\Http\Controllers\RtlhController;
 use App\Http\Controllers\GisController;
+use App\Http\Controllers\BantuanPsuController;
 
 use App\Http\Controllers\AksesAirBersihController;
 use App\Http\Controllers\AksesListrikPlnController;
@@ -254,6 +255,8 @@ Route::group([
 
         Route::get('proyek-perumahan/export', [ProyekPerumahanController::class, 'export'])->name('proyek-perumahan.export');
         Route::resource('proyek-perumahan', ProyekPerumahanController::class);
+
+        Route::resource('bantuan-psu', BantuanPsuController::class);
 
     });
 });

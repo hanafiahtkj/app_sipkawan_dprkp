@@ -41,8 +41,11 @@
             </div>
             <div class="col-md-4">
                 <label>Nama Komplek Perumahan</label>
-                <select class="form-select py-3" name="nama_komplek" id="nama_komplek">
+                <select class="form-select py-3" name="nama_perumahan" id="nama_perumahan">
                     <option value="">Pilih...</option>
+                    @foreach ($nama_perumahan as $nama)
+                        <option value="{{ $nama }}">{{ $nama }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -72,11 +75,11 @@
                                         <th>Status Aset</th>
                                         <th>Kecamatan</th>
                                         <th>Kelurahan</th>
-                                        <th>Nama Komplek Perumahan</th>
+                                        <th>Nama Perumahan</th>
                                         <th>Jumlah Sertifikat</th>
-                                        <th>Jumlah PSU</th>
-                                        <th>Panjang Jalan Tertangani</th>
-                                        <th>Lebar Jalan Tertangani</th>
+                                        <th>Jenis PSU</th>
+                                        <th>Panjang Jalan</th>
+                                        <th>Lebar Jalan</th>
                                         <th>Jenis Sarana</th>
                                         <th style="width: 60px;">Aksi</th>
                                     </tr>
@@ -242,58 +245,58 @@
         });
 
         let datatable = $('#dt_sebarankomplek').DataTable({
-            // ajax: {
-            //     url: "{{ route('loadPerumahanDatatables') }}",
-            //     data: function(d) {
-            //         d.id_kecamatan = $('#id_kecamatan').val();
-            //         d.id_kelurahan = $('#id_kelurahan').val();
-            //         d.jenis = $('#jenis').val();
-            //     },
-            // },
-            // columns: [{
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //     },
-            //     {
-            //         data: null,
-            //         render: function(data, type, row) {
-            //             var url = "{{ route('psu.show', ':id') }}".replace(':id', row
-            //                 .id);
-            //             return `
-            //             <a
-            //                 href="${url}"
-            //                 class="show-link btn btn-icon"
-            //                 data-user-id="${row.id}"
-            //             >
-            //                 <i class="fa fa-lg fa-circle-info"></i></a>
+            ajax: {
+                url: "{{ route('loadPsuDatatables') }}",
+                data: function(d) {
+                    d.id_kecamatan = $('#id_kecamatan').val();
+                    d.id_kelurahan = $('#id_kelurahan').val();
+                    d.nama_perumahan = $('#nama_perumahan').val();
+                },
+            },
+            columns: [{
+                    data: 'n_status_aset',
+                },
+                {
+                    data: "kecamatan.kecamatan"
+                },
+                {
+                    data: "kelurahan.nama_deskel"
+                },
+                {
+                    data: 'nama_perumahan',
+                },
+                {
+                    data: 'jumlah_sertifikat',
+                },
+                {
+                    data: 'n_jenis_psu',
+                },
+                {
+                    data: 'panjang',
+                },
+                {
+                    data: 'lebar',
+                },
+                {
+                    data: 'n_jenis_sarana',
+                },
+                {
+                    data: null,
+                    render: function(data, type, row) {
+                        var url = "{{ route('psu.show', ':id') }}".replace(':id', row
+                            .id);
+                        return `
+                        <a
+                            href="${url}"
+                            class="show-link btn btn-icon"
+                            data-user-id="${row.id}"
+                        >
+                            <i class="fa fa-lg fa-circle-info"></i></a>
 
-            //             `;
-            //         },
-            //     },
-            // ],
+                        `;
+                    },
+                },
+            ],
         });
 
         $('#filter').on('click', function() {

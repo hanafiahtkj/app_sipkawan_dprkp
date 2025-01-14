@@ -26,160 +26,83 @@
 
         <div class="row">
             <div class="col-md-5">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/016/962/575/small_2x/corner-of-empty-room-with-white-walls-floor-free-vector.jpg"
-                    class="rounded img-fluid" alt="...">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Foto Perumahan</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <img src="{{ $data->foto_rumah_path ? asset('storage/' . $data->foto_rumah_path) : 'https://via.placeholder.com/600x300' }}"
+                            class="rounded img-fluid detailImage" alt="Gambar Perumahan" id=""
+                            data-bs-toggle="modal" data-bs-target="#imageModal">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Foto PSU Perumahan</h5>
+                    </div>
+                    <div class="card-body p-0">
+
+                        <img src="{{ $data->foto_psu_path ? asset('storage/' . $data->foto_psu_path) : 'https://via.placeholder.com/600x300' }}"
+                            class="rounded img-fluid detailImage" alt="Gambar PSU" data-bs-toggle="modal"
+                            data-bs-target="#imageModal">
+                    </div>
+                </div>
             </div>
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
                         <div class="row mb-3">
-                            <div class="col-md-6">
-                                <h5>Profil Umum Perumahan</h5>
+                            <div class="col-md-12">
+                                <h5>Keterangan PSU Perumahan</h5>
                                 <div class="row mb-3">
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <label>Nama Perumahan</label>
                                         <input type="text" class="form-control py-4"
                                             value="{{ $data->nama_perumahan }}">
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-6">
+                                        <label>Status Aset</label>
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ App\Models\BantuanPsu::status_aset($data->status_aset) }}">
+                                    </div>
+                                    <div class="col-6">
                                         <label>Alamat</label>
                                         <input type="text" class="form-control py-4" value="-">
                                     </div>
-                                    <div class="col-12">
-                                        <label>Luas Perumahan</label>
-                                        <input type="text" class="form-control py-4" value="{{ $data->luas }}">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>PSU Tersedia</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Jenis Rumah</label>
+                                    <div class="col-6">
+                                        <label>Kecamatan</label>
                                         <input type="text" class="form-control py-4"
-                                            value="{{ App\Models\SebaranKomplek::jenis($data->jenis) }}">
+                                            value="{{ $data->kecamatan->kecamatan }}">
                                     </div>
-                                    <div class="col-12">
-                                        <label>Type Rumah</label>
-                                        <div class="border rounded p-2">
-                                            <table class="table table-borderless w-100">
-                                                <tr>
-                                                    <td>36: _ Unit</td>
-                                                    <td>60: _ Unit</td>
-                                                    <td>100: _ Unit</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>45: _ Unit</td>
-                                                    <td>75: _ Unit</td>
-                                                    <td>130: _ Unit</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>55: _ Unit</td>
-                                                    <td>90: _ Unit</td>
-                                                    <td>150: _ Unit</td>
-                                                </tr>
-                                            </table>
-                                        </div>
+                                    <div class="col-6">
+                                        <label>Kelurahan</label>
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ $data->kelurahan->nama_deskel }}">
                                     </div>
-                                    <div class="col-12">
-                                        <label>Harga</label>
-                                        <input type="text" class="form-control py-4" value="-">
+                                    <div class="col-6">
+                                        <label>Jenis PSU</label>
+                                        <input type="text" class="form-control py-4"
+                                            value="{{ App\Models\BantuanPsu::jenis_psu($data->jenis_psu) }}">
                                     </div>
+                                    <div class="col-6">
+                                        <label>Panjang Jalan</label>
+                                        <input type="text" class="form-control py-4" value="{{ $data->panjang }}">
+                                    </div>
+                                    <div class="col-6">
+                                        <label>Lebar Jalan</label>
+                                        <input type="text" class="form-control py-4" value="{{ $data->lebar }}">
+                                    </div>
+
+
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <h5>Profil Umum Pengembang</h5>
-                                <div class="row mb-3">
-                                    <div class="col-12">
-                                        <label>Nama Pengembang</label>
-                                        <input type="text" class="form-control py-4"
-                                            value="{{ $data->nama_pengembang }}">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>No Ijin PBG</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Alamat Pengembang</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Kontak</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Email</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Website</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <h5>Spek Teknis Rumah</h5>
-                                <div class="row mb-3">
-                                    <div class="col-12">
-                                        <label>Tipe</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Luas Bangunan</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Luas Lahan</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Jumlah Lantai</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Kamar Tidur </label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Kamar</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h5 class="text-white">.</h5>
-                                <div class="row mb-3">
-                                    <div class="col-12">
-                                        <label>Pondasi</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Struktur</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Dinding</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Penutup Lantai</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                    <div class="col-12">
-                                        <label>Atap</label>
-                                        <input type="text" class="form-control py-4" value="-">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -281,10 +204,9 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.card').forEach(function(card) {
+        document.querySelectorAll('.detailImage').forEach(function(card) {
             card.addEventListener('click', function() {
-                const imageUrl = this.getAttribute(
-                    'data-bs-image'); // Dapatkan URL gambar dari atribut data-bs-image
+                const imageUrl = card.getAttribute('src');
                 const modalImage = document.getElementById(
                     'modalImage'); // Ambil elemen gambar dalam modal
                 modalImage.src =
