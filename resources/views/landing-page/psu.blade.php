@@ -77,10 +77,10 @@
                                         <th>Kelurahan</th>
                                         <th>Nama Perumahan</th>
                                         <th>Jumlah Sertifikat</th>
-                                        <th>Jenis PSU</th>
+                                        {{-- <th>Jenis PSU</th>
                                         <th>Panjang Jalan</th>
                                         <th>Lebar Jalan</th>
-                                        <th>Jenis Sarana</th>
+                                        <th>Jenis Sarana</th> --}}
                                         <th style="width: 60px;">Aksi</th>
                                     </tr>
                                 </thead>
@@ -268,18 +268,18 @@
                 {
                     data: 'jumlah_sertifikat',
                 },
-                {
-                    data: 'n_jenis_psu',
-                },
-                {
-                    data: 'panjang',
-                },
-                {
-                    data: 'lebar',
-                },
-                {
-                    data: 'n_jenis_sarana',
-                },
+                // {
+                //     data: 'n_jenis_psu',
+                // },
+                // {
+                //     data: 'panjang',
+                // },
+                // {
+                //     data: 'lebar',
+                // },
+                // {
+                //     data: 'n_jenis_sarana',
+                // },
                 {
                     data: null,
                     render: function(data, type, row) {

@@ -31,11 +31,6 @@ class Backend
             'order' => 100,
         ]);
 
-        $item->add('Bantuan PSU Perumanan', [
-            'active' => 'boilerplate.bantuan-psu.*',
-            'route' => 'boilerplate.bantuan-psu.index',
-        ]);
-
         $item->add('Sebaran Komplek Perumanan', [
             'active' => 'boilerplate.sebaran-komplek.*',
             'route' => 'boilerplate.sebaran-komplek.index',
@@ -49,6 +44,11 @@ class Backend
         $item = $menu->add('Data Perumahan', [
             'icon' => 'square',
             'order' => 100,
+        ]);
+
+        $item->add('Bantuan PSU Perumanan', [
+            'active' => 'boilerplate.bantuan-psu.*',
+            'route' => 'boilerplate.bantuan-psu.index',
         ]);
 
         $itemDetail = $item->add('Satu Data Perumahan', [
