@@ -94,6 +94,22 @@
     </div>
 </section>
 
+<div class="modal fade" id="modalSurvey" tabindex="-1" aria-labelledby="modalSurveyLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSurveyLabel">Survey Kepuasan Masyarakat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe
+                    src="https://surveidigital.spbe.go.id/embed/survey/eyJzdXJ2ZXlfaWQiOjIsInNlcnZpY2VfaWQiOjI4OCwiaG9zdCI6Imh0dHBzOi8vc2lwLWthd2FuLmJhbmphcm1hc2lua290YS5nby5pZC8saHR0cDovLzEyNy4wLjAuMTo4MDAwLyIsImtleSI6ImxEQlFYcHM4In0=/embed/view/"
+                    style="width: 100%; height: 600px; border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('vendor/collab/vendors/bootstrap/bootstrap.min.js') }}"></script>
 
@@ -254,6 +270,11 @@
 
             // Mengarahkan ke route export yang sudah kita buat tadi
             window.location.href = "{{ route('rumahsewa.export') }}?" + queryString;
+
+            // Trigger Modal Survey setelah delay singkat (saat proses download dimulai)
+            setTimeout(function() {
+                $('#modalSurvey').modal('show');
+            }, 1500);
         }
 
         $('#exportExcel').on('click', function() {
