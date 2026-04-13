@@ -148,6 +148,7 @@ class KelDesaController extends Controller
             foreach ($kelurahan as $kel) {
                 $json[] = [
                     'id' => $kel->id,
+                    'kode_deskel' => $kel->kode_deskel,
                     'text' => $kel->nama_deskel
                 ];
             }

@@ -2,31 +2,28 @@
 
 namespace App\Exports;
 
-use App\Models\RumahSewa;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
-use Maatwebsite\Excel\Concerns\WithColumnWidths;
-use Maatwebsite\Excel\Concerns\WithColumnFormatting;
-use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 class RumahSewaExport implements FromView, WithEvents, ShouldAutoSize
 {
     protected $rowCount;
+    protected $data; // Tambahkan properti untuk menampung data
 
-    public function __construct()
+    // Ubah constructor untuk menerima data hasil filter
+    public function __construct($data)
     {
-        $this->rowCount = 5;
+        $this->data = $data;
+        $this->rowCount = 5 + count($data); // Header di baris 5 + jumlah data
     }
 
     public function view(): View
     {
-        $data = RumahSewa::all();
-        $this->rowCount += count($data);
         return view('rumah-sewa.excel', [
-            'data' => $data
+            'data' => $this->data
         ]);
     }
 
@@ -50,6 +47,7 @@ class RumahSewaExport implements FromView, WithEvents, ShouldAutoSize
                     ->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER)
                     ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
+                // Border otomatis menyesuaikan jumlah data
                 $event->sheet->getStyle('A3:K'.$this->rowCount)->applyFromArray([
                     'borders' => [
                         'allBorders' => [

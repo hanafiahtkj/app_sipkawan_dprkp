@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <img src="{{ $data->gambar_path ? asset('storage/' . $data->gambar_path) : 'https://via.placeholder.com/600x300' }}"
+                <img src="{{ $data->gambar_path ? asset('storage/' . $data->gambar_path) : route('index') . '/images/600.jpg' }}"
                     class="rounded img-fluid" alt="Gambar Rumah Sewa" id="detailImage" data-bs-toggle="modal"
                     data-bs-target="#imageModal">
             </div>
@@ -45,6 +45,18 @@
                                     readonly>
                             </div>
                             <div class="col-md-6">
+                                <label>Kecamatan</label>
+                                <input type="text" class="form-control py-4"
+                                    value="{{ $data->kecamatan['kecamatan'] ?? '-' }} ({{ $data->kecamatan['kode_kec'] ?? '-' }})"
+                                    readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Kelurahan</label>
+                                <input type="text" class="form-control py-4"
+                                    value="{{ $data->kelurahan['nama_deskel'] ?? '-' }} ({{ $data->kelurahan['kode_deskel'] ?? '-' }})"
+                                    readonly>
+                            </div>
+                            <div class="col-md-6">
                                 <label>Alamat</label>
                                 <input type="text" class="form-control py-4" value="{{ $data->alamat ?? '-' }}"
                                     readonly>
@@ -67,7 +79,6 @@
     </div>
 </section>
 
-<!-- Modal untuk Menampilkan Gambar Full -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">

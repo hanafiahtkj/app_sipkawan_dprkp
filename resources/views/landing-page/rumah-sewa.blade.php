@@ -11,7 +11,6 @@
     </div>
 </section>
 
-<!-- Filter Form -->
 <section id="statistik" class="py-4"
     style="background-image:url('{{ asset('images/bg.png') }}');background-position: center;">
 
@@ -22,7 +21,7 @@
                 <select class="form-select py-3" name="id_kecamatan" id="id_kecamatan">
                     <option value="">Pilih...</option>
                     @foreach ($kecamatan as $kec)
-                        <option value="{{ $kec->id }}">{{ $kec->kecamatan }}</option>
+                        <option value="{{ $kec->id }}">{{ $kec->kode_kec }} - {{ $kec->kecamatan }}</option>
                     @endforeach
                 </select>
             </div>
@@ -62,19 +61,24 @@
                     <option value="900000+">Rp 900.000 ></option>
                 </select>
             </div>
-            <div class="col-md-2">
-                <button class="btn btn-dark border-0 w-100 py-3 mt-4" id="filter"><i class="fa fa-filter"></i>
-                    Filter</button>
+            <div class="col-md-4 d-flex align-items-end gap-2">
+                <button class="btn btn-dark border-0 flex-grow-1 py-3 mt-4" id="filter">
+                    <i class="fa fa-filter"></i> Filter
+                </button>
+                <button class="btn btn-success border-0 py-3 mt-4" id="exportExcel" title="Export Excel">
+                    <i class="fa fa-file-excel"></i> Excel
+                </button>
+                <button class="btn btn-info border-0 py-3 mt-4 text-white" id="exportCsv" title="Export CSV">
+                    <i class="fa fa-file-csv"></i> CSV
+                </button>
             </div>
         </div>
 
-        <!-- Tempat Kartu Rumah Sewa akan ditampilkan -->
         <div class="row mt-4">
             <div class="col-12">
                 <div class="card border-light mb-0">
                     <div class="card-body">
                         <div class="row" id="rumahSewaCards">
-                            <!-- Kartu rumah sewa akan dimasukkan di sini oleh JavaScript -->
                         </div>
                     </div>
                 </div>
@@ -94,7 +98,51 @@
 <script src="{{ asset('vendor/collab/vendors/bootstrap/bootstrap.min.js') }}"></script>
 
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    });
+</script>
+
+<script>
     $(function() {
+        $('#id_kecamatan').on('change', function() {
+            var id_kecamatan = $(this).val(); // Ambil nilai kecamatan yang dipilih
+
+            // Kosongkan pilihan kelurahan saat kecamatan berubah
+            $('#id_kelurahan').empty().append('<option value="">-- Pilih Kelurahan --</option>');
+
+            // Pastikan ada kecamatan yang dipilih
+            if (id_kecamatan) {
+                // Lakukan request AJAX
+                $.ajax({
+                    url: "{{ route('boilerplate.kel-desa.get-byidkec') }}", // URL route Laravel
+                    type: "POST", // Method request
+                    data: {
+                        idKec: id_kecamatan
+                    }, // Kirim parameter id_kecamatan
+                    success: function(response) {
+                        // Lakukan pengecekan jika response sukses
+                        if (response.results) {
+                            // Iterasi melalui data kelurahan yang diterima
+                            $.each(response.results, function(key, value) {
+                                $('#id_kelurahan').append('<option value="' + value
+                                    .id + '">' + value.kode_deskel + ' - ' +
+                                    value.text +
+                                    '</option>');
+                            });
+                        } else {
+                            alert('Data kelurahan tidak ditemukan!');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log("Terjadi kesalahan: " + error);
+                    }
+                });
+            }
+        });
+
         let currentPage = 1;
         let totalPages = 1;
 
@@ -188,6 +236,32 @@
         $('#filter').on('click', function() {
             currentPage = 1; // Reset halaman ke 1 saat filter diterapkan
             loadRumahSewaData(currentPage); // Panggil fungsi untuk memuat data dengan filter
+        });
+
+        // Fungsi Export
+        function exportData(format) {
+            var params = {
+                id_kecamatan: $('#id_kecamatan').val(),
+                id_kelurahan: $('#id_kelurahan').val(),
+                jenis: $('#jenis').val(),
+                luas_hunian: $('#luas_hunian').val(),
+                tarif_sewa: $('#tarif_sewa').val(),
+                format: format
+            };
+
+            // Membuat query string dari parameter
+            var queryString = $.param(params);
+
+            // Mengarahkan ke route export yang sudah kita buat tadi
+            window.location.href = "{{ route('rumahsewa.export') }}?" + queryString;
+        }
+
+        $('#exportExcel').on('click', function() {
+            exportData('excel');
+        });
+
+        $('#exportCsv').on('click', function() {
+            exportData('csv');
         });
 
     });

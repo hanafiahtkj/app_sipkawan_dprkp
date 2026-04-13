@@ -155,7 +155,11 @@ class RumahSewaController extends Controller
 
     public function export()
     {
-        return Excel::download(new RumahSewaExport, 'rumah-sewa.xlsx');
+        $query = RumahSewa::with(['kecamatan', 'kelurahan']);
+        $filteredData = $query->get();
+        $filename = 'Data_Rumah_Sewa_' . date('Ymd_His');
+        $export = new RumahSewaExport($filteredData);
+        return Excel::download($export, $filename.'.xlsx');
     }
 
     public function import(Request $request)

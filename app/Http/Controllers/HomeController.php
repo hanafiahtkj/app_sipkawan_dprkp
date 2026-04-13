@@ -14,6 +14,8 @@ use App\Models\KelDesa;
 use DB;
 use DataTables;
 use Illuminate\Support\Facades\Http;
+use App\Exports\RumahSewaExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
 {
@@ -215,6 +217,50 @@ class HomeController extends Controller
     {
         $data['data'] = RumahSewa::find($id);
         return view('landing-page.rumah-sewa-detail', $data);
+    }
+
+    public function exportRumahSewa(Request $request)
+    {
+        $query = RumahSewa::with(['kecamatan', 'kelurahan']);
+
+        if($request->id_kecamatan) {
+            $query->where('id_kecamatan', $request->id_kecamatan);
+        }
+        if($request->id_kelurahan) {
+            $query->where('id_kelurahan', $request->id_kelurahan);
+        }
+        if($request->jenis) {
+            $query->where('jenis', $request->jenis);
+        }
+        if($request->luas_hunian) {
+            $range = explode('-', $request->luas_hunian);
+            if(count($range) == 2) {
+                $query->whereBetween('luas_hunian', [$range[0], $range[1]]);
+            } elseif($request->luas_hunian === '131+') {
+                $query->where('luas_hunian', '>', 130);
+            }
+        }
+        if($request->tarif_sewa) {
+            $range = explode('-', $request->tarif_sewa);
+            if(count($range) == 2) {
+                $query->whereBetween('tarif_sewa', [$range[0], $range[1]]);
+            } elseif($request->tarif_sewa === '900000+') {
+                $query->where('tarif_sewa', '>', 900000);
+            }
+        }
+
+        // 2. Ambil hasil filternya
+        $filteredData = $query->get();
+
+        // 3. Tentukan nama file dan format
+        $filename = 'Data_Rumah_Sewa_' . date('Ymd_His');
+        $export = new RumahSewaExport($filteredData);
+
+        if ($request->format === 'csv') {
+            return Excel::download($export, $filename . '.csv', \Maatwebsite\Excel\Excel::CSV);
+        }
+
+        return Excel::download($export, $filename . '.xlsx');
     }
 
     public function rumahSusun(Request $request)

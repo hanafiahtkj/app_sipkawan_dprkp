@@ -38,8 +38,8 @@
         <div class="d-flex justify-content-between align-items-start">
             <div>
                 <!-- <p class="mb-1 text-sm">
-                            <a href="{{ route('boilerplate.password.request') }}">@lang('boilerplate::auth.login.forgotpassword')</a><br>
-                        </p> -->
+                                    <a href="{{ route('boilerplate.password.request') }}">@lang('boilerplate::auth.login.forgotpassword')</a><br>
+                                </p> -->
                 @if (config('boilerplate.auth.register'))
                     <p class="mb-0 text-sm">
                         <a href="{{ route('boilerplate.register') }}" class="text-center">@lang('boilerplate::auth.login.register')</a>
