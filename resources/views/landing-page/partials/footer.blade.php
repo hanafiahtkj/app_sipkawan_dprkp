@@ -116,11 +116,32 @@
 </div>
 
 <!-- Modal untuk Menampilkan Gambar Full -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
-                <img id="modalImage" src="" class="img-fluid" alt="Full size image">
+            <div class="modal-body text-center p-0">
+                <img src="" id="modalImage" class="img-fluid w-100">
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="downloadLink" class="btn btn-primary" download>Download Infografis</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalSurveyWelcome" tabindex="-1" aria-labelledby="modalSurveyLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSurveyLabel">Survey Kepuasan Masyarakat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <iframe
+                    src="https://surveidigital.spbe.go.id/embed/survey/eyJzdXJ2ZXlfaWQiOjIsInNlcnZpY2VfaWQiOjI4OCwiaG9zdCI6Imh0dHBzOi8vc2lwLWthd2FuLmJhbmphcm1hc2lua290YS5nby5pZC8saHR0cDovLzEyNy4wLjAuMTo4MDAwLyIsImtleSI6ImxEQlFYcHM4In0=/embed/view/"
+                    style="width: 100%; height: 600px; border: none;"></iframe>
             </div>
         </div>
     </div>
@@ -158,6 +179,36 @@
     });
 </script>
 {{-- <script src="{{ asset('assets/js/vue.min.js') }}"></script> --}}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const downloadLink = document.getElementById('downloadLink');
+
+        if (imageModal) {
+            imageModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const imageUrl = button.getAttribute('data-bs-image');
+                modalImage.src = imageUrl;
+                downloadLink.href = imageUrl;
+            });
+        }
+
+        if (downloadLink) {
+            downloadLink.addEventListener('click', function() {
+                const bootstrapImageModal = bootstrap.Modal.getInstance(imageModal);
+                bootstrapImageModal.hide();
+
+                setTimeout(function() {
+                    const surveyModal = new bootstrap.Modal(document.getElementById(
+                        'modalSurveyWelcome'));
+                    surveyModal.show();
+                }, 1000);
+            });
+        }
+    });
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -355,6 +406,7 @@
 </script>
 <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5020293&101" alt=""
             border="0"></a></noscript>
+
 
 </body>
 
