@@ -15,6 +15,7 @@
             </div>
             <div class="col-lg-6 d-flex justify-content-lg-end mb-4">
                 <form class="row row-cols-lg-auto align-items-center">
+                    <div id="histats_counter"></div>
                     <!-- You can include additional contact-related form fields here if needed -->
                 </form>
             </div>
@@ -338,6 +339,22 @@
     var chartData = [];
     initializeChart(chartData);
 </script>
+
+<script type="text/javascript">
+    var _Hasync = _Hasync || [];
+    _Hasync.push(['Histats.start', '1,5020293,4,408,270,55,00011111']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function() {
+        var hs = document.createElement('script');
+        hs.type = 'text/javascript';
+        hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+    })();
+</script>
+<noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5020293&101" alt=""
+            border="0"></a></noscript>
 
 </body>
 
