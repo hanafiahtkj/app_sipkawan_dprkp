@@ -259,11 +259,11 @@ class HomeController extends Controller
         $data['kecamatan'] = Kecamatan::get();
 
         $data['timeline'] = [
-            ['kegiatan' => 'Perencanaan/Persiapan', 'tgl' => '-'],
-            ['kegiatan' => 'Pengumpulan Data', 'tgl' => '-'],
-            ['kegiatan' => 'Pengolahan Data', 'tgl' => '-'],
-            ['kegiatan' => 'Analisis', 'tgl' => '-'],
-            ['kegiatan' => 'Penyajian/Diseminasi', 'tgl' => '-'],
+            ['kegiatan' => 'Perencanaan/Persiapan', 'tgl' => '23 Juni 2025 - 13 Juli 2025'],
+            ['kegiatan' => 'Pengumpulan Data', 'tgl' => '01 Agustus 2025 - 11 Agustus 2025'],
+            ['kegiatan' => 'Pengolahan Data', 'tgl' => '01 Agustus 2025 - 11 Agustus 2025'],
+            ['kegiatan' => 'Analisis', 'tgl' => '11 Agustus 2025 - 11 Agustus 2025'],
+            ['kegiatan' => 'Penyajian/Diseminasi', 'tgl' => '11 Agustus 2025 - 21 Agustus 2025'],
         ];
 
         return view('landing-page.rumah-sewa', $data);
