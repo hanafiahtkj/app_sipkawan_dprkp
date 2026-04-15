@@ -205,11 +205,67 @@ class HomeController extends Controller
 
     public function rumahSewa(Request $request)
     {
-        $tahun = $request->tahun ?? date("Y");
-        $data  = $this->_data($tahun);
-        $data['jenis'] = RumahSewa::where('jenis', '!=', '')
-            ->groupBy('jenis')->pluck('jenis')->toArray();
+        $query = RumahSewa::with(['kecamatan', 'kelurahan']);
+
+        // Terapkan Filter Langsung
+        if($request->id_kecamatan) $query->where('id_kecamatan', $request->id_kecamatan);
+        if($request->id_kelurahan) $query->where('id_kelurahan', $request->id_kelurahan);
+        if($request->jenis) $query->where('jenis', $request->jenis);
+
+        if($request->luas_hunian) {
+            $range = explode('-', $request->luas_hunian);
+            if(count($range) == 2) $query->whereBetween('luas_hunian', [$range[0], $range[1]]);
+            elseif($request->luas_hunian === '131+') $query->where('luas_hunian', '>', 130);
+        }
+
+        if($request->tarif_sewa) {
+            $range = explode('-', $request->tarif_sewa);
+            if(count($range) == 2) $query->whereBetween('tarif_sewa', [$range[0], $range[1]]);
+            elseif($request->tarif_sewa === '900000+') $query->where('tarif_sewa', '>', 900000);
+        }
+
+        // Ambil data dengan pagination (8 item per halaman)
+        // appends(request()->all()) penting agar filter tidak hilang saat ganti halaman
+        $rumahSewaList = $query->paginate(8)->appends($request->all());
+
+        // Statistik Tetap Sama
+        $data['stats'] = [
+            'total' => RumahSewa::count(),
+            'total_kecamatan' => RumahSewa::distinct('id_kecamatan')->count(),
+            'top_jenis' => RumahSewa::select('jenis', \DB::raw('count(*) as total'))
+                ->groupBy('jenis')->orderBy('total', 'desc')->first(),
+            'tarif_terjangkau' => RumahSewa::where('tarif_sewa', '<=', 500000)->count(),
+        ];
+
+        // --- TAMBAHAN BARU: List Detail ---
+        $data['stats_jenis'] = RumahSewa::select('jenis', \DB::raw('count(*) as total'))
+            ->where('jenis', '!=', '')
+            ->groupBy('jenis')
+            ->orderBy('total', 'desc')
+            ->get();
+
+        $data['stats_tarif'] = [
+            'Rp 100k - 300k' => RumahSewa::whereBetween('tarif_sewa', [100000, 300000])->count(),
+            'Rp 300k - 500k' => RumahSewa::whereBetween('tarif_sewa', [300001, 500000])->count(),
+            'Rp 500k - 700k' => RumahSewa::whereBetween('tarif_sewa', [500001, 700000])->count(),
+            'Rp 700k - 900k' => RumahSewa::whereBetween('tarif_sewa', [700001, 900000])->count(),
+            'Di atas 900k'   => RumahSewa::where('tarif_sewa', '>', 900000)->count(),
+        ];
+
+        $data['kecamatan_stats'] = Kecamatan::withCount('rumahSewa')->has('rumahSewa', '>', 0)->get();
+
+        $data['rumahSewaList'] = $rumahSewaList;
+        $data['jenis'] = RumahSewa::where('jenis', '!=', '')->groupBy('jenis')->pluck('jenis')->toArray();
         $data['kecamatan'] = Kecamatan::get();
+
+        $data['timeline'] = [
+            ['kegiatan' => 'Perencanaan/Persiapan', 'tgl' => 'Januari 2026'],
+            ['kegiatan' => 'Pengumpulan Data', 'tgl' => 'Februari - Maret 2026'],
+            ['kegiatan' => 'Pengolahan Data', 'tgl' => 'Maret 2026'],
+            ['kegiatan' => 'Analisis', 'tgl' => 'April 2026'],
+            ['kegiatan' => 'Penyajian/Diseminasi', 'tgl' => 'Mei 2026'],
+        ];
+
         return view('landing-page.rumah-sewa', $data);
     }
 
