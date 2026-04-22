@@ -208,10 +208,12 @@
                     <a href="{{ route('rumah-sewa') }}" class="btn btn-outline-dark py-3 mt-4" title="Reset Filter">
                         <i class="fa fa-sync"></i> Reset
                     </a>
-                    <button class="btn btn-success border-0 py-3 mt-4" id="exportExcel" title="Export Excel">
+                    <button type="button" class="btn btn-success border-0 py-3 mt-4" id="exportExcel"
+                        title="Export Excel">
                         <i class="fa fa-file-excel"></i> Excel
                     </button>
-                    <button class="btn btn-info border-0 py-3 mt-4 text-white" id="exportCsv" title="Export CSV">
+                    <button type="button" class="btn btn-info border-0 py-3 mt-4 text-white" id="exportCsv"
+                        title="Export CSV">
                         <i class="fa fa-file-csv"></i> CSV
                     </button>
                 </div>
