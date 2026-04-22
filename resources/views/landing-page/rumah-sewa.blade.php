@@ -165,21 +165,33 @@
                 <div class="col-md-4 mb-3">
                     <label class="fw-bold mb-1">Tarif Sewa</label>
                     <select class="form-select py-3" name="tarif_sewa" id="tarif_sewa">
-                        <option value="">Pilih...</option>
-                        <option value="100000-300000"
-                            {{ request('tarif_sewa') == '100000-300000' ? 'selected' : '' }}>
-                            Rp 100.000 - 300.000</option>
-                        <option value="300000-500000"
-                            {{ request('tarif_sewa') == '300000-500000' ? 'selected' : '' }}>
-                            Rp 300.000 - 500.000</option>
-                        <option value="500000-700000"
-                            {{ request('tarif_sewa') == '500000-700000' ? 'selected' : '' }}>
-                            Rp 500.000 - 700.000</option>
-                        <option value="700000-900000"
-                            {{ request('tarif_sewa') == '700000-900000' ? 'selected' : '' }}>
-                            Rp 700.000 - 900.000</option>
-                        <option value="900000+" {{ request('tarif_sewa') == '900000+' ? 'selected' : '' }}>Rp 900.000
-                            >
+                        <option value="">Semua Harga</option>
+
+                        <option value="0-300000" {{ request('tarif_sewa') == '0-300000' ? 'selected' : '' }}>
+                            < Rp 300.000 </option>
+
+                        <option value="301000-400000"
+                            {{ request('tarif_sewa') == '301000-400000' ? 'selected' : '' }}>
+                            Rp 301.000 s/d 400.000
+                        </option>
+
+                        <option value="401000-500000"
+                            {{ request('tarif_sewa') == '401000-500000' ? 'selected' : '' }}>
+                            Rp 401.000 s/d 500.000
+                        </option>
+
+                        <option value="501000-600000"
+                            {{ request('tarif_sewa') == '501000-600000' ? 'selected' : '' }}>
+                            Rp 501.000 s/d 600.000
+                        </option>
+
+                        <option value="601000-700000"
+                            {{ request('tarif_sewa') == '601000-700000' ? 'selected' : '' }}>
+                            Rp 601.000 s/d 700.000
+                        </option>
+
+                        <option value="700000+" {{ request('tarif_sewa') == '700000+' ? 'selected' : '' }}>
+                            > Rp 700.000
                         </option>
                     </select>
                 </div>

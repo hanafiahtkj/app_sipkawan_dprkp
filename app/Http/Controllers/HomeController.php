@@ -218,10 +218,13 @@ class HomeController extends Controller
             elseif($request->luas_hunian === '131+') $query->where('luas_hunian', '>', 130);
         }
 
-        if($request->tarif_sewa) {
+        if ($request->filled('tarif_sewa')) {
             $range = explode('-', $request->tarif_sewa);
-            if(count($range) == 2) $query->whereBetween('tarif_sewa', [$range[0], $range[1]]);
-            elseif($request->tarif_sewa === '900000+') $query->where('tarif_sewa', '>', 900000);
+            if (count($range) == 2) {
+                $query->whereBetween('tarif_sewa', [$range[0], $range[1]]);
+            } elseif ($request->tarif_sewa === '700000+') {
+                $query->where('tarif_sewa', '>', 700000);
+            }
         }
 
         // Ambil data dengan pagination (8 item per halaman)
@@ -244,12 +247,13 @@ class HomeController extends Controller
             ->orderBy('total', 'desc')
             ->get();
 
-        $data['stats_tarif'] = [
-            'Rp 100k - 300k' => RumahSewa::whereBetween('tarif_sewa', [100000, 300000])->count(),
-            'Rp 300k - 500k' => RumahSewa::whereBetween('tarif_sewa', [300001, 500000])->count(),
-            'Rp 500k - 700k' => RumahSewa::whereBetween('tarif_sewa', [500001, 700000])->count(),
-            'Rp 700k - 900k' => RumahSewa::whereBetween('tarif_sewa', [700001, 900000])->count(),
-            'Di atas 900k'   => RumahSewa::where('tarif_sewa', '>', 900000)->count(),
+       $data['stats_tarif'] = [
+            '< Rp 300k'      => RumahSewa::whereBetween('tarif_sewa', [0, 300000])->count(),
+            'Rp 301k - 400k' => RumahSewa::whereBetween('tarif_sewa', [301000, 400000])->count(),
+            'Rp 401k - 500k' => RumahSewa::whereBetween('tarif_sewa', [401000, 500000])->count(),
+            'Rp 501k - 600k' => RumahSewa::whereBetween('tarif_sewa', [501000, 600000])->count(),
+            'Rp 601k - 700k' => RumahSewa::whereBetween('tarif_sewa', [601000, 700000])->count(),
+            'Di atas 700k'   => RumahSewa::where('tarif_sewa', '>', 700000)->count(),
         ];
 
         $data['kecamatan_stats'] = Kecamatan::withCount('rumahSewa')->has('rumahSewa', '>', 0)->get();
@@ -262,8 +266,8 @@ class HomeController extends Controller
             ['kegiatan' => 'Perencanaan/Persiapan', 'tgl' => '23 Juni 2025 - 13 Juli 2025'],
             ['kegiatan' => 'Pengumpulan Data', 'tgl' => '01 Agustus 2025 - 11 Agustus 2025'],
             ['kegiatan' => 'Pengolahan Data', 'tgl' => '01 Agustus 2025 - 11 Agustus 2025'],
-            ['kegiatan' => 'Analisis', 'tgl' => '11 Agustus 2025 - 11 Agustus 2025'],
-            ['kegiatan' => 'Penyajian/Diseminasi', 'tgl' => '11 Agustus 2025 - 21 Agustus 2025'],
+            ['kegiatan' => 'Analisis', 'tgl' => '01 Agustus 2025 - 11 Agustus 2025'],
+            ['kegiatan' => 'Penyajian/Diseminasi', 'tgl' => '11 Agustus 2025 - 31 Agustus 2025'],
         ];
 
         return view('landing-page.rumah-sewa', $data);
