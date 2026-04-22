@@ -14,7 +14,7 @@ use App\Models\KelDesa;
 use DB;
 use DataTables;
 use Illuminate\Support\Facades\Http;
-use App\Exports\RumahSewaExport;
+use App\Exports\RumahSewaPublicExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
@@ -314,7 +314,7 @@ class HomeController extends Controller
 
         // 3. Tentukan nama file dan format
         $filename = 'Data_Rumah_Sewa_' . date('Ymd_His');
-        $export = new RumahSewaExport($filteredData);
+        $export = new RumahSewaPublicExport($filteredData);
 
         if ($request->format === 'csv') {
             return Excel::download($export, $filename . '.csv', \Maatwebsite\Excel\Excel::CSV);
